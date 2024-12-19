@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 
 import { useGetEventByIdQuery } from 'src/store/events/events.api'
-import { formatDateRange, mainFormatDate, statusEventByDate } from 'src/helpers/utils'
+import { formatDateRange, mainFormatDate } from 'src/helpers/utils'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 import { useAdditionalCrumbs } from 'src/hooks/additional-crumbs/additional-crumbs'
 
@@ -36,10 +36,7 @@ export const EventInfo = () => {
 							: mainFormatDate(eventData?.date[0])}
 					</CustomText>
 					{breakPoint !== 'S' && (
-						<EventStatus
-							className={styles.status}
-							statusCode={statusEventByDate(eventData?.date)}
-						/>
+						<EventStatus className={styles.status} statusCode={eventData?.status} />
 					)}
 					<CustomText
 						className={styles.ageRating}

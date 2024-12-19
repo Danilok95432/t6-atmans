@@ -36,7 +36,12 @@ export const VideotapeSection: FC = () => {
 							</SwiperSlide>
 						))}
 					</Swiper>
-					<SliderBtns $topPosition='40%' $btnsSpacing='calc(100% + 40px)' swiperRef={swiperRef} />
+					<SliderBtns
+						className={styles.videoSliderBtns}
+						$topPosition='40%'
+						$btnsSpacing='calc(100% + 40px)'
+						swiperRef={swiperRef}
+					/>
 				</div>
 			</Container>
 		</section>

@@ -8,6 +8,7 @@ import { type VideoItem } from 'src/types/videos'
 
 export type EventItem = {
 	ageRating: string
+	status: 'cancel' | 'current' | 'future' | 'finished'
 	description: string
 	date: [Date, Date] | [Date]
 	sections: string[]
@@ -34,6 +35,7 @@ export type CardEventItem = {
 	id: string
 	imgUrl: string
 	title: string
+	status: 'cancel' | 'current' | 'future' | 'finished'
 	category: CategoryFilterItem
 	date: Date
 	location: {

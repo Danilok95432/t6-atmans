@@ -56,7 +56,7 @@ export const homeApi = createApi({
 				url: 'home/faq',
 			}),
 		}),
-		getHomePreviewObject: build.query<HomePreviewObject, null>({
+		getHomePreviewObject: build.query<HomePreviewObject[], null>({
 			query: () => ({
 				url: 'home/preview_object',
 			}),

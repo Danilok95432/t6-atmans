@@ -11,7 +11,7 @@ import { EventStatusPassedSVG } from 'src/UI/icons/eventStatusPassedSVG'
 import styles from './index.module.scss'
 
 type EventStatusProps = {
-	statusCode?: 'now' | 'cancel' | 'willBe' | 'passed'
+	statusCode?: 'cancel' | 'current' | 'future' | 'finished'
 	className?: string
 }
 
@@ -24,21 +24,21 @@ export const EventStatus: FC<EventStatusProps> = ({ statusCode, className }) => 
 					<CustomText $fontSize='16px'>Отменено</CustomText>
 				</div>
 			)
-		case 'now':
+		case 'current':
 			return (
 				<div className={cn(styles.eventStatus, className)}>
 					<EventStatusNowSVG />
 					<CustomText $fontSize='16px'>Идет сейчас</CustomText>
 				</div>
 			)
-		case 'willBe':
+		case 'future':
 			return (
 				<div className={cn(styles.eventStatus, className)}>
 					<EventStatusWillBeSVG />
 					<CustomText $fontSize='16px'>Предстоит</CustomText>
 				</div>
 			)
-		case 'passed':
+		case 'finished':
 			return (
 				<div className={cn(styles.eventStatus, className)}>
 					<EventStatusPassedSVG />
