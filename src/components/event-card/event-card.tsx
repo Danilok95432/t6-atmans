@@ -5,9 +5,10 @@ import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import { AppRoute } from 'src/routes/main-routes/consts'
 
-import { getDayOfWeek, mainFormatDate } from 'src/helpers/utils'
+import { getDayOfWeek, mainFormatDate, statusEventByDate } from 'src/helpers/utils'
 
 import styles from './index.module.scss'
+import { EventStatus } from '../event-status/event-status'
 
 type EventItemProps = {
 	className?: string
@@ -32,6 +33,7 @@ export const EventCard: FC<EventItemProps> = ({
 				</div>
 				<div className={cn(styles.eventContent, 'event-card-content')}>
 					<h6>{title}</h6>
+					<EventStatus className={styles.status} statusCode={statusEventByDate([date])} />
 					<p className={styles.eventDate}>
 						{mainFormatDate(date)}, {getDayOfWeek(date)}
 					</p>

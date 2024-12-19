@@ -49,15 +49,25 @@
 }
 
 .eventContent {
-  padding: 20px;
+  padding: 18px 16px 30px 16px;
   color: #000000;
 
   h6 {
     font-weight: 400;
     color: #000000;
     font-size: 25px;
-    margin-bottom: 23px;
+    margin-bottom: 9px;
     line-height: 1.25;
+  }
+
+  .status {
+    display: flex;
+    gap: 11px;
+    margin-bottom: 6px;
+    svg {
+      width: 17px;
+      height: 16px;
+    }
   }
 }
 
@@ -86,9 +96,6 @@
 
 .eventLocations {
   span:first-child {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-width: max-content;
     display: block;
     margin-bottom: 3px;
@@ -104,9 +111,6 @@
     margin-bottom: 20px;
     font-size: 15px;
     padding-left: 28px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 }
 

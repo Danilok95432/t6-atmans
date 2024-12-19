@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 
 import { useGetEventByIdQuery } from 'src/store/events/events.api'
-import { formatDateRange, mainFormatDate } from 'src/helpers/utils'
+import { formatDateRange, mainFormatDate, statusEventByDate } from 'src/helpers/utils'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 import { useAdditionalCrumbs } from 'src/hooks/additional-crumbs/additional-crumbs'
 
@@ -27,12 +27,20 @@ export const EventInfo = () => {
 			<div className={styles.eventInfoWrapper}>
 				<h2>{eventData?.title}</h2>
 				<FlexRow className={styles.topLineEvent}>
-					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'} $margin='0 0 28px 0'>
+					<CustomText
+						$fontSize={breakPoint === 'S' ? '18px' : '16px'}
+						$margin={breakPoint === 'S' ? '0 22px 28px 0' : '0 15px 28px 0'}
+					>
 						{eventData?.date && eventData.date.length > 1
 							? formatDateRange(eventData?.date as [Date, Date])
 							: mainFormatDate(eventData?.date[0])}
 					</CustomText>
-					{breakPoint !== 'S' && <EventStatus className={styles.status} statusCode='cancel' />}
+					{breakPoint !== 'S' && (
+						<EventStatus
+							className={styles.status}
+							statusCode={statusEventByDate(eventData?.date)}
+						/>
+					)}
 					<CustomText
 						className={styles.ageRating}
 						$fontSize={breakPoint === 'S' ? '18px' : '16px'}

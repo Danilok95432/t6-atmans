@@ -161,3 +161,58 @@ export const getMonthName = (monthIdx: number) => {
 	const date = new Date(2024, monthIdx)
 	return date.toLocaleString('ru', { month: 'long' })
 }
+
+export const formatDateToString = (date: Date): string => {
+	const year = date.getUTCFullYear()
+	const month = String(date.getUTCMonth() + 1).padStart(2, '0')
+	const day = String(date.getUTCDate()).padStart(2, '0')
+	const hours = String(date.getUTCHours()).padStart(2, '0')
+	const minutes = String(date.getUTCMinutes()).padStart(2, '0')
+	const seconds = String(date.getUTCSeconds()).padStart(2, '0')
+	const timezoneOffset = -date.getTimezoneOffset()
+	const offsetHours = String(Math.floor(Math.abs(timezoneOffset) / 60)).padStart(2, '0')
+	const offsetMinutes = String(Math.abs(timezoneOffset) % 60).padStart(2, '0')
+	const sign = timezoneOffset >= 0 ? '+' : '-'
+
+	return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}${sign}${offsetHours}:${offsetMinutes}`
+}
+
+export const statusEventByDate = (
+	date?: [Date, Date] | [Date],
+): 'now' | 'willBe' | 'passed' | 'cancel' | undefined => {
+	if (!date) {
+		return undefined
+	}
+
+	try {
+		const currentDate = formatDateToString(new Date())
+		const startDate = date[0].toString()
+		if (!startDate) {
+			return undefined
+		}
+		if (date.length === 2 && date[1]) {
+			const endDateObj = date[1].toString()
+			if (currentDate < startDate) {
+				return 'willBe'
+			} else if (currentDate > endDateObj) {
+				return 'passed'
+			} else if (currentDate >= startDate && currentDate <= endDateObj) {
+				return 'now'
+			} else {
+				return undefined
+			}
+		} else {
+			if (currentDate.split('T')[0] === startDate.split('T')[0]) {
+				return 'now'
+			} else if (currentDate < startDate) {
+				return 'willBe'
+			} else if (currentDate > startDate) {
+				return 'passed'
+			} else {
+				return undefined
+			}
+		}
+	} catch (error) {
+		return undefined
+	}
+}

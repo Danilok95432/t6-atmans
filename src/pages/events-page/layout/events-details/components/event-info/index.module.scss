@@ -4,8 +4,9 @@
     margin-bottom: 15px;
   }
   .topLineEvent {
-    @media (max-width: 768px) {
-      gap: 20px;
+    gap: 0;
+    .status {
+      margin: 0 22px 28px 0;
     }
   }
 }
@@ -46,7 +47,7 @@
   &:before {
     content: "";
     position: absolute; 
-    right: 28px; 
+    right: 29px; 
     top: 10px; 
     transform: translateY(-50%);
     width: 4px;
