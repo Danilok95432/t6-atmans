@@ -19,6 +19,7 @@ export const Footer: FC = () => {
 					$justifyContent='space-between'
 					$margin='0 0 45px 0'
 				>
+					<span></span>
 					<img className={styles.footerLogo} src={footerLogo} alt='Логотип' />
 					<FlexRow className={styles.footerTopLinks} $gap='50px'>
 						<Link to={AppRoute.Events}>События</Link>
