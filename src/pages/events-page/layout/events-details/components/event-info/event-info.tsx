@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import cn from 'classnames'
 
 import { useGetEventByIdQuery } from 'src/store/events/events.api'
 import { formatDateRange, mainFormatDate } from 'src/helpers/utils'
@@ -11,6 +12,12 @@ import { AppRoute } from 'src/routes/main-routes/consts'
 import { FlexRow } from 'src/components/flex-row/flex-row'
 import { EventStatus } from 'src/components/event-status/event-status'
 import { Container } from 'src/UI/Container/Container'
+import { ObjectIconSVG } from 'src/UI/icons/objectIconSVG'
+import { PlaceIconSVG } from 'src/UI/icons/placeIconSVG'
+import { SiteIconSVG } from 'src/UI/icons/siteIconSVG'
+import { PhoneEventIconSVG } from 'src/UI/icons/phoneEventIconSVG'
+import { TgEventIconSVG } from 'src/UI/icons/tgEventIconSVG'
+import { MailEventIconSVG } from 'src/UI/icons/mailEventIconSVG'
 
 import styles from './index.module.scss'
 
@@ -27,21 +34,23 @@ export const EventInfo = () => {
 			<div className={styles.eventInfoWrapper}>
 				<h2>{eventData?.title}</h2>
 				<FlexRow className={styles.topLineEvent}>
-					<CustomText
-						$fontSize={breakPoint === 'S' ? '18px' : '16px'}
-						$margin={breakPoint === 'S' ? '0 22px 28px 0' : '0 15px 28px 0'}
-					>
+					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
 						{eventData?.date && eventData.date.length > 1
 							? formatDateRange(eventData?.date as [Date, Date])
 							: mainFormatDate(eventData?.date[0])}
 					</CustomText>
-					{breakPoint !== 'S' && (
-						<EventStatus className={styles.status} statusCode={eventData?.status} />
-					)}
+					<div className={styles.dot}></div>
+					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>Фестиваль</CustomText>
+					<div className={styles.dot}></div>
+					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
+						Международное событие
+					</CustomText>
+					<div className={styles.dot}></div>
+					<EventStatus className={styles.status} statusCode={eventData?.status} />
+					<div className={cn(styles.dot, styles._red)}></div>
 					<CustomText
 						className={styles.ageRating}
 						$fontSize={breakPoint === 'S' ? '18px' : '16px'}
-						$margin='0 0 28px 0'
 						$color='#DE0008'
 					>
 						{eventData?.ageRating}+
@@ -60,7 +69,8 @@ export const EventInfo = () => {
 							<InfoRow
 								title='Место проведения:'
 								label={eventData?.location?.address}
-								$titleWidth='180px'
+								icon={<PlaceIconSVG />}
+								$titleWidth='182px'
 								$gap='34px'
 							/>
 						)}
@@ -73,7 +83,8 @@ export const EventInfo = () => {
 										{eventData?.object.title}
 									</Link>
 								}
-								$titleWidth='180px'
+								icon={<ObjectIconSVG />}
+								$titleWidth='182px'
 								$gap='34px'
 							/>
 						)}
@@ -82,7 +93,38 @@ export const EventInfo = () => {
 							<InfoRow
 								title='Сайт события:'
 								label={<a href={eventData?.site.link}>{eventData?.site.title}</a>}
-								$titleWidth='180px'
+								icon={<SiteIconSVG />}
+								$titleWidth='182px'
+								$gap='34px'
+							/>
+						)}
+
+						{eventData && (
+							<InfoRow
+								title='Телефон:'
+								label={'+7 (432) 900-00-00'}
+								icon={<PhoneEventIconSVG />}
+								$titleWidth='182px'
+								$gap='34px'
+							/>
+						)}
+
+						{eventData && (
+							<InfoRow
+								title='Телеграм:'
+								label={<a href={eventData?.site.link}>{'https://t.me/username'}</a>}
+								icon={<TgEventIconSVG />}
+								$titleWidth='182px'
+								$gap='34px'
+							/>
+						)}
+
+						{eventData && (
+							<InfoRow
+								title='Электронная почта:'
+								label={<a href={eventData?.site.link}>{'mail@mail.ru'}</a>}
+								icon={<MailEventIconSVG />}
+								$titleWidth='182px'
 								$gap='34px'
 							/>
 						)}

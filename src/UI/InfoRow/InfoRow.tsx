@@ -17,6 +17,7 @@ type InfoRowProps = {
 	titleClassname?: string
 	title: string
 	label: ReactNode
+	icon?: ReactNode
 } & InfoRowStyleProps
 
 const StyledInfoRow = styled.div<InfoRowStyleProps>`
@@ -25,7 +26,7 @@ const StyledInfoRow = styled.div<InfoRowStyleProps>`
 	align-items: ${({ $alignItems }) => $alignItems ?? 'flex-start'};
 	gap: ${({ $gap }) => $gap ?? '25px'};
 	@media (max-width: 768px) {
-		flex-direction: column;
+		flex-wrap: wrap;
 		align-items: flex-start;
 		gap: 5px;
 	}
@@ -52,10 +53,12 @@ export const InfoRow: FC<InfoRowProps> = ({
 	label,
 	wrapperClassname,
 	titleClassname,
+	icon,
 	...props
 }) => {
 	return (
 		<StyledInfoRow className={wrapperClassname} {...props}>
+			{icon}
 			<h6 className={titleClassname}>{title}</h6>
 			<p>{label}</p>
 		</StyledInfoRow>
