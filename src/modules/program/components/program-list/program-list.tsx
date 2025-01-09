@@ -16,9 +16,6 @@ export const ProgramList: FC<ProgramListProps> = ({ list }) => {
 					<p className={styles.programTime}>{programEL.time}</p>
 					<span className={styles.programPlace}>{programEL.place}</span>
 					<span className={styles.programTitle}>{programEL.title}</span>
-					<a className={styles.programPageLink} href='#'>
-						на страницу
-					</a>
 				</li>
 			))}
 		</ul>

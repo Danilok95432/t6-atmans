@@ -40,19 +40,12 @@
 .programTitle {
 	width: 60%;
 	font-size: 16px;
-	color: #015db9;
+	color: #000000;
 	@media (max-width: 768px) {
 		width: 100%;
 	}
 }
 
-a.programPageLink {
-	font-size: 16px;
-	text-align: right;
-	color: #de0008;
-	min-width: 90px;
-	width: 11%;
-	@media (max-width: 768px) {
-		width: 100%;
-	}
+._activeTitle {
+	color: #ED1C24;
 }
