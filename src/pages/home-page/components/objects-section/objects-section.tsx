@@ -28,7 +28,11 @@ export const ObjectsSection: FC = () => {
 									id: slideItem.id,
 								})}
 							>
-								<img className={styles.objectImg} src={slideItem.logo} alt={slideItem.title} />
+								<div className={styles.iconContainer}>
+									<svg className={styles.objectImg}>
+										<image xlinkHref={slideItem.icon} width='48' height='48' />
+									</svg>
+								</div>
 								<p>{slideItem.title}</p>
 							</Link>
 						</SwiperSlide>

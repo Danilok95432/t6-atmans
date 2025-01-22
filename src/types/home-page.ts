@@ -24,6 +24,7 @@ export type HomeObject = {
 	id: string
 	title: string
 	logo: string
+	icon: string
 }
 export type HomePreviewObject = {
 	id: string

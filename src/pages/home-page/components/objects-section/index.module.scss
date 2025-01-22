@@ -21,18 +21,27 @@ section.objectsSection {
     margin-top: 17px;
     color: #000000;
     text-align: center;
-    font-size: 32px;
-    text-decoration: underline;
+    font-size: 24px;
     @media (max-width: 768px) {
       margin-top: 29px;
+    }
+  }
+
+  &:hover {
+    p {
+      color: #DD0A15;
+    }
+    .iconContainer {
+      .objectImg {
+        filter: invert(11%) sepia(100%) saturate(6135%) hue-rotate(353deg) brightness(88%) contrast(98%)
+      }
     }
   }
 }
 
 .objectImg {
-  border-radius: 50%;
-  width: 235px;
-  min-width: 235px;
-  height: 235px;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
 }
 

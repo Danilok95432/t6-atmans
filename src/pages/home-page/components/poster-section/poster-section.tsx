@@ -7,9 +7,9 @@ import { Container } from 'src/UI/Container/Container'
 import { useGetHomePostersQuery } from 'src/store/home/home.api'
 import { posterSliderOptions } from './consts'
 import { mainFormatDate } from 'src/helpers/utils'
+import { ToggleLink } from 'src/components/toggle-link/toggle-link'
 
 import styles from './index.module.scss'
-import { ToggleLink } from 'src/components/toggle-link/toggle-link'
 
 export const PosterSection: FC = () => {
 	const { data: posterData } = useGetHomePostersQuery(null)
@@ -18,7 +18,7 @@ export const PosterSection: FC = () => {
 
 	return (
 		<Container $padding='0'>
-			<section className={cn(styles.posterSection, '_bordered', 'slider-with-btns')}>
+			<section className={cn(styles.posterSection, 'slider-with-btns')}>
 				<Swiper className={styles.posterSlider} {...posterSliderOptions} ref={swiperRef}>
 					{posterData?.map((slideItem, idx) => (
 						<SwiperSlide key={idx}>
