@@ -30,6 +30,7 @@ export type HomePreviewObject = {
 	id: string
 	title: string
 	logo: string
+	icon: string
 	mainDesc: string
 	address: string
 	location: string

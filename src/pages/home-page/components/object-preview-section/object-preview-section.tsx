@@ -34,7 +34,9 @@ export const ObjectPreviewSection = () => {
 											></iframe>
 										</div>
 										<div className={styles.objInfo}>
-											<img className={styles.objLogo} src={object?.logo} alt={object?.title} />
+											<svg className={styles.objLogo}>
+												<image xlinkHref={object?.icon} width='48' height='48' />
+											</svg>
 											<h6>{object?.title}</h6>
 											<p className={styles.objAddress}>
 												<span>{object?.title}</span>
