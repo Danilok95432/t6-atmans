@@ -1,12 +1,11 @@
 .menuList {
-	@media (max-width: 768px) {
-		display: none;
-	}
-
 	display: flex;
 	gap: 65px;
 	flex-wrap: wrap;
 	align-items: center;
+	@media (max-width: 768px) {
+		display: none;
+	}
 
 	@media (max-width: 1280px) {
 		gap: 10px;
