@@ -70,16 +70,23 @@
   background: url('../../../../assets/img/navBanner-img/scene-2.svg') center center / cover no-repeat;
 
   @media (max-width: 1070px) {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
   }
 
   @media (max-width: 768px) {
     background-size: contain;
     display: block;
+    visibility: visible;
+    opacity: 1;
+    width: 145px;
   }
 
   @media(max-width: 480px) {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
   }
 }
 
@@ -87,12 +94,16 @@
   background: url('../../../../assets/img/navBanner-img/scene-3.svg') center center / cover no-repeat;
 
   @media (max-width: 1300px) {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
   }
 
   @media (max-width: 768px) {
     background-size: contain;
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    width: 145px;
   }
 }
 
@@ -100,7 +111,9 @@
   background: url('../../../../assets/img/navBanner-img/scene-4.svg') center center / cover no-repeat;
 
   @media (max-width: 1500px) {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
   }
 }
 
@@ -108,7 +121,9 @@
   background: url('../../../../assets/img/navBanner-img/scene-5.svg') center center / cover no-repeat;
 
   @media (max-width: 1700px) {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
   }
 }
 
@@ -117,6 +132,8 @@
 
 
   @media (max-width: 1900px) {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
   }
 }
