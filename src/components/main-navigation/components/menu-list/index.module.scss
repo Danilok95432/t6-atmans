@@ -3,12 +3,21 @@
 	gap: 65px;
 	flex-wrap: wrap;
 	align-items: center;
+
 	@media (max-width: 768px) {
 		display: none;
 	}
 
 	@media (max-width: 1280px) {
-		gap: 10px;
+		gap: 50px;
+	}
+
+	@media (max-width: 950px) {
+		gap: 40px;
+	}
+
+	@media (max-width: 868px) {
+		gap: 35px;
 	}
 
 	@media (max-width: 768px) {
@@ -18,8 +27,40 @@
 }
 
 .menuItem {
+	position: relative;
+
 	a {
 		color: #ffffff;
 		font-size: 25px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 12px;
+			left: -20px;
+			width: 8px;
+			height: 8px;
+			background-color: #ffffff;
+			transform: rotate(45deg);
+			opacity: 0;
+			transition: all 0.2s ease;
+
+			@media (max-width: 1024px) {
+				top: 8px;
+				left: -16px;
+			}
+		}
+
+		@media (max-width: 1024px) {
+			font-size: 22px;
+		}
+
+		@media (max-width: 1024px) {
+			font-size: 20px;
+		}
+	}
+
+	&:hover a::before {
+		opacity: 1;
 	}
 }
