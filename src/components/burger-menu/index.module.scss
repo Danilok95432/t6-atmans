@@ -1,6 +1,7 @@
 .burgerMenu {
   position: relative;
   display: none;
+
   @media (max-width: 768px) {
     display: block;
   }
@@ -44,6 +45,7 @@
 
     span {
       background: #000000;
+
       &:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
       }
@@ -88,4 +90,3 @@
   transition: all .3s;
   opacity: 1;
 }
-
