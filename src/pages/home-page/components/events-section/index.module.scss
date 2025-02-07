@@ -1,8 +1,10 @@
 section.eventsSection {
   padding: 83px 0 115px;
+
   @media (max-width: 768px) {
     padding: 47px 0 35px;
   }
+
   .eventsSliderBtns {
     @media (max-width: 768px) {
       width: 95%;
@@ -11,11 +13,11 @@ section.eventsSection {
 }
 
 .homeEventCard {
-  max-width: 100%;
   :global {
     .event-item-img {
       height: 255px;
     }
+
     .event-card-content {
       @media (max-width: 768px) {
         padding: 40px 20px 20px;

@@ -1,51 +1,29 @@
-.personMenu {
-	margin-left: auto;
-	height: 40px;
-	width: 40px;
-	min-width: 40px;
-	@media (max-width: 768px) {
-		height: 32px;
-		width: 32px;
-		min-width: 32px;
-		svg {
-			width: 32px;
-			height: 32px;
-		}
-	}
-}
+@use 'src/assets/styles/helpers' as *;
 
 .menuWrapper {
-	background: #dd0a15;
-	padding: 13px 0;
-	@media (max-width: 768px) {
+	background: var(--color-red);
+	padding-block: 13px;
+
+	@include mobile {
 		padding: 16px 0;
 	}
 }
 
 .menuContainer {
 	display: flex;
-	gap: 50px;
 	align-items: center;
 	justify-content: space-between;
-	@media (max-width: 1024px) {
-		gap: 15px;
-	}
 }
 
 .searchLink {
-	height: 30px;
-	@media (max-width: 768px) {
-		height: 24px;
-	}
+	display: flex;
+	align-items: center;
 
 	svg {
-		height: 30px;
-		width: 30px;
-		min-width: 30px;
-		@media (max-width: 768px) {
-			height: 24px;
-			width: 24px;
-			min-width: 24px;
-		}
+		@include square(fluid(30, 24));
+	}
+
+	@include hover {
+		scale: 1.1;
 	}
 }

@@ -23,17 +23,18 @@ export const ObjectsSection: FC = () => {
 					{objects?.map((slideItem, idx) => (
 						<SwiperSlide key={idx}>
 							<Link
-								className={styles.slideItem}
 								to={generatePath('objects-list/:id', {
 									id: slideItem.id,
 								})}
 							>
-								<div className={styles.iconContainer}>
+								<figure className={styles.slideItem}>
 									<svg className={styles.objectImg}>
 										<image xlinkHref={slideItem.icon} width='48' height='48' />
 									</svg>
-								</div>
-								<p>{slideItem.title}</p>
+									<figcaption>
+										<p className={styles.objectDescription}>{slideItem.title}</p>
+									</figcaption>
+								</figure>
 							</Link>
 						</SwiperSlide>
 					))}

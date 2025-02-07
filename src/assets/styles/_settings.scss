@@ -1,3 +1,5 @@
+@use '../styles/helpers' as *;
+
 html {
 	box-sizing: border-box;
 }
@@ -12,18 +14,17 @@ body {
 	margin: 0;
 	min-width: 340px;
 	overflow-x: hidden;
-	font-size: 16px;
 	line-height: 1.37;
-	color: #000000;
+	color: var(--color-black);
 	position: relative;
 	font-family: 'MADE Likes Slab', serif;
-	background-color: #f2f1f7;
+	background-color: var(--color-white-01);
 }
 
 #root {
 	height: 100vh;
-	flex-direction: column;
 	display: flex;
+	flex-direction: column;
 }
 
 main {
@@ -48,7 +49,6 @@ h6 {
 
 img {
 	max-width: 100%;
-	object-fit: cover;
 }
 
 svg {
@@ -56,6 +56,7 @@ svg {
 }
 
 a {
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -94,6 +95,11 @@ textarea {
 	resize: none;
 }
 
+figure {
+	margin: 0;
+	height: 100%;
+}
+
 .col-item {
 	width: 340px;
 	min-width: 340px;
@@ -109,10 +115,21 @@ textarea {
 
 .slider-with-btns {
 	position: relative;
+
 	&:hover {
 		.slider-nav-btns {
-			opacity: 1;
-			visibility: visible;
+			@include show;
 		}
 	}
+}
+
+
+a,
+button,
+label,
+textarea,
+input,
+select,
+svg * {
+	transition-duration: var(--transition-duration);
 }

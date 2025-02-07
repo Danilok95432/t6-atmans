@@ -13,11 +13,16 @@ export const Header = () => {
 		<header className={styles.mainNav}>
 			<div className={styles.topMainNavWrapper}>
 				<Container className={styles.topMainNav}>
-					<Link to={AppRoute.Home} className={styles.logoWrapper}>
-						<img src={mainLogo} alt='logo' />
+					<Link
+						to={AppRoute.Home}
+						className={styles.logoWrapper}
+						aria-label='Главная'
+						title='Главная'
+					>
+						<img src={mainLogo} alt='logo' width={376} height={100} />
 					</Link>
 					<NavBanner />
-					<Link className={styles.personMenu} to='/'>
+					<Link className={styles.personMenu} to='/' aria-label='Профиль' title='Профиль'>
 						<PersonIconSvg />
 					</Link>
 				</Container>

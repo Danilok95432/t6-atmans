@@ -1,27 +1,19 @@
-.logoWrapper {
-	width: 376px;
-	height: 100px;
+@use 'src/assets/styles/helpers' as *;
 
-	@media (max-width: 768px) {
-		min-width: 225px;
-		width: 225px;
-		height: 60px;
-	}
+.logoWrapper {
+	width: fluid(376, 226);
+	height: fluid(100, 60);
+	flex-shrink: 0;
 
 	img {
-		object-fit: contain;
 		width: 100%;
 		height: 100%;
 	}
 }
 
 .topMainNavWrapper {
-	padding: 30px 0;
-	background-color: #fff;
-
-	@media (max-width: 768px) {
-		padding: 15px 0;
-	}
+	padding-block: fluid(30, 15);
+	background-color: var(--color-white);
 }
 
 .topMainNav {
@@ -29,11 +21,24 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 40px;
+	column-gap: 20px;
 
-	@media (max-width: 768px) {
-		gap: 15px;
+	@include mobile {
 		height: auto;
 		flex-wrap: wrap;
+	}
+}
+
+
+.personMenu {
+	@include square(fluid(40, 32));
+	@include flex-center;
+
+	background-color: var(--color-red);
+	border-radius: 50%;
+
+	@include hover {
+		background-color: var(--color-red-01);
+		box-shadow: var(--box-shadow);
 	}
 }

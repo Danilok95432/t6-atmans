@@ -1,28 +1,15 @@
+@use 'src/assets/styles/helpers' as *;
+
 .menuList {
+	max-width: fluid(1300, 1000);
+	text-align: center;
 	display: flex;
-	gap: 65px;
-	flex-wrap: wrap;
 	align-items: center;
+	column-gap: fluid(65, 25);
+	flex-grow: 1;
 
-	@media (max-width: 768px) {
-		display: none;
-	}
-
-	@media (max-width: 1280px) {
-		gap: 50px;
-	}
-
-	@media (max-width: 950px) {
-		gap: 40px;
-	}
-
-	@media (max-width: 868px) {
-		gap: 35px;
-	}
-
-	@media (max-width: 768px) {
-		max-width: 100%;
-		flex-direction: column;
+	@include mobile {
+		@include visually-hidden;
 	}
 }
 
@@ -30,33 +17,39 @@
 	position: relative;
 
 	a {
-		color: #ffffff;
-		font-size: 25px;
+		font-size: fluid(25, 18);
+		color: var(--color-white);
 
 		&::before {
 			content: '';
-			position: absolute;
-			top: 12px;
-			left: -20px;
 			width: 8px;
 			height: 8px;
-			background-color: #ffffff;
-			transform: rotate(45deg);
+			position: absolute;
+			rotate: 45deg;
+			background-color: var(--color-white);
+			top: 12px;
+			left: -20px;
 			opacity: 0;
-			transition: all 0.2s ease;
+			transition: all var(--transition-duration) ease;
 
-			@media (max-width: 1024px) {
-				top: 8px;
+			@include laptop {
+				top: 11px;
+				left: -18px;
+			}
+
+			@include laptop-s {
+				top: 9px;
+			}
+
+			@include tablet {
 				left: -16px;
 			}
 		}
 
-		@media (max-width: 1024px) {
-			font-size: 20px;
+		@include hover {
+			&::before {
+				opacity: 1;
+			}
 		}
-	}
-
-	&:hover a::before {
-		opacity: 1;
 	}
 }

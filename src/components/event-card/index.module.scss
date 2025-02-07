@@ -1,11 +1,14 @@
+@use 'src/assets/styles/helpers' as *;
+
+
 .eventItem {
   border-radius: 5px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
+  box-shadow: 0 0 15px 0 rgb(0 0 0 / .1);
+  background: var(--color-white);
   transition: all .3s;
-  cursor: pointer;
-  min-height: 450px;
-  max-width: 330px;
+
+  width: fluid(415, 310);
+
   @media (max-width: 550px) {
     max-width: 100%;
   }
@@ -31,6 +34,7 @@
         inset: 0;
         z-index: 0;
         border-radius: 5px;
+        object-fit: cover;
       }
 
       span {
@@ -50,11 +54,9 @@
 
 .eventContent {
   padding: 18px 16px 30px 16px;
-  color: #000000;
 
   h6 {
     font-weight: 400;
-    color: #000000;
     font-size: 25px;
     margin-bottom: 9px;
     line-height: 1.25;
@@ -64,6 +66,7 @@
     display: flex;
     gap: 11px;
     margin-bottom: 6px;
+
     svg {
       width: 17px;
       height: 16px;
@@ -71,7 +74,8 @@
   }
 }
 
-.eventDate, .eventLocations span:first-child {
+.eventDate,
+.eventLocations span:first-child {
   font-size: 15px;
   padding-left: 28px;
   position: relative;

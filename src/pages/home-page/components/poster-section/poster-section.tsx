@@ -28,7 +28,13 @@ export const PosterSection: FC = () => {
 								link={slideItem.itemLink}
 							>
 								<div className={styles.slideItemImg}>
-									<img src={slideItem.imgUrl} alt={slideItem.title} />
+									<img
+										src={slideItem.imgUrl}
+										alt={slideItem.title}
+										width={1920}
+										height={646}
+										loading='lazy'
+									/>
 								</div>
 								<div className={styles.slideInfo}>
 									<div className={styles.slideInfoTitle}>

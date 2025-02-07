@@ -1,11 +1,14 @@
+@use 'src/assets/styles/helpers' as *;
 
 section.objectsSection {
   padding: 80px 0 64px;
-  @media (max-width: 768px) {
+
+  @include mobile {
     padding: 55px 0 55px;
   }
+
   .objectsSliderBtns {
-    @media (max-width: 768px) {
+    @include mobile {
       width: 86%;
       top: 34%;
     }
@@ -14,34 +17,33 @@ section.objectsSection {
 
 .slideItem {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  p {
-    line-height: 1.2;
-    margin-top: 17px;
-    color: #000000;
-    text-align: center;
-    font-size: 24px;
-    @media (max-width: 768px) {
-      margin-top: 29px;
-    }
-  }
+  flex-direction: column;
+  row-gap: 17px;
 
-  &:hover {
-    p {
-      color: #DD0A15;
+  @include hover {
+    .objectImg {
+      transition: filter var(--transition-duration) ease;
+      filter: invert(11%) sepia(100%) saturate(6135%) hue-rotate(353deg) brightness(88%) contrast(98%);
     }
-    .iconContainer {
-      .objectImg {
-        filter: invert(11%) sepia(100%) saturate(6135%) hue-rotate(353deg) brightness(88%) contrast(98%)
-      }
+
+    .objectDescription {
+      color: var(--color-red);
     }
   }
 }
 
 .objectImg {
-  width: 48px;
-  min-width: 48px;
-  height: 48px;
+  @include square(48px);
 }
 
+.objectDescription {
+  line-height: 1.2;
+  text-align: center;
+  font-size: 24px;
+  transition: color var(--transition-duration) ease;
+
+  @include mobile {
+    margin-top: 29px;
+  }
+}
