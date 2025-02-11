@@ -26,13 +26,13 @@ export const EventCard: FC<EventItemProps> = ({
 	className,
 }) => {
 	return (
-		<div className={cn(styles.eventItem, className)}>
-			<Link to={`/${AppRoute.Events}/${id}`}>
+		<Link to={`/${AppRoute.Events}/${id}`} aria-label='Переход на страницу события' title={title}>
+			<figure className={cn(styles.eventItem, className)}>
 				<div className='event-item-img'>
-					<img src={imgUrl} alt={title} />
+					<img src={imgUrl} alt={title} width={415} height={256} loading='lazy' />
 					<span>{catTitle}</span>
 				</div>
-				<div className={cn(styles.eventContent, 'event-card-content')}>
+				<figcaption className={cn(styles.eventContent, 'event-card-content')}>
 					<h6>{title}</h6>
 					<EventStatus className={styles.status} statusCode={status} />
 					<p className={styles.eventDate}>
@@ -43,8 +43,8 @@ export const EventCard: FC<EventItemProps> = ({
 						<span>{address}</span>
 					</p>
 					{description && <p className={styles.eventDesc}>{description}</p>}
-				</div>
-			</Link>
-		</div>
+				</figcaption>
+			</figure>
+		</Link>
 	)
 }

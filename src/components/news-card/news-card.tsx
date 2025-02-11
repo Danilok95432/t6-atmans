@@ -13,14 +13,16 @@ type NewsCardProps = {
 export const NewsCard: FC<NewsCardProps> = ({ id, imgUrl, title, date, desc }) => {
 	return (
 		<Link className={styles.newsItem} to={`/${AppRoute.News}/${id}`}>
-			<div className={styles.newsImgWrapper}>
-				<img src={imgUrl} alt={title} />
-			</div>
-			<div className={styles.newsItemContent}>
-				<h6>{title}</h6>
-				<p className={styles.newsDate}>{mainFormatDate(date)}</p>
-				<p className={styles.newsDesc}>{desc}</p>
-			</div>
+			<figure>
+				<div className={styles.newsImgWrapper}>
+					<img src={imgUrl} alt={title} />
+				</div>
+				<figcaption className={styles.newsItemContent}>
+					<h6>{title}</h6>
+					<p className={styles.newsDate}>{mainFormatDate(date)}</p>
+					<p className={styles.newsDesc}>{desc}</p>
+				</figcaption>
+			</figure>
 		</Link>
 	)
 }

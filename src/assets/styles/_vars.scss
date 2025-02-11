@@ -8,17 +8,17 @@ $black: #000000;
 }
 
 
-@mixin opensans-light{
+@mixin opensans-light {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
 
-@mixin opensans-regular{
+@mixin opensans-regular {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
 
-@mixin opensans-medium{
+@mixin opensans-medium {
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
 }
@@ -27,6 +27,7 @@ $black: #000000;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
 }
+
 @mixin opensans-bold {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
@@ -48,5 +49,18 @@ $black: #000000;
   font-style: italic;
 }
 
+:root {
+  --color-white: #ffffff;
+  --color-white-01: #f2f1f7;
+  --color-black: #000000;
+  --color-gray: #E1E1E1;
+  --color-gray-01: #818182;
+  --color-gray-02: #626262;
+  --color-red: #dd0a15;
+  --color-red-01: #c40a14;
 
 
+  --box-shadow: 0 0 20px 0 rgb(167 0 43 / .5);
+
+  --transition-duration: 0.2s;
+}

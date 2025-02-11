@@ -1,13 +1,22 @@
+@use '../../assets/styles/helpers' as *;
+
 .socialLinks {
   display: flex;
-  gap: 15px;
-  min-width: 150px;
-  a {
-    display: inline-block;
-    svg {
-      width: 40px;
-      height: 40px;
-    }
+  align-items: center;
+  column-gap: 15px;
 
+  li {
+    a {
+      @include square(40px);
+      @include flex-center(true);
+
+      background-color: var(--color-gray-01);
+      border-radius: 3px;
+
+      @include hover {
+        background-color: var(--color-red);
+      }
+    }
   }
+
 }

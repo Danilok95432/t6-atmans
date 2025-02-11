@@ -10,6 +10,7 @@ import styles from './index.module.scss'
 
 export const PartnersSection: FC = () => {
 	const { data: partners } = useGetHomePartnersQuery(null)
+	console.log(partners)
 	return (
 		<section className={styles.partnersSection}>
 			<Container>
@@ -28,8 +29,14 @@ export const PartnersSection: FC = () => {
 					<ul className={styles.partnersList}>
 						{partners.map((partnerEl) => (
 							<li key={partnerEl.id}>
-								<a href={partnerEl.link}>
-									<img src={partnerEl.imgUrl} alt='partner' />
+								<a href={partnerEl.link} className={styles.partnersLink}>
+									<img
+										src={partnerEl.imgUrl}
+										alt='partner'
+										width={188}
+										height={105}
+										loading='lazy'
+									/>
 								</a>
 							</li>
 						))}
