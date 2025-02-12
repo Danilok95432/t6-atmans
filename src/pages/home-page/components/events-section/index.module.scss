@@ -4,7 +4,7 @@
   padding: 80px 0 97px;
 
   @include mobile {
-    padding: 50px 0 37px;
+    padding: 50px 0 55px;
   }
 
   .eventsSliderBtns {
@@ -12,10 +12,6 @@
       width: 95%;
     }
   }
-}
-
-.homeEventSlides {
-  padding: 20px;
 }
 
 .homeEventCard {

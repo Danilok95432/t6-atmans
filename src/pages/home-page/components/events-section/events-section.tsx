@@ -22,7 +22,12 @@ export const EventsSection: FC = () => {
 	return (
 		<section className={cn(styles.eventsSection, '_bordered')}>
 			<Container>
-				<FlexRow $alignItems='center' $justifyContent='space-between'>
+				<FlexRow
+					$margin='0 0 20px 0'
+					$alignItems='center'
+					$justifyContent='space-between'
+					$gap='17px'
+				>
 					<h2 className={styles.sectionTitle}>События</h2>
 					<MainButton as='route' to={AppRoute.Events}>
 						Все события
@@ -32,7 +37,7 @@ export const EventsSection: FC = () => {
 				<div className='slider-with-btns'>
 					<Swiper {...eventsSliderOptions} ref={swiperRef}>
 						{homeEvents?.map((slideItem, idx) => (
-							<SwiperSlide key={idx} className={styles.homeEventSlides}>
+							<SwiperSlide key={idx}>
 								<EventCard className={styles.homeEventCard} {...slideItem} />
 							</SwiperSlide>
 						))}

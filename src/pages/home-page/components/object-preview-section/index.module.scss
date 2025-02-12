@@ -17,7 +17,6 @@
 .objPreview {
   display: flex;
   min-height: 550px;
-  padding: 20px;
 
   @include mobile {
     flex-direction: column;
@@ -46,8 +45,8 @@
 
 .objInfo {
   background: var(--color-white);
-  min-width: 490px;
-  width: 490px;
+  min-width: 485px;
+  width: 485px;
   padding: 30px 50px 30px 45px;
   border-radius: 0 25px 25px 0;
   box-shadow: 0 0 15px 0 rgb(0 0 0 / .1);

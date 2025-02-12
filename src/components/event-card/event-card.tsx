@@ -39,8 +39,11 @@ export const EventCard: FC<EventItemProps> = ({
 						{mainFormatDate(date)}, {getDayOfWeek(date)}
 					</p>
 					<p className={styles.eventLocations}>
-						<span>{locTitle}</span>
-						<span>{address}</span>
+						<span>
+							{locTitle}
+							<br />
+							{address}
+						</span>
 					</p>
 					{description && <p className={styles.eventDesc}>{description}</p>}
 				</figcaption>
