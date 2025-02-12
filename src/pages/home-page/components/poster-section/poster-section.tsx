@@ -5,7 +5,7 @@ import cn from 'classnames'
 import { SliderBtns } from 'src/components/slider-btns/slider-btns'
 import { Container } from 'src/UI/Container/Container'
 import { useGetHomePostersQuery } from 'src/store/home/home.api'
-import { posterSliderOptions } from './consts'
+import { posterSliderOptions } from './posterSliderOptions'
 import { mainFormatDate } from 'src/helpers/utils'
 import { ToggleLink } from 'src/components/toggle-link/toggle-link'
 
@@ -27,24 +27,29 @@ export const PosterSection: FC = () => {
 								isExternal={slideItem.isExternal}
 								link={slideItem.itemLink}
 							>
-								<div className={styles.slideItemImg}>
+								<div className={styles.slideItemWrapperImg}>
 									<img
 										src={slideItem.imgUrl}
 										alt={slideItem.title}
+										className={styles.slideItemImage}
 										width={1920}
 										height={646}
 										loading='lazy'
 									/>
 								</div>
 								<div className={styles.slideInfo}>
-									<div className={styles.slideInfoTitle}>
-										<ul>
+									<div className={styles.slideInfoInner}>
+										<h1 className={styles.sliderInfoTitle}>{slideItem.title}</h1>
+										<ul className={styles.sliderInfoList}>
 											{slideItem?.date && (
-												<li>{mainFormatDate(slideItem.date, "d MMMM yyyy 'года' в HH:mm")}</li>
+												<li className={styles.sliderInfoItem}>
+													{mainFormatDate(slideItem.date, "d MMMM yyyy 'года' в HH:mm")}
+												</li>
 											)}
-											{slideItem?.location && <li>{slideItem.location}</li>}
+											{slideItem?.location && (
+												<li className={styles.sliderInfoItem}>{slideItem.location}</li>
+											)}
 										</ul>
-										<h5>{slideItem.title}</h5>
 									</div>
 								</div>
 							</ToggleLink>

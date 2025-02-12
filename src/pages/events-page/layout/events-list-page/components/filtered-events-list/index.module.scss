@@ -1,6 +1,9 @@
+@use 'src/assets/styles/helpers' as *;
+
 .filteredListWrapper {
   padding: 0 35px 0 50px;
-  @media (max-width: 1024px) {
+
+  @include tablet {
     padding: 0 15px;
   }
 

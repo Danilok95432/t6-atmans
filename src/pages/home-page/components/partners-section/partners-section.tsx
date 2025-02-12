@@ -10,7 +10,7 @@ import styles from './index.module.scss'
 
 export const PartnersSection: FC = () => {
 	const { data: partners } = useGetHomePartnersQuery(null)
-	console.log(partners)
+
 	return (
 		<section className={styles.partnersSection}>
 			<Container>
@@ -20,7 +20,7 @@ export const PartnersSection: FC = () => {
 					$alignItems='center'
 					$justifyContent='space-between'
 				>
-					<h4>Партнеры</h4>
+					<h2>Партнеры</h2>
 					<MainButton as='route' to={AppRoute.Home}>
 						Все партнеры
 					</MainButton>

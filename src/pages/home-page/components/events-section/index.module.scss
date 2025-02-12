@@ -1,27 +1,27 @@
-section.eventsSection {
-  padding: 83px 0 115px;
+@use 'src/assets/styles/helpers' as *;
 
-  @media (max-width: 768px) {
-    padding: 47px 0 35px;
+.eventsSection {
+  padding: 80px 0 97px;
+
+  @include mobile {
+    padding: 50px 0 37px;
   }
 
   .eventsSliderBtns {
-    @media (max-width: 768px) {
+    @include mobile {
       width: 95%;
     }
   }
+}
+
+.homeEventSlides {
+  padding: 20px;
 }
 
 .homeEventCard {
   :global {
     .event-item-img {
       height: 255px;
-    }
-
-    .event-card-content {
-      @media (max-width: 768px) {
-        padding: 40px 20px 20px;
-      }
     }
   }
 }

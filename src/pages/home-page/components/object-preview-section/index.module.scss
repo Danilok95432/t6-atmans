@@ -1,11 +1,15 @@
+@use 'src/assets/styles/helpers' as *;
+
 .objectPreviewSection {
-  padding: 90px 0 100px;
-  @media (max-width: 768px) {
-    padding: 50px 0 60px;
+  padding: 80px 0 97px;
+
+  @include mobile {
+    padding: 50px 0 0;
   }
+
   .objectSliderBtns {
-    opacity: 1;
-    visibility: visible;
+    @include show;
+
     width: calc(100% - 80px);
   }
 }
@@ -13,7 +17,9 @@
 .objPreview {
   display: flex;
   min-height: 550px;
-  @media (max-width: 768px) {
+  padding: 20px;
+
+  @include mobile {
     flex-direction: column;
   }
 }
@@ -21,9 +27,9 @@
 
 .objLocation {
   flex-grow: 1;
-  border: 1px solid #DD0A15;
   border-radius: 25px 0 0 25px;
-  @media (max-width: 768px) {
+
+  @include mobile {
     border-radius: 5px 5px 0 0;
     height: 300px;
   }
@@ -31,37 +37,40 @@
   iframe {
     border: none;
     border-radius: 25px 0 0 25px;
-    @media (max-width: 768px) {
+
+    @include mobile {
       border-radius: 5px 5px 0 0;
     }
   }
 }
 
-
 .objInfo {
-  background: #ffffff;
+  background: var(--color-white);
   min-width: 490px;
   width: 490px;
   padding: 30px 50px 30px 45px;
   border-radius: 0 25px 25px 0;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
-  @media (max-width: 768px) {
+  box-shadow: 0 0 15px 0 rgb(0 0 0 / .1);
+
+  @include mobile {
     min-width: 100%;
     width: 100%;
     border-radius: 0;
     padding-right: 35px;
+    height: 100%;
   }
 
   .objLogo {
     width: 48px;
     height: 48px;
     margin: 20px 0 31px;
-    @media (max-width: 768px) {
+
+    @include mobile {
       margin-bottom: 20px;
     }
   }
 
-  h6 {
+  h3 {
     font-weight: 400;
     font-size: 25px;
     margin-bottom: 19px;

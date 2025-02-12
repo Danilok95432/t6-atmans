@@ -20,17 +20,27 @@ export const EventPoster: FC = () => {
 					<SwiperSlide key={idx}>
 						<div className={styles.slideItem}>
 							<div className={styles.slideItemImg}>
-								<img src={slideItem.imgUrl} alt={slideItem.title} />
+								<img
+									src={slideItem.imgUrl}
+									alt={slideItem.title}
+									width={1840}
+									height={555}
+									loading='lazy'
+								/>
 							</div>
 							<div className={styles.slideInfo}>
-								<div className={styles.slideInfoTitle}>
-									<ul>
+								<div className={styles.slideInfoInner}>
+									<h5 className={styles.slideInfoTitle}>{slideItem.title}</h5>
+									<ul className={styles.sliderInfoList}>
 										{slideItem?.date && (
-											<li>{mainFormatDate(slideItem.date, "d MMMM yyyy 'года' в HH:mm")}</li>
+											<li className={styles.sliderInfoItem}>
+												{mainFormatDate(slideItem.date, "d MMMM yyyy 'года' в HH:mm")}
+											</li>
 										)}
-										{slideItem?.location && <li>{slideItem.location}</li>}
+										{slideItem?.location && (
+											<li className={styles.sliderInfoItem}>{slideItem.location}</li>
+										)}
 									</ul>
-									<h5>{slideItem.title}</h5>
 								</div>
 							</div>
 						</div>

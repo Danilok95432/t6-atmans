@@ -1,9 +1,12 @@
-.faqSection {
-  padding: 5px 0 85px;
+@use 'src/assets/styles/helpers' as *;
 
-  h4 {
+.faqSection {
+  padding-bottom: 85px;
+
+  h2 {
     margin-bottom: 17px;
-    @media (max-width: 768px) {
+
+    @include mobile {
       line-height: 1.2;
       margin-bottom: 25px;
     }
@@ -22,21 +25,25 @@
       font-size: 20px;
       font-weight: 400;
       padding: 18px 45px 18px 26px;
-      color: #000000;
-      background: #ffffff;
+      color: var(--color-black);
+      background: var(--color-white);
       transition: all .3s;
-      &:hover {
-        color: #ffffff;
-        background: #DD0A15;
+
+
+      @include hover {
+        color: var(--color-white);
+        background: var(--color-red);
+
         svg path {
-          fill: #ffffff;
+          fill: var(--color-white);
         }
       }
-      @media (max-width: 768px) {
+
+      @include mobile {
         padding-left: 20px;
       }
 
-      & > svg {
+      &>svg {
         width: 21px;
         height: 14px;
         top: 23px;
@@ -46,16 +53,18 @@
 
     :global {
       .accordion-content {
-        background: #ffffff;
+        background: var(--color-white);
         font-size: 18px;
         line-height: 1.2;
         padding: 15px 20px 20px 25px;
       }
+
       ._triggerOpen {
-        color: #ffffff;
-        background: #DD0A15;
+        color: var(--color-white);
+        background: var(--color-red);
+
         svg path {
-          fill: #ffffff;
+          fill: var(--color-white);
         }
       }
     }
