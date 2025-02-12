@@ -13,7 +13,7 @@ export const FaqSection: FC = () => {
 	return (
 		<section className={styles.faqSection}>
 			<Container>
-				<h4>Часто задаваемые вопросы</h4>
+				<h2>Часто задаваемые вопросы</h2>
 				<div className={styles.homeFaqList}>
 					{faqList?.map((faqEl) => (
 						<AccordionItem

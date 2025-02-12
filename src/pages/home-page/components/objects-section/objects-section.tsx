@@ -8,7 +8,7 @@ import cn from 'classnames'
 import { Container } from 'src/UI/Container/Container'
 import { SliderBtns } from 'src/components/slider-btns/slider-btns'
 import { useGetHomeObjectsQuery } from 'src/store/home/home.api'
-import { objectsSliderOptions } from 'src/pages/home-page/components/objects-section/consts'
+import { objectsSliderOptions } from 'src/pages/home-page/components/objects-section/objectsSliderOptions'
 
 import styles from './index.module.scss'
 

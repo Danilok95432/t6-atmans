@@ -33,14 +33,17 @@ export const EventCard: FC<EventItemProps> = ({
 					<span>{catTitle}</span>
 				</div>
 				<figcaption className={cn(styles.eventContent, 'event-card-content')}>
-					<h6>{title}</h6>
+					<h3 className={styles.eventTitle}>{title}</h3>
 					<EventStatus className={styles.status} statusCode={status} />
 					<p className={styles.eventDate}>
 						{mainFormatDate(date)}, {getDayOfWeek(date)}
 					</p>
 					<p className={styles.eventLocations}>
-						<span>{locTitle}</span>
-						<span>{address}</span>
+						<span>
+							{locTitle}
+							<br />
+							{address}
+						</span>
 					</p>
 					{description && <p className={styles.eventDesc}>{description}</p>}
 				</figcaption>

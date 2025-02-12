@@ -3,7 +3,7 @@ import { type SwiperRef } from 'swiper/react/swiper-react'
 
 import cn from 'classnames'
 import { useGetHomePreviewObjectQuery } from 'src/store/home/home.api'
-import { homeObjectsSliderOptions } from './consts'
+import { homeObjectsSliderOptions } from './homeObjectsSliderOptions'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Container } from 'src/UI/Container/Container'
@@ -37,7 +37,7 @@ export const ObjectPreviewSection = () => {
 											<svg className={styles.objLogo}>
 												<image xlinkHref={object?.icon} width='48' height='48' />
 											</svg>
-											<h6>{object?.title}</h6>
+											<h3>{object?.title}</h3>
 											<p className={styles.objAddress}>
 												<span>{object?.title}</span>
 												<span>{object?.address}</span>

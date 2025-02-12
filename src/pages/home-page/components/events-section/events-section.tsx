@@ -11,24 +11,29 @@ import { AppRoute } from 'src/routes/main-routes/consts'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SliderBtns } from 'src/components/slider-btns/slider-btns'
 import { EventCard } from 'src/components/event-card/event-card'
-import { eventsSliderOptions } from 'src/pages/home-page/components/events-section/consts'
+import { eventsSliderOptions } from 'src/pages/home-page/components/events-section/eventsSliderOptions'
 
 import styles from './index.module.scss'
 
 export const EventsSection: FC = () => {
 	const { data: homeEvents } = useGetHomeEventsQuery(null)
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
+
 	return (
 		<section className={cn(styles.eventsSection, '_bordered')}>
 			<Container>
-				<FlexRow $margin='0 0 23px 0' $alignItems='center' $justifyContent='space-between'>
-					<h4>События</h4>
+				<FlexRow
+					$margin='0 0 20px 0'
+					$alignItems='center'
+					$justifyContent='space-between'
+					$gap='17px'
+				>
+					<h2 className={styles.sectionTitle}>События</h2>
 					<MainButton as='route' to={AppRoute.Events}>
 						Все события
 					</MainButton>
 				</FlexRow>
-			</Container>
-			<Container>
+
 				<div className='slider-with-btns'>
 					<Swiper {...eventsSliderOptions} ref={swiperRef}>
 						{homeEvents?.map((slideItem, idx) => (

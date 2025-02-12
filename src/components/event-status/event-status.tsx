@@ -21,28 +21,36 @@ export const EventStatus: FC<EventStatusProps> = ({ statusCode, className }) => 
 			return (
 				<div className={cn(styles.eventStatus, className)}>
 					<EventStatusCancelSVG />
-					<CustomText $fontSize='16px'>Отменено</CustomText>
+					<CustomText $fontSize='16px' $padding='0 0 0 28px'>
+						Отменено
+					</CustomText>
 				</div>
 			)
 		case 'current':
 			return (
 				<div className={cn(styles.eventStatus, className)}>
 					<EventStatusNowSVG />
-					<CustomText $fontSize='16px'>Идет сейчас</CustomText>
+					<CustomText $fontSize='16px' $padding='0 0 0 10px'>
+						Идет сейчас
+					</CustomText>
 				</div>
 			)
 		case 'future':
 			return (
 				<div className={cn(styles.eventStatus, className)}>
 					<EventStatusWillBeSVG />
-					<CustomText $fontSize='16px'>Предстоит</CustomText>
+					<CustomText $fontSize='16px' $padding='0 0 0 10px'>
+						Предстоит
+					</CustomText>
 				</div>
 			)
 		case 'finished':
 			return (
 				<div className={cn(styles.eventStatus, className)}>
 					<EventStatusPassedSVG />
-					<CustomText $fontSize='16px'>Прошло</CustomText>
+					<CustomText $fontSize='16px' $padding='0 0 0 10px'>
+						Прошло
+					</CustomText>
 				</div>
 			)
 		default:

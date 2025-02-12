@@ -1,20 +1,27 @@
-section.videotapeSection {
-	padding: 85px 0 95px;
-	@media (max-width: 768px) {
-		padding: 45px 0 40px;
+@use 'src/assets/styles/helpers' as *;
+
+.videotapeSection {
+	padding: 77px 0 106px;
+
+	@include mobile {
+		padding: 43px 0 53px;
 	}
+
 	h4 {
 		@media (max-width: 550px) {
 			margin-bottom: 1px;
 		}
 	}
+
 	.videotapeTop {
 		@media (max-width: 550px) {
 			margin-bottom: 17px;
 		}
 	}
+
 	.videoSliderBtns {
 		width: 100%;
+
 		svg {
 			width: 28px;
 			height: 40px;

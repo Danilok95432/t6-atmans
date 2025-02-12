@@ -4,7 +4,7 @@ import { type SwiperRef } from 'swiper/react/swiper-react'
 import cn from 'classnames'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { homeVideosSliderOptions } from 'src/pages/home-page/components/videotape-section/consts'
+import { homeVideosSliderOptions } from 'src/pages/home-page/components/videotape-section/homeVideosSliderOptions'
 import { Container } from 'src/UI/Container/Container'
 import { AppRoute } from 'src/routes/main-routes/consts'
 import { useGetHomeVideosQuery } from 'src/store/home/home.api'
@@ -22,8 +22,13 @@ export const VideotapeSection: FC = () => {
 	return (
 		<section className={cn(styles.videotapeSection, '_bordered')}>
 			<Container className={styles.videotapeTop}>
-				<FlexRow $margin='0 0 25px 0' $alignItems='center' $justifyContent='space-between'>
-					<h4>Видеолента</h4>
+				<FlexRow
+					$margin='0 0 20px 0'
+					$alignItems='center'
+					$justifyContent='space-between'
+					$gap='17px'
+				>
+					<h2>Видеолента</h2>
 					<MainButton as='route' to={AppRoute.Videos}>
 						Все видео
 					</MainButton>

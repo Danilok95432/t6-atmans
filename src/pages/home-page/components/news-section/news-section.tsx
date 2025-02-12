@@ -9,7 +9,7 @@ import { AppRoute } from 'src/routes/main-routes/consts'
 import { FlexRow } from 'src/components/flex-row/flex-row'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { useGetHomeNewsQuery } from 'src/store/home/home.api'
-import { newsSliderOptions } from 'src/pages/home-page/components/news-section/consts'
+import { newsSliderOptions } from 'src/pages/home-page/components/news-section/newsSliderOptions'
 import { SliderBtns } from 'src/components/slider-btns/slider-btns'
 import { NewsCard } from 'src/components/news-card/news-card'
 
@@ -18,11 +18,17 @@ import styles from './index.module.scss'
 export const NewsSection: FC = () => {
 	const { data: newsList } = useGetHomeNewsQuery(null)
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
+
 	return (
 		<section className={cn(styles.newsSection, '_bordered')}>
 			<Container>
-				<FlexRow $margin='0 0 25px 0' $alignItems='center' $justifyContent='space-between'>
-					<h4>Новости</h4>
+				<FlexRow
+					$margin='0 0 20px 0'
+					$alignItems='center'
+					$justifyContent='space-between'
+					$gap='16px'
+				>
+					<h2>Новости</h2>
 					<MainButton as='route' to={AppRoute.News}>
 						Все новости
 					</MainButton>
