@@ -12,7 +12,6 @@ import { gallerySliderOptions } from './consts'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 import { AppRoute } from 'src/routes/main-routes/consts'
-import { RenderedArray } from 'src/components/rendered-array/rendered-array'
 import { AsideNews } from 'src/components/aside-news/aside-news'
 import { Container } from 'src/UI/Container/Container'
 import { PageContent } from 'src/components/page-content/page-content'
@@ -54,24 +53,19 @@ export const NewsDetails = () => {
 							<span className={styles.newsItemDate}>{mainFormatDate(newsItemData?.date)}</span>
 							{breakpoint !== 'S' && (
 								<div className={styles.newsDescs}>
-									{newsItemData?.full && (
-										<div dangerouslySetInnerHTML={{ __html: newsItemData.full }} />
+									{newsItemData?.short && (
+										<div dangerouslySetInnerHTML={{ __html: newsItemData.short }} />
 									)}
 								</div>
 							)}
 							<div className={styles.newsItemMainImg}>
 								<img src={newsItemData?.preview} alt={newsItemData?.title} />
 							</div>
-							<RenderedArray
-								className={styles.newsDescs}
-								strArray={
-									breakpoint === 'S'
-										? newsItemData?.textNews
-										: newsItemData?.textNews.filter((_, index) => index !== 0)
-								}
-								asStr='p'
-								as='div'
-							/>
+							<div className={styles.newsDescs}>
+								{newsItemData?.full && (
+									<div dangerouslySetInnerHTML={{ __html: newsItemData.full }} />
+								)}
+							</div>
 							<div className={styles.slider}>
 								<Swiper {...gallerySliderOptions} ref={swiperRef}>
 									{newsItemData.imgGallery?.map((slideItem, idx) => (

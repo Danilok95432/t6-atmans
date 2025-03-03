@@ -9,6 +9,7 @@ export type NewsItem = {
 	preview: string
 	textNews: string[]
 	full: string
+	short: string
 }
 
 export type CardNewsItem = {
