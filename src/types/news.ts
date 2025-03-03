@@ -8,6 +8,7 @@ export type NewsItem = {
 	imgGallery: ImageItem[]
 	preview: string
 	textNews: string[]
+	full: string
 }
 
 export type CardNewsItem = {

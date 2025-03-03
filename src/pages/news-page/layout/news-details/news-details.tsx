@@ -54,7 +54,9 @@ export const NewsDetails = () => {
 							<span className={styles.newsItemDate}>{mainFormatDate(newsItemData?.date)}</span>
 							{breakpoint !== 'S' && (
 								<div className={styles.newsDescs}>
-									<p>{newsItemData?.textNews[0]}</p>
+									{newsItemData?.full && (
+										<div dangerouslySetInnerHTML={{ __html: newsItemData.full }} />
+									)}
 								</div>
 							)}
 							<div className={styles.newsItemMainImg}>
