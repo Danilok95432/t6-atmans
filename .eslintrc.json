@@ -18,7 +18,7 @@
 		}
 	],
 	"parserOptions": {
-		// "project": ["tsconfig.json"],
+		"project": ["./tsconfig.json"],
 		"ecmaFeatures": {
 			"tsx": true
 		},
