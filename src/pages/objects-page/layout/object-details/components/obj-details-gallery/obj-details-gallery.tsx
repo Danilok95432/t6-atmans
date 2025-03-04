@@ -1,11 +1,11 @@
 import React, { type FC } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { GalleryImg } from 'src/components/image-gallery/image-gallery'
 import { useGetObjectByIdQuery } from 'src/store/objects/objects.api'
+import { GalleryImg } from 'src/components/image-gallery/image-gallery'
+import { RenderedArray } from 'src/components/rendered-array/rendered-array'
 
 import styles from './index.module.scss'
-import { RenderedArray } from 'src/components/rendered-array/rendered-array'
 
 export const ObjDetailsGallery: FC = () => {
 	const { id } = useParams()

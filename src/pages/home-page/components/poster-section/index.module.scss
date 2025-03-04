@@ -1,107 +1,106 @@
-@use 'src/assets/styles/helpers' as *;
-
 .posterSection {
-  padding: 5px 0 0;
+	padding: 5px 0 0;
 
-  @include mobile {
-    padding: 5px 0 55px;
+	@include mobile {
+		padding: 5px 0 55px;
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 237px;
-      height: 7px;
-      background: url('data:image/svg+xml,<svg width="237" height="7" viewBox="0 0 237 7" fill="none" xmlns="http://www.w3.org/2000/svg"><line y1="3.5" x2="100" y2="3.5" stroke="%23A8A8A8"/><line x1="137" y1="3.5" x2="237" y2="3.5" stroke="%23A8A8A8"/><circle cx="118.5" cy="3.5" r="3.5" fill="%23DD0A15"/></svg>') no-repeat;
-    }
-  }
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 237px;
+			height: 7px;
+			background: url('data:image/svg+xml,<svg width="237" height="7" viewBox="0 0 237 7" fill="none" xmlns="http://www.w3.org/2000/svg"><line y1="3.5" x2="100" y2="3.5" stroke="%23A8A8A8"/><line x1="137" y1="3.5" x2="237" y2="3.5" stroke="%23A8A8A8"/><circle cx="118.5" cy="3.5" r="3.5" fill="%23DD0A15"/></svg>')
+				no-repeat;
+		}
+	}
 
-  .posterSliderBtns {
-    @include mobile {
-      top: 43%;
-      width: 93%;
-    }
-  }
+	.posterSliderBtns {
+		@include mobile {
+			top: 43%;
+			width: 93%;
+		}
+	}
 
-  .posterSlider {
-    max-width: 1920px;
-  }
+	.posterSlider {
+		max-width: 1920px;
+	}
 }
 
 .slideItem {
-  height: fluid(646, 500);
-  position: relative;
-  display: flex;
-  flex-direction: column;
+	height: fluid(646, 500);
+	position: relative;
+	display: flex;
+	flex-direction: column;
 
-  .slideItemWrapperImg {
-    @include abs-cover;
+	.slideItemWrapperImg {
+		@include abs-cover;
 
-    overflow: hidden;
+		overflow: hidden;
 
-    @include mobile {
-      border-radius: var(--border-radius);
-    }
-  }
+		@include mobile {
+			border-radius: var(--border-radius);
+		}
+	}
 
-  .slideItemImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+	.slideItemImage {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-  .slideInfo {
-    position: absolute;
-    left: 40px;
-    bottom: 40px;
-    z-index: 10;
+	.slideInfo {
+		position: absolute;
+		left: 40px;
+		bottom: 40px;
+		z-index: 10;
 
-    @include mobile {
-      left: 10px;
-      right: 10px;
-    }
+		@include mobile {
+			left: 10px;
+			right: 10px;
+		}
 
-    .slideInfoInner {
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: start;
-      row-gap: fluid(20, 15);
+		.slideInfoInner {
+			display: flex;
+			flex-direction: column-reverse;
+			align-items: start;
+			row-gap: fluid(20, 15);
 
-      .sliderInfoTitle {
-        color: var(--color-white);
-        font-size: fluid(50, 30);
-        background: var(--color-red);
-        line-height: 1.1;
-        padding: fluid(10, 4) fluid(21, 10);
-        border-radius: var(--border-radius);
-        font-weight: 400;
+			.sliderInfoTitle {
+				color: var(--color-white);
+				font-size: fluid(50, 30);
+				background: var(--color-red);
+				line-height: 1.1;
+				padding: fluid(10, 4) fluid(21, 10);
+				border-radius: var(--border-radius);
+				font-weight: 400;
 
-        @include mobile {
-          line-height: 1.3;
-        }
-      }
+				@include mobile {
+					line-height: 1.3;
+				}
+			}
 
-      .sliderInfoList {
-        display: flex;
-        column-gap: 15px;
+			.sliderInfoList {
+				display: flex;
+				column-gap: 15px;
 
-        .sliderInfoItem {
-          display: flex;
-          align-items: center;
-          font-size: fluid(24, 15);
-          padding: 3px 10px;
-          color: var(--color-white);
-          background: var(--color-red);
-          border-radius: var(--border-radius);
+				.sliderInfoItem {
+					display: flex;
+					align-items: center;
+					font-size: fluid(24, 15);
+					padding: 3px 10px;
+					color: var(--color-white);
+					background: var(--color-red);
+					border-radius: var(--border-radius);
 
-          @include mobile {
-            padding-block: 5px;
-            line-height: 1.15;
-          }
-        }
-      }
-    }
-  }
+					@include mobile {
+						padding-block: 5px;
+						line-height: 1.15;
+					}
+				}
+			}
+		}
+	}
 }

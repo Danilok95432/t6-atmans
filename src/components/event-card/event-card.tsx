@@ -25,6 +25,7 @@ export const EventCard: FC<EventItemProps> = ({
 	description,
 	className,
 }) => {
+	console.log(className)
 	return (
 		<Link to={`/${AppRoute.Events}/${id}`} aria-label='Переход на страницу события' title={title}>
 			<figure className={cn(styles.eventItem, className)}>

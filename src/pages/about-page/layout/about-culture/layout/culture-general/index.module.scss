@@ -1,17 +1,26 @@
+.inner {
+	display: flex;
+	flex-direction: column;
+	row-gap: fluid(40, 30);
+}
+
 .culturesList {
-  margin-top: 30px;
-  @media (max-width: 768px) {
-    margin-top: 25px;
-  }
-  h5 {
-    letter-spacing: 0.6px;
-    font-size: 16px;
-    text-transform: uppercase;
-    color: #9D9D9D;
-    margin-bottom: 10px;
-    font-weight: 400;
-    @media (max-width: 768px) {
-      letter-spacing: 0;
-    }
-  }
+	margin-top: 30px;
+
+	@include mobile {
+		margin-top: 25px;
+	}
+
+	h5 {
+		letter-spacing: 0.6px;
+		font-size: 16px;
+		text-transform: uppercase;
+		color: #9d9d9d;
+		margin-bottom: 10px;
+		font-weight: 400;
+
+		@include mobile {
+			letter-spacing: 0;
+		}
+	}
 }

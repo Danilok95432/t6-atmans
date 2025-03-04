@@ -1,8 +1,11 @@
 .aboutGeneralPage {
-  h2 {
-    margin-bottom: 27px;
-    @media (max-width: 768px) {
-      margin-bottom: 15px;
-    }
-  }
+	h2 {
+		margin-bottom: fluid(27, 15);
+	}
+
+	.inner {
+		display: flex;
+		flex-direction: column;
+		row-gap: fluid(30, 20);
+	}
 }

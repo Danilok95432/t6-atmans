@@ -1,19 +1,44 @@
-@use 'src/assets/styles/helpers' as *;
-
 .filteredListWrapper {
-  padding: 0 35px 0 50px;
+	padding: 0 35px 0 50px;
 
-  @include tablet {
-    padding: 0 15px;
-  }
+	@include tablet {
+		padding: 0 15px;
+	}
 
-  h4 {
-    margin-bottom: 30px;
-  }
+	h4 {
+		margin-bottom: 30px;
+	}
 }
 
 .eventsList {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.eventCard {
+	width: fluid(331, 310);
+	height: 460px;
+
+	figure {
+		& div {
+			height: 205px;
+
+			@include mobile {
+				height: 255px;
+			}
+		}
+	}
+
+	@include mobile {
+		height: auto;
+	}
+
+	figcaption {
+		padding-block: 15px;
+
+		@include mobile {
+			padding-block: 28px;
+		}
+	}
 }

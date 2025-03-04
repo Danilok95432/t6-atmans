@@ -74,7 +74,8 @@ export const NewsDetails = () => {
 												<div className={styles.slideImg}>
 													<img src={slideItem.thumbnail} alt={slideItem.title} />
 												</div>
-												<h6>{slideItem.title}</h6>
+												<h6 className={styles.slideTitle}>{slideItem.title || 'test'}</h6>
+												<span className={styles.slideAuthor}>Автор: {'test'}</span>
 											</div>
 										</SwiperSlide>
 									))}

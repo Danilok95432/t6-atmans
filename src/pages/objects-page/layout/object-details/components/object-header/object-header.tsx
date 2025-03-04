@@ -29,7 +29,12 @@ export const ObjectHeader: FC = () => {
 					</div>
 				)}
 				<div className={styles.objectMainInfo}>
-					<CustomText $fontSize='20px' $margin='0 0 30px 0' $lineHeight='1.2'>
+					<CustomText
+						// $fontSize='20px'
+						$margin='0 0 30px 0'
+						$lineHeight='1.2'
+						className={styles.objectMainDesc}
+					>
 						{objectData?.mainDesc}
 					</CustomText>
 					{objectData?.phone && (
@@ -49,6 +54,7 @@ export const ObjectHeader: FC = () => {
 
 					{objectData?.address && (
 						<InfoRow
+							wrapperClassname={styles.objectMainDesc}
 							titleClassname={styles.addressTitle}
 							title='Адрес объекта:'
 							label={objectData?.address}

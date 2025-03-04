@@ -1,23 +1,21 @@
-@use 'src/assets/styles/helpers' as *;
-
 .eventsSection {
-  padding: 77px 0 108px;
+	padding: 77px 0 108px;
 
-  @include mobile {
-    padding: 50px 0 55px;
-  }
+	@include mobile {
+		padding: 50px 0 55px;
+	}
 
-  .eventsSliderBtns {
-    @include mobile {
-      width: 95%;
-    }
-  }
+	.eventsSliderBtns {
+		@include mobile {
+			width: 95%;
+		}
+	}
 }
 
 .homeEventCard {
-  :global {
-    .event-item-img {
-      height: 255px;
-    }
-  }
+	:global {
+		.event-item-img {
+			height: 255px;
+		}
+	}
 }

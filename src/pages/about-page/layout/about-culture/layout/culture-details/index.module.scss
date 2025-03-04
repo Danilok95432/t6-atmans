@@ -1,33 +1,37 @@
 .cultureDetails {
-  p {
-    line-height: 1.37;
-  }
+	p {
+		line-height: 1.37;
+	}
 }
 
 .cultureMain {
-  display: flex;
-  gap: 21px;
-  padding-bottom: 23px;
-  border-bottom: 7px solid #F2F5F8;
-  margin-bottom: 26px;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-  p {
-    flex-grow: 1;
-    font-size: 16px;
-    padding-top: 10px;
-    line-height: 1.5;
-  }
+	display: flex;
+	gap: 21px;
+	padding-bottom: 23px;
+	border-bottom: 7px solid #f2f5f8;
+	margin-bottom: 26px;
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
+	p {
+		flex-grow: 1;
+		font-size: 16px;
+		padding-top: 10px;
+		line-height: 1.5;
+	}
 }
 
 .cultureLogo {
-  border: 7px solid #EBEEF2;
-  min-width: 132px;
-  width: 132px;
-  height: 132px;
-  img {
-    width: 100%;
-    height: 100%;
-  }
+	border: 7px solid #ebeef2;
+	min-width: 132px;
+	width: 132px;
+	height: 132px;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.topDesc {
+	font-size: fluid(20, 16);
 }

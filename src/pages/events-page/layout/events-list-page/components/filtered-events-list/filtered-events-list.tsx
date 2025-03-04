@@ -38,7 +38,9 @@ export const FilteredEventsList = () => {
 				categories={eventsFiltrationInfo?.categories ?? []}
 			/>
 			<div className={styles.eventsList}>
-				{eventsList?.map((eventEl) => <EventCard key={eventEl.id} {...eventEl} />)}
+				{eventsList?.map((eventEl) => (
+					<EventCard key={eventEl.id} {...eventEl} className={styles.eventCard} />
+				))}
 			</div>
 		</div>
 	)

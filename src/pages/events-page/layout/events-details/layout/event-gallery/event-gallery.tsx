@@ -13,13 +13,30 @@ export const EventGallery: FC = () => {
 
 	return (
 		<div className={styles.eventGallery}>
-			<p className={styles.galleryLengthInfo}>Всего фото: {eventInfo?.photos?.length}</p>
 			<GalleryImg
 				className={styles.eventPhotos}
 				images={eventInfo?.photos}
 				limit={12}
 				limitController
+				variant='slider'
 			/>
+			<GalleryImg
+				className={styles.eventPhotos}
+				images={eventInfo?.photos}
+				limit={12}
+				limitController
+				variant='slider'
+			/>
+			<GalleryImg
+				className={styles.eventPhotos}
+				images={eventInfo?.photos}
+				limit={12}
+				limitController
+				variant='slider'
+			/>
+			<button type='button' className={styles.eventGalleryButton}>
+				Показать еще
+			</button>
 		</div>
 	)
 }
