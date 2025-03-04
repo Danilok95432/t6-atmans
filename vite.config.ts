@@ -13,6 +13,13 @@ export default defineConfig({
 			src: '/src',
 		},
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `@use 'src/assets/styles/helpers' as *;`,
+			},
+		},
+	},
 	server: {
 		// host: '192.168.31.171',
 		port: 5666,

@@ -1,49 +1,48 @@
-@use 'src/assets/styles/helpers' as *;
-
 .objectsSection {
-  padding: 82px 52px 82px;
+	padding: 82px 52px 82px;
 
-  @include mobile {
-    padding: 50px 0 37px;
-  }
+	@include mobile {
+		padding: 50px 0 37px;
+	}
 
-  .objectsSliderBtns {
-    @include mobile {
-      width: 86%;
-      top: 34%;
-    }
-  }
+	.objectsSliderBtns {
+		@include mobile {
+			width: 86%;
+			top: 34%;
+		}
+	}
 }
 
 .slideItem {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 17px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	row-gap: 17px;
 
-  @include hover {
-    .objectImg {
-      transition: filter var(--transition-duration) ease;
-      filter: invert(11%) sepia(100%) saturate(6135%) hue-rotate(353deg) brightness(88%) contrast(98%);
-    }
+	@include hover {
+		.objectImg {
+			transition: filter var(--transition-duration) ease;
+			filter: invert(11%) sepia(100%) saturate(6135%) hue-rotate(353deg) brightness(88%)
+				contrast(98%);
+		}
 
-    .objectDescription {
-      color: var(--color-red);
-    }
-  }
+		.objectDescription {
+			color: var(--color-red);
+		}
+	}
 }
 
 .objectImg {
-  @include square(48px);
+	@include square(48px);
 }
 
 .objectDescription {
-  line-height: 1.2;
-  text-align: center;
-  font-size: 24px;
-  transition: color var(--transition-duration) ease;
+	line-height: 1.2;
+	text-align: center;
+	font-size: 24px;
+	transition: color var(--transition-duration) ease;
 
-  @include mobile {
-    margin-top: 29px;
-  }
+	@include mobile {
+		margin-top: 29px;
+	}
 }

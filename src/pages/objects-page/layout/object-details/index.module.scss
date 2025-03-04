@@ -1,13 +1,23 @@
 .objDetailsPage {
-  section {
-    padding-bottom: 40px;
-    border-bottom: 7px solid #F2F5F8;
-  }
+	section {
+		padding-bottom: 40px;
+		border-bottom: 7px solid #f2f5f8;
+
+		&:not(:first-child) {
+			padding: 40px 0 50px;
+		}
+	}
 }
 
 a.pageMainLink {
-  font-size: 20px;
-  display: inline-block;
-  margin-top: 30px;
-  color: #DE0008;
+	font-size: 20px;
+	display: inline-block;
+	margin-top: 30px;
+	color: #de0008;
+}
+
+.objDetailsStyles {
+	h5 {
+		font-size: 35px;
+	}
 }

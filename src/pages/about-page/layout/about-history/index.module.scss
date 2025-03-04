@@ -1,4 +1,10 @@
 .historyPageContent {
+	.inner {
+		display: flex;
+		flex-direction: column;
+		row-gap: fluid(40, 30);
+	}
+
 	p {
 		&:not(:last-child) {
 			margin-bottom: 22px;
@@ -8,12 +14,18 @@
 			line-height: 1.44;
 		}
 	}
+
+	.topDescs,
+	.bottomDescs {
+		font-size: fluid(20, 16);
+	}
 }
 
 .image {
 	padding-top: 15px;
 	margin: 0;
-	@media (max-width: 768px) {
+
+	@include mobile {
 		margin: 20px 0 0 0;
 		display: flex;
 		flex-direction: column;

@@ -1,32 +1,30 @@
-@use 'src/assets/styles/helpers' as *;
-
 .newsSection {
-  padding: 77px 0 112px;
+	padding: 77px 0 112px;
 
-  @include mobile {
-    padding: 48px 0 53px;
-  }
+	@include mobile {
+		padding: 48px 0 53px;
+	}
 
-  .newsSliderBtns {
-    @include mobile {
-      top: 96px;
-      width: 95%;
-    }
-  }
+	.newsSliderBtns {
+		@include mobile {
+			top: 96px;
+			width: 95%;
+		}
+	}
 }
 
 .newsSliderWrapper {
-  position: relative;
-  justify-content: center;
-  column-gap: 15px;
-  padding: 20px 0 20px 20px;
+	position: relative;
+	justify-content: center;
+	column-gap: 15px;
+	padding: 20px 0 20px 20px;
 }
 
 .newsSlide {
-  width: 286px;
-  min-height: 408px;
+	width: 286px;
+	min-height: 408px;
 
-  @include mobile-s {
-    min-height: 394px;
-  }
+	@include mobile-s {
+		min-height: 394px;
+	}
 }

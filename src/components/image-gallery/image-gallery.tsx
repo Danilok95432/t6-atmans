@@ -78,10 +78,12 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 										<img src={slideItem.thumbnail} alt={slideItem.title} />
 									</div>
 									<h6>{slideItem.title}</h6>
+									{<span className={styles.author}>Автор: {slideItem.author}</span>}
 								</div>
 							</SwiperSlide>
 						))}
 					</Swiper>
+
 					<SliderBtns
 						className={styles.galleryBtns}
 						$btnsSpacing='calc(100% + 30px)'
@@ -97,6 +99,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 								<img src={img.thumbnail} alt={`image ${idx + 1}`} />
 							</div>
 							{img.title && <h6>{img.title}</h6>}
+							{<span className={styles.author}>Автор: {img.author}</span>}
 							{img.date && <span className={styles.imgDate}>{mainFormatDate(img.date)}</span>}
 						</li>
 					))}

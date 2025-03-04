@@ -42,6 +42,7 @@ export const EventsSection: FC = () => {
 							</SwiperSlide>
 						))}
 					</Swiper>
+
 					<SliderBtns
 						className={styles.eventsSliderBtns}
 						$topPosition='49%'
