@@ -13,9 +13,11 @@
 
 .galleryPhotos {
 	margin: 20px 0 20px;
+
 	@media (max-width: 340px) {
 		max-height: 210px;
 	}
+
 	ul {
 		justify-items: start;
 		gap: 17px;
@@ -25,6 +27,7 @@
 			& > div {
 				height: 127px;
 			}
+
 			h6 {
 				margin-top: 5px;
 				font-weight: 400;
