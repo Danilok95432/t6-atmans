@@ -62,13 +62,13 @@ export const EventInfo = () => {
 						<img src={eventData?.imgUrl} alt={eventData?.title} />
 					</div>
 					<div className={styles.infoBlock}>
-						<CustomText $fontSize='20px' $lineHeight='1.3' $margin='0 0 30px 0'>
+						<CustomText $lineHeight='1.3' $margin='0 0 30px 0' className={styles.infoBlockText}>
 							{eventData?.description}
 						</CustomText>
 						{eventData?.location?.address && (
 							<InfoRow
 								title='Место проведения:'
-								label={eventData?.location?.address}
+								label={<span className={styles.infoBlockText}>{eventData?.location?.address}</span>}
 								icon={<PlaceIconSVG />}
 								$titleWidth='182px'
 								$gap='34px'
@@ -79,53 +79,77 @@ export const EventInfo = () => {
 							<InfoRow
 								title='Объект:'
 								label={
-									<Link to={`/${AppRoute.Objects}/${eventData?.object.id}`}>
+									<Link
+										to={`/${AppRoute.Objects}/${eventData?.object.id}`}
+										className={styles.infoBlockText}
+									>
 										{eventData?.object.title}
 									</Link>
 								}
 								icon={<ObjectIconSVG />}
 								$titleWidth='182px'
 								$gap='34px'
+								titleClassname={styles.infoBlockText}
 							/>
 						)}
 
 						{eventData?.site.link && (
 							<InfoRow
 								title='Сайт события:'
-								label={<a href={eventData?.site.link}>{eventData?.site.title}</a>}
+								label={
+									<a href={eventData?.site.link} className={styles.infoBlockText}>
+										{eventData?.site.title}
+									</a>
+								}
 								icon={<SiteIconSVG />}
 								$titleWidth='182px'
 								$gap='34px'
+								titleClassname={styles.infoBlockText}
 							/>
 						)}
 
 						{eventData && (
 							<InfoRow
 								title='Телефон:'
-								label={'+7 (432) 900-00-00'}
+								label={
+									<a href='tel:+74329000000' className={styles.infoBlockText}>
+										+7 (432) 900-00-00
+									</a>
+								}
 								icon={<PhoneEventIconSVG />}
 								$titleWidth='182px'
 								$gap='34px'
+								titleClassname={styles.infoBlockText}
 							/>
 						)}
 
 						{eventData && (
 							<InfoRow
 								title='Телеграм:'
-								label={<a href={eventData?.site.link}>{'https://t.me/username'}</a>}
+								label={
+									<a href={eventData?.site.link} className={styles.infoBlockText}>
+										{'https://t.me/username'}
+									</a>
+								}
 								icon={<TgEventIconSVG />}
 								$titleWidth='182px'
 								$gap='34px'
+								titleClassname={styles.infoBlockText}
 							/>
 						)}
 
 						{eventData && (
 							<InfoRow
 								title='Электронная почта:'
-								label={<a href={eventData?.site.link}>{'mail@mail.ru'}</a>}
+								label={
+									<a href={eventData?.site.link} className={styles.infoBlockText}>
+										{'mail@mail.ru'}
+									</a>
+								}
 								icon={<MailEventIconSVG />}
 								$titleWidth='182px'
 								$gap='34px'
+								titleClassname={styles.infoBlockText}
 							/>
 						)}
 					</div>

@@ -1,53 +1,51 @@
 .eventDetailTab {
-  h4 {
-    font-size: 25px;
-    margin-bottom: 17px;
-  }
-  .ageRating {
-    color: #ED1C24;
-  }
+	h4 {
+		font-size: 25px;
+		margin-bottom: 17px;
+	}
+	.ageRating {
+		color: #ed1c24;
+	}
 }
 
 .eventDescs {
-  p {
-    line-height: 1.3;
+	p {
+		font-size: fluid(20, 16);
+		line-height: 1.3;
 
-    &:not(:last-child) {
-      margin-bottom: 1px;
-    }
-  }
-
+		&:not(:last-child) {
+			margin-bottom: 1px;
+		}
+	}
 }
 
 .faqList {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .eventFaqItem {
-  button {
-    padding: 16px 45px 16px 18px;
-    transition: all .3s;
-    svg path {
-      transition: all .3s;
-    }
-    &:hover {
-      color: #ED1C24;
-      svg path {
-        fill: #ED1C24;
-      }
-    }
-  }
-  :global {
-    ._triggerOpen {
-      color: #ED1C24;
-    }
-    .accordion-content {
-      background: #EBEEF2;
-      padding: 10px 65px 10px 15px;
-    }
-  }
-
+	button {
+		padding: 16px 45px 16px 18px;
+		transition: all 0.3s;
+		svg path {
+			transition: all 0.3s;
+		}
+		&:hover {
+			color: #ed1c24;
+			svg path {
+				fill: #ed1c24;
+			}
+		}
+	}
+	:global {
+		._triggerOpen {
+			color: #ed1c24;
+		}
+		.accordion-content {
+			background: #ebeef2;
+			padding: 10px 65px 10px 15px;
+		}
+	}
 }
-
