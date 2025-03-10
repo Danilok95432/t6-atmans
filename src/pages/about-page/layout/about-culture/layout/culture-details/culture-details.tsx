@@ -13,6 +13,7 @@ export const CultureDetails = () => {
 
 	if (!cultureInfo) return <h2>Нет информации о культуре</h2>
 
+	console.log(cultureInfo)
 	return (
 		<div className={styles.cultureDetails}>
 			<h2>{cultureInfo.title}</h2>
