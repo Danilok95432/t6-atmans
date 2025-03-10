@@ -1,5 +1,6 @@
 .cultureDetails {
 	p {
+		font-size: fluid(20, 16);
 		line-height: 1.37;
 	}
 }
@@ -17,7 +18,7 @@
 
 	p {
 		flex-grow: 1;
-		font-size: 16px;
+		font-size: fluid(20, 16);
 		padding-top: 10px;
 		line-height: 1.5;
 	}
@@ -33,8 +34,4 @@
 		width: 100%;
 		height: 100%;
 	}
-}
-
-.topDesc {
-	font-size: fluid(20, 16);
 }

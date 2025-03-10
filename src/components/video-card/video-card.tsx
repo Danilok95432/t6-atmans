@@ -30,7 +30,7 @@ export const VideoCard: FC<VideoCardProps> = ({
 					<span className={styles.videoDate}>{mainFormatDate(new Date(date), 'dd.MM.yyyy')}</span>
 				)}
 			</div>
-			<p>{title}</p>
+			<p className={styles.videoTitle}>{title}</p>
 		</Link>
 	)
 }

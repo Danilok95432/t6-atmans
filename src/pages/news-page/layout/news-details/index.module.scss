@@ -81,6 +81,7 @@
 		.newsDescs {
 			display: flex;
 			flex-direction: column;
+			font-size: fluid(22, 18);
 			row-gap: fluid(20, 18);
 
 			p {
