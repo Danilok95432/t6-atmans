@@ -15,20 +15,22 @@ export const ContactsInfo: FC = () => {
 				</div>
 			)}
 
-			{aboutContactsData?.phone?.contact && (
+			{aboutContactsData?.phone[0] && (
 				<div className={styles.contactsBlock}>
 					<h4>Телефон</h4>
-					<p>{aboutContactsData.phone.contact}</p>
-					<a href={`tel:${aboutContactsData.phone.phoneNumber.number}`}>
-						{aboutContactsData.phone.phoneNumber.formatNumber}
+					<p>{aboutContactsData.phone[0].contact}</p>
+					<a href={`tel:${aboutContactsData.phone[0].phoneNumber.number}`}>
+						{aboutContactsData.phone[0].phoneNumber.formatNumber}
 					</a>
 				</div>
 			)}
 
-			{aboutContactsData?.email && (
+			{aboutContactsData?.emails[0] && (
 				<div className={styles.contactsBlock}>
 					<h4>Электронная почта</h4>
-					<a href={`mailto:${aboutContactsData.email}`}>{aboutContactsData.email}</a>
+					<a href={`mailto:${aboutContactsData.emails[0].email}`}>
+						{aboutContactsData.emails[0].email}
+					</a>
 				</div>
 			)}
 		</>

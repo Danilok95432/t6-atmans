@@ -29,15 +29,22 @@ export type AboutCulturePage = {
 	cultures: ShortCultureElement[]
 }
 
+export type PhoneContacts = {
+	contact: string
+	phoneNumber: {
+		formatNumber: string
+		number: string
+	}
+}
+
+export type EmailContacts = {
+	contact: string
+	email: string
+}
+
 export type AboutContactsPage = {
 	map_coords: [number, number]
 	mailAddress: string
-	phone: {
-		contact: string
-		phoneNumber: {
-			formatNumber: string
-			number: string
-		}
-	}
-	email: string
+	phone: PhoneContacts[]
+	emails: EmailContacts[]
 }
