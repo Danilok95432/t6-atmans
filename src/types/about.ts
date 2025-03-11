@@ -1,18 +1,16 @@
-import { type ImageItem } from 'src/types/photos'
+import { type ImageItemWithText } from 'src/types/photos'
 
 export type AboutGeneralPage = {
 	logo: string
 	caption: string
 	mainDescs: string[]
 	descs: string[]
-	photoGallery: ImageItem[]
+	photoGallery: ImageItemWithText[]
 }
 export type AboutHistoryPage = {
 	topDescs: string[]
-	mainPhoto: {
-		original: string
-		title: string
-	}
+	mainPhoto: ImageItemWithText[]
+	photos: ImageItemWithText[]
 	bottomDescs: string[]
 }
 
@@ -25,7 +23,7 @@ type ShortCultureElement = {
 export type AboutCulturePage = {
 	topDesc: string
 	bottomDesc: string
-	photoGallery: ImageItem[]
+	photoGallery: ImageItemWithText[]
 	cultures: ShortCultureElement[]
 }
 

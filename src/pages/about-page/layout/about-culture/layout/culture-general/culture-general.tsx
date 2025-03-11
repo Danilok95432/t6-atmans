@@ -17,9 +17,9 @@ export const CultureGeneral: FC = () => {
 			<div className={styles.inner}>
 				<p className={styles.culturesDescription}>{aboutPageData.topDesc}</p>
 
-				<GallerySection />
+				<GallerySection images={aboutPageData?.photoGallery} />
 
-				<p className={styles.culturesDescription}>{aboutPageData.bottomDesc}</p>
+				<p>{aboutPageData.bottomDesc}</p>
 				{aboutPageData.cultures?.length && (
 					<div className={styles.culturesList}>
 						<h5>Культурные элементы</h5>

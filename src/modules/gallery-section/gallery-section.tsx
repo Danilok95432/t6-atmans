@@ -2,24 +2,22 @@ import React, { type FC } from 'react'
 
 import classNames from 'classnames'
 import { GalleryImg } from 'src/components/image-gallery/image-gallery'
-import { useGetAboutGeneralQuery } from 'src/store/about/about.api'
 
 import styles from './index.module.scss'
+import { type ImageItemWithText } from 'src/types/photos'
 
 interface IGallerySectionProps {
 	className?: string
+	images?: ImageItemWithText[]
 }
 
-export const GallerySection: FC<IGallerySectionProps> = (props) => {
-	const { className } = props
-
-	const { data: aboutPageData } = useGetAboutGeneralQuery(null)
-	if (!aboutPageData) return null
+export const GallerySection: FC<IGallerySectionProps> = ({ className, images }) => {
+	if (!images) return null
 
 	return (
 		<section className={classNames(styles.gallerySection, className)}>
 			<h5 className={styles.galleryTitle}>Фотогалерея</h5>
-			<GalleryImg images={aboutPageData.photoGallery} variant='slider' />
+			<GalleryImg images={images} variant='slider' />
 		</section>
 	)
 }
