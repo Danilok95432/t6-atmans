@@ -19,7 +19,7 @@ export const CultureGeneral: FC = () => {
 
 				<GallerySection />
 
-				<p>{aboutPageData.bottomDesc}</p>
+				<p className={styles.culturesDescription}>{aboutPageData.bottomDesc}</p>
 				{aboutPageData.cultures?.length && (
 					<div className={styles.culturesList}>
 						<h5>Культурные элементы</h5>
