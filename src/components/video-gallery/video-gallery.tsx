@@ -59,7 +59,9 @@ export const VideoGallery: FC<VideoGalleryProps> = ({
 								allow='encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;'
 								allowFullScreen
 							></iframe>
-							{item.thumbnail && <img src={item.thumbnail} alt={item.title} />}
+							{item.mainphoto[0]?.thumbnail && (
+								<img src={item.mainphoto[0]?.thumbnail} alt={item.title} />
+							)}
 						</StyledVideo>
 						<Link to={item.id}>{item.title}</Link>
 						<p>{mainFormatDate(item?.date)}</p>

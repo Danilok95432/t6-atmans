@@ -21,7 +21,7 @@ export const EventPoster: FC = () => {
 						<div className={styles.slideItem}>
 							<div className={styles.slideItemImg}>
 								<img
-									src={slideItem.imgUrl}
+									src={slideItem.mainphoto[0]?.original}
 									alt={slideItem.title}
 									width={1840}
 									height={555}
