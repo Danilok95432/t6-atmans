@@ -1,16 +1,18 @@
+import { type ImageItemWithText } from './photos'
+
 export type HomePoster = {
 	id: string
 	title: string
 	date: Date
 	location: string
-	imgUrl: string
+	mainphoto: ImageItemWithText[]
 	isExternal: boolean
 	itemLink: string
 }
 
 export type HomePartnerItem = {
 	id: string
-	imgUrl: string
+	mainphoto: ImageItemWithText[]
 	link: string
 }
 
@@ -23,13 +25,13 @@ export type HomeFaq = {
 export type HomeObject = {
 	id: string
 	title: string
-	logo: string
+	mainphoto: ImageItemWithText[]
 	icon: string
 }
 export type HomePreviewObject = {
 	id: string
 	title: string
-	logo: string
+	mainphoto: ImageItemWithText[]
 	icon: string
 	mainDesc: string
 	address: string

@@ -1,4 +1,4 @@
-import { type ImageItem } from 'src/types/photos'
+import { type ImageItemWithText, type ImageItem } from 'src/types/photos'
 import { type CardNewsItem } from 'src/types/news'
 import { type VideoItem } from 'src/types/videos'
 import { type CardEventItem } from 'src/types/events'
@@ -6,7 +6,7 @@ import { type CardEventItem } from 'src/types/events'
 export type ObjectItem = {
 	id: string
 	title: string
-	logo: string
+	mainphoto: ImageItemWithText[]
 	mainDesc: string
 	phone: string
 	email: string

@@ -10,7 +10,7 @@ type NewsCardProps = {
 	className?: string
 } & CardNewsItem
 
-export const NewsCard: FC<NewsCardProps> = ({ id, imgUrl, title, date, desc }) => {
+export const NewsCard: FC<NewsCardProps> = ({ id, mainphoto, title, date, desc }) => {
 	return (
 		<Link
 			className={styles.newsItem}
@@ -20,7 +20,7 @@ export const NewsCard: FC<NewsCardProps> = ({ id, imgUrl, title, date, desc }) =
 		>
 			<figure>
 				<div className={styles.newsImgWrapper}>
-					<img src={imgUrl} alt={title} width={286} height={160} loading='lazy' />
+					<img src={mainphoto[0]?.original} alt={title} width={286} height={160} loading='lazy' />
 				</div>
 				<figcaption className={styles.newsItemContent}>
 					<h4 className={styles.newsItemTitle}>{title}</h4>

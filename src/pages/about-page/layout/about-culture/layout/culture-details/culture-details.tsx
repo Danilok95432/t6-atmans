@@ -11,6 +11,8 @@ export const CultureDetails = () => {
 	const { id } = useParams()
 	const { data: cultureInfo } = useGetCultureByIdQuery(id ?? '0')
 
+	console.log(cultureInfo)
+
 	if (!cultureInfo) return <h2>Нет информации о культуре</h2>
 
 	return (
@@ -18,7 +20,7 @@ export const CultureDetails = () => {
 			<h2>{cultureInfo.title}</h2>
 			<div className={styles.cultureMain}>
 				<div className={styles.cultureLogo}>
-					<img src={cultureInfo.logoUrl} alt={cultureInfo.title} />
+					<img src={cultureInfo?.mainphoto[0]?.original} alt={cultureInfo.title} />
 				</div>
 				<p>{cultureInfo.desc}</p>
 			</div>

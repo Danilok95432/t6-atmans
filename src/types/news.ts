@@ -1,12 +1,12 @@
 import { type CategoryFilterItem } from 'src/types/global'
-import { type ImageItem } from 'src/types/photos'
+import { type ImageItemWithText, type ImageItem } from 'src/types/photos'
 
 export type NewsItem = {
 	id: string
 	title: string
 	date: Date
 	imgGallery: ImageItem[]
-	preview: string
+	mainphoto: ImageItemWithText[]
 	textNews: string[]
 	full: string
 	short: string
@@ -15,7 +15,7 @@ export type NewsItem = {
 export type CardNewsItem = {
 	id: string
 	title: string
-	imgUrl: string
+	mainphoto: ImageItemWithText[]
 	date: Date
 	desc: string
 	category: CategoryFilterItem

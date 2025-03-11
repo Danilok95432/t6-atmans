@@ -29,7 +29,7 @@ export const PosterSection: FC = () => {
 							>
 								<div className={styles.slideItemWrapperImg}>
 									<img
-										src={slideItem.imgUrl}
+										src={slideItem.mainphoto[0]?.original}
 										alt={slideItem.title}
 										className={styles.slideItemImage}
 										width={1920}

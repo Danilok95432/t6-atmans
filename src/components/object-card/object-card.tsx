@@ -7,11 +7,11 @@ import styles from './index.module.scss'
 
 type ObjectCardProps = ObjectItem
 
-export const ObjectCard: FC<ObjectCardProps> = ({ id, logo, title, address, mainDesc }) => {
+export const ObjectCard: FC<ObjectCardProps> = ({ id, mainphoto, title, address, mainDesc }) => {
 	return (
 		<Link className={styles.objCard} to={`/${AppRoute.Objects}/${id}`}>
 			<div className={styles.objTop}>
-				<img src={logo} alt={title} />
+				<img src={mainphoto[0]?.original} alt={title} />
 			</div>
 			<div className={styles.objInfo}>
 				<h6>{title}</h6>

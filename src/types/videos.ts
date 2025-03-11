@@ -1,9 +1,11 @@
+import { type ImageItemWithText } from './photos'
+
 export type VideoItem = {
 	id: string
 	title: string
 	duration: string
 	url: string | null
-	thumbnail: string
+	mainphoto: ImageItemWithText[]
 	date: Date
 	similarVideos: VideoItem[]
 }

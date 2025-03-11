@@ -1,9 +1,9 @@
-import { type ImageItem } from 'src/types/photos'
+import { type ImageItemWithText, type ImageItem } from 'src/types/photos'
 
 export type CultureItem = {
 	id: string
 	title: string
-	logoUrl: string
+	mainphoto: ImageItemWithText[]
 	desc: string
 	topDesc: string
 	bottomDesc: string

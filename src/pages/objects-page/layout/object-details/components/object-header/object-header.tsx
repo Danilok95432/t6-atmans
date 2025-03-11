@@ -23,9 +23,9 @@ export const ObjectHeader: FC = () => {
 		<section className={styles.objectHeader}>
 			{objectData?.title && <h2>{objectData?.title}</h2>}
 			<div className={styles.objectInfoWrapper}>
-				{objectData?.logo && (
+				{objectData?.mainphoto[0]?.original && (
 					<div className={styles.logoContainer}>
-						<img src={objectData?.logo} alt={objectData?.title} />
+						<img src={objectData?.mainphoto[0].original} alt={objectData?.title} />
 					</div>
 				)}
 				<div className={styles.objectMainInfo}>

@@ -59,7 +59,7 @@ export const NewsDetails = () => {
 								</div>
 							)}
 							<div className={styles.newsItemMainImg}>
-								<img src={newsItemData?.preview} alt={newsItemData?.title} />
+								<img src={newsItemData?.mainphoto[0]?.original} alt={newsItemData?.title} />
 							</div>
 							<div className={styles.newsDescs}>
 								{newsItemData?.full && (

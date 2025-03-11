@@ -1,6 +1,6 @@
 import { type CategoryFilterItem, type SimpleLinkType, type SourceLink } from 'src/types/global'
 import { type CardNewsItem } from 'src/types/news'
-import { type ImageItem } from 'src/types/photos'
+import { type ImageItemWithText, type ImageItem } from 'src/types/photos'
 import { type ShortDocument } from 'src/types/document'
 import { type PathwayItem } from 'src/types/location'
 import { type ProgramDay } from 'src/types/program'
@@ -33,7 +33,7 @@ export type EventItem = {
 
 export type CardEventItem = {
 	id: string
-	imgUrl: string
+	mainphoto: ImageItemWithText[]
 	title: string
 	status: 'cancel' | 'current' | 'future' | 'finished'
 	category: CategoryFilterItem

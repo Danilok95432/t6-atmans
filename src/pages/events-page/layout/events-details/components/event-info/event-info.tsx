@@ -59,7 +59,7 @@ export const EventInfo = () => {
 
 				<div className={styles.mainInfo}>
 					<div className={styles.avatarWrapper}>
-						<img src={eventData?.imgUrl} alt={eventData?.title} />
+						<img src={eventData?.mainphoto[0]?.thumbnail} alt={eventData?.title} />
 					</div>
 					<div className={styles.infoBlock}>
 						<CustomText $lineHeight='1.3' $margin='0 0 30px 0' className={styles.infoBlockText}>

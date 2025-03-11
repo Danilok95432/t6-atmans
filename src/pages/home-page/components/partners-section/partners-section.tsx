@@ -31,7 +31,7 @@ export const PartnersSection: FC = () => {
 							<li key={partnerEl.id}>
 								<a href={partnerEl.link} className={styles.partnersLink}>
 									<img
-										src={partnerEl.imgUrl}
+										src={partnerEl.mainphoto[0]?.original}
 										alt='partner'
 										width={188}
 										height={105}
