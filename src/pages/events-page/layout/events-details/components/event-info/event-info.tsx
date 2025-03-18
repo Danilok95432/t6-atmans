@@ -30,7 +30,7 @@ export const EventInfo = () => {
 	useAdditionalCrumbs(eventData?.title)
 
 	return (
-		<Container $padding='0' $paddingAdaptive='0'>
+		<Container $padding='0' $paddingAdaptive='0' $margin='0'>
 			<div className={styles.eventInfoWrapper}>
 				<h2>{eventData?.title}</h2>
 				<FlexRow className={styles.topLineEvent}>
@@ -59,7 +59,7 @@ export const EventInfo = () => {
 
 				<div className={styles.mainInfo}>
 					<div className={styles.avatarWrapper}>
-						<img src={eventData?.mainphoto[0]?.thumbnail} alt={eventData?.title} />
+						<img src={eventData?.mainphoto[0]?.original} alt={eventData?.title} />
 					</div>
 					<div className={styles.infoBlock}>
 						<CustomText $lineHeight='1.3' $margin='0 0 30px 0' className={styles.infoBlockText}>

@@ -25,7 +25,7 @@ export const ObjectHeader: FC = () => {
 			<div className={styles.objectInfoWrapper}>
 				{objectData?.mainphoto[0]?.original && (
 					<div className={styles.logoContainer}>
-						<img src={objectData?.mainphoto[0].original} alt={objectData?.title} />
+						<img src={objectData?.mainphoto[0]?.original} alt={objectData?.title} />
 					</div>
 				)}
 				<div className={styles.objectMainInfo}>
