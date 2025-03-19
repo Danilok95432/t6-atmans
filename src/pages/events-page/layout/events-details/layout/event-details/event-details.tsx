@@ -12,7 +12,7 @@ import { CustomText } from 'src/components/custom-text/custom-text'
 import styles from './index.module.scss'
 
 export const EventDetails: FC = () => {
-	const { id } = useParams()
+	const { id = '' } = useParams()
 
 	const { data: eventInfo } = useGetEventByIdQuery(id ?? '')
 	const breakPoint = useBreakPoint()

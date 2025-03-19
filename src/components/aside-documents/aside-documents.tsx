@@ -1,11 +1,11 @@
 import { type FC } from 'react'
-import { type ShortDocument } from 'src/types/document'
+import { type EventDocumentItem } from 'src/types/events'
 import cn from 'classnames'
 
 import styles from './index.module.scss'
 
 type AsideDocumentsProps = {
-	documents: ShortDocument[] | undefined
+	documents: EventDocumentItem[] | undefined
 	className?: string
 }
 
@@ -16,11 +16,11 @@ export const AsideDocuments: FC<AsideDocumentsProps> = ({ documents, className }
 			{documents?.map((item) => (
 				<li key={item.id}>
 					<a className={styles.documentLink} href='#' download>
-						{item.title}
+						{item.name}
 					</a>
 
 					<p className={styles.documentInfo}>
-						{item.type}-файл, {item.size} Кбайт
+						{item.url.split('.')[item.url.split('.').length - 1]}-файл
 					</p>
 				</li>
 			))}

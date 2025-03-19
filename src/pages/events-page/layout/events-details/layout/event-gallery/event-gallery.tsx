@@ -20,23 +20,10 @@ export const EventGallery: FC = () => {
 				limitController
 				variant='slider'
 			/>
-			<GalleryImg
-				className={styles.eventPhotos}
-				images={eventInfo?.photos}
-				limit={12}
-				limitController
-				variant='slider'
-			/>
-			<GalleryImg
-				className={styles.eventPhotos}
-				images={eventInfo?.photos}
-				limit={12}
-				limitController
-				variant='slider'
-			/>
-			<button type='button' className={styles.eventGalleryButton}>
+			{/* <button type='button' className={styles.eventGalleryButton}>
 				Показать еще
 			</button>
+			*/}
 		</div>
 	)
 }

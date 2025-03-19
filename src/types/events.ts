@@ -6,6 +6,18 @@ import { type PathwayItem } from 'src/types/location'
 import { type ProgramDay } from 'src/types/program'
 import { type VideoItem } from 'src/types/videos'
 
+export type EventDocumentItem = {
+	id: string
+	name: string
+	url: string
+}
+
+export type EventPartnerItem = {
+	id_partner: string
+	itemlink: string
+	title: string
+}
+
 export type EventItem = {
 	ageRating: string
 	status: 'cancel' | 'current' | 'future' | 'finished'
@@ -29,6 +41,8 @@ export type EventItem = {
 	videos: VideoItem[]
 	photos: ImageItem[]
 	relatedLinks: SourceLink[]
+	documents?: EventDocumentItem[]
+	partners?: EventPartnerItem[]
 } & Omit<CardEventItem, 'date'>
 
 export type CardEventItem = {

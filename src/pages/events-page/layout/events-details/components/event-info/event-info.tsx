@@ -22,7 +22,7 @@ import { MailEventIconSVG } from 'src/UI/icons/mailEventIconSVG'
 import styles from './index.module.scss'
 
 export const EventInfo = () => {
-	const { id } = useParams()
+	const { id = '' } = useParams()
 	const { data: eventData } = useGetEventByIdQuery(id ?? '')
 
 	const breakPoint = useBreakPoint()

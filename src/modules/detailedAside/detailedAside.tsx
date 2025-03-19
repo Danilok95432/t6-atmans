@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { type ShortDocument } from 'src/types/document'
+import { type EventPartnerItem, type EventDocumentItem } from 'src/types/events'
 import { type SimpleLinkType, type SourceLink } from 'src/types/global'
 import cn from 'classnames'
 
@@ -14,9 +14,9 @@ type DetailedAsideProps = {
 	className?: string
 	brandImg?: string
 	genPartnerImg?: string
-	partners?: SimpleLinkType[]
+	partners?: EventPartnerItem[]
 	organizers?: SimpleLinkType[]
-	documents?: ShortDocument[]
+	documents?: EventDocumentItem[]
 	links?: SourceLink[]
 }
 
@@ -52,7 +52,7 @@ export const DetailedAside: FC<DetailedAsideProps> = ({
 					<h6>Партнеры</h6>
 					<ul className={styles.asideSimpleLinks}>
 						{partners.map((partnerEl) => (
-							<SimpleLink title={partnerEl.title} link={partnerEl.link} key={partnerEl.title} />
+							<SimpleLink title={partnerEl.title} link={partnerEl.itemlink} key={partnerEl.title} />
 						))}
 					</ul>
 				</div>

@@ -40,9 +40,9 @@ export const EventDetailsLayout: FC = () => {
 					<DetailedAside
 						brandImg={eventInfo?.brandImg}
 						genPartnerImg={eventInfo?.partnerImg}
-						partners={eventInfo?.partnerLinks}
+						partners={eventInfo?.partners}
 						organizers={eventInfo?.organizerLinks}
-						documents={eventInfo?.sideDocs}
+						documents={eventInfo?.documents}
 						links={eventInfo?.relatedLinks}
 					/>
 				</Container>
