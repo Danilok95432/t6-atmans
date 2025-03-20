@@ -28,6 +28,7 @@ export const ContactsInfo: FC = () => {
 			{aboutContactsData?.emails[0] && (
 				<div className={styles.contactsBlock}>
 					<h4>Электронная почта</h4>
+					<p>{aboutContactsData.emails[0].contact}</p>
 					<a href={`mailto:${aboutContactsData.emails[0].email}`}>
 						{aboutContactsData.emails[0].email}
 					</a>

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useGetObjectByIdQuery } from 'src/store/objects/objects.api'
 
 import styles from './index.module.scss'
+import { ObjPlacement } from 'src/modules/objPlacement/obj-placement'
 
 export const ObjDetailsMap: FC = () => {
 	const { id } = useParams()
@@ -15,7 +16,11 @@ export const ObjDetailsMap: FC = () => {
 	return (
 		<section className={styles.mapSection}>
 			<div className={styles.objLocation}>
-				<iframe src={objectData?.location} width='100%' height='100%' loading='eager'></iframe>
+				{objectData?.paths.length > 0 ? (
+					<ObjPlacement placeVariants={objectData?.paths} title='Как добраться' />
+				) : (
+					<iframe src={objectData?.location} width='100%' height='100%' loading='eager'></iframe>
+				)}
 			</div>
 		</section>
 	)

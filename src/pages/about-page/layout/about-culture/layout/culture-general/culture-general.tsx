@@ -15,11 +15,13 @@ export const CultureGeneral: FC = () => {
 			<h2>Материальная культура</h2>
 
 			<div className={styles.inner}>
-				<p className={styles.culturesDescription}>{aboutPageData.topDesc}</p>
-
+				<div className={styles.culturesDescription}>
+					{aboutPageData?.topDesc && (
+						<div dangerouslySetInnerHTML={{ __html: aboutPageData.topDesc }} />
+					)}
+				</div>
 				<GallerySection images={aboutPageData?.photoGallery} />
-
-				<p>{aboutPageData.bottomDesc}</p>
+				{aboutPageData.bottomDesc !== 'null' ? <p>{aboutPageData.bottomDesc}</p> : null}
 				{aboutPageData.cultures?.length && (
 					<div className={styles.culturesList}>
 						<h5>Культурные элементы</h5>
