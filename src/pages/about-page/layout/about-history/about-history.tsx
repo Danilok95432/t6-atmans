@@ -25,12 +25,12 @@ export const AboutHistory: FC = () => {
 					className={styles.topDescs}
 				/>
 				<GallerySection images={aboutPageData?.photos} />
-				{/* <RenderedArray
+				<RenderedArray
 					strArray={aboutPageData.bottomDescs}
 					asStr='p'
 					as='div'
 					className={styles.bottomDescs}
-				/> */}
+				/>
 			</div>
 		</div>
 	)
