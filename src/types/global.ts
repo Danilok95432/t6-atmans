@@ -33,4 +33,5 @@ export type CategoryFilterItem = {
 export type FiltrationInfo = {
 	months: MonthFilterItem[]
 	categories: CategoryFilterItem[]
+	brands: CategoryFilterItem[]
 }

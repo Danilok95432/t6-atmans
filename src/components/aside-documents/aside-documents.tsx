@@ -15,7 +15,7 @@ export const AsideDocuments: FC<AsideDocumentsProps> = ({ documents, className }
 		<ul className={cn(styles.documents, className)}>
 			{documents?.map((item) => (
 				<li key={item.id}>
-					<a className={styles.documentLink} href='#' download>
+					<a className={styles.documentLink} href={item.url} download>
 						{item.name}
 					</a>
 

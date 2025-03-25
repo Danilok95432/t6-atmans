@@ -25,7 +25,6 @@ export const VideoCard: FC<VideoCardProps> = ({
 		<Link className={cn(styles.videoCard, className)} to={`/${AppRoute.Videos}/${id}`}>
 			<div className={styles.videoThumbWrapper}>
 				<img src={mainphoto[0]?.original} alt={title} />
-				<span className={styles.videoDuration}>{duration}</span>
 				{date && (
 					<span className={styles.videoDate}>{mainFormatDate(new Date(date), 'dd.MM.yyyy')}</span>
 				)}

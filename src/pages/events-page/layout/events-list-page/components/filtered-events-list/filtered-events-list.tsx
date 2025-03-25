@@ -35,7 +35,7 @@ export const FilteredEventsList = () => {
 			<CategoriesFiltration
 				activeCatId={activeCategory}
 				changeActiveCatId={handleChangeActiveCategory}
-				categories={eventsFiltrationInfo?.categories ?? []}
+				categories={eventsFiltrationInfo?.brands ?? []}
 			/>
 			<div className={styles.eventsList}>
 				{eventsList?.map((eventEl) => (

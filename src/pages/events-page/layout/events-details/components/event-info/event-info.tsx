@@ -40,10 +40,12 @@ export const EventInfo = () => {
 							: mainFormatDate(eventData?.date[0])}
 					</CustomText>
 					<div className={styles.dot}></div>
-					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>Фестиваль</CustomText>
+					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
+						{eventData?.event_type_name}
+					</CustomText>
 					<div className={styles.dot}></div>
 					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
-						Международное событие
+						{eventData?.event_level_name}
 					</CustomText>
 					<div className={styles.dot}></div>
 					<EventStatus className={styles.status} statusCode={eventData?.status} />

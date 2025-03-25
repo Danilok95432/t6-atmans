@@ -43,6 +43,10 @@ export type EventItem = {
 	relatedLinks: SourceLink[]
 	documents?: EventDocumentItem[]
 	partners?: EventPartnerItem[]
+	raspisanie?: string
+	conditions?: string
+	event_type_name?: string
+	event_level_name?: string
 } & Omit<CardEventItem, 'date'>
 
 export type CardEventItem = {

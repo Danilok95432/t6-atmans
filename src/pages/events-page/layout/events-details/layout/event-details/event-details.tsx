@@ -36,9 +36,19 @@ export const EventDetails: FC = () => {
 					<h4>Условия участия</h4>
 					<RenderedArray
 						className={styles.eventDescs}
-						strArray={[
-							'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, quo nemo labore ad nesciunt alias minima voluptatum exercitationem harum. Explicabo excepturi, nisi nulla pariatur unde, ut officiis, natus voluptatem corporis placeat repudiandae officia error? Fuga hic dicta provident excepturi quibusdam similique dolores accusantium recusandae. Quia tenetur quisquam aliquam eveniet est?',
-						]}
+						strArray={[eventInfo?.conditions ?? '']}
+						as='div'
+						asStr='p'
+					/>
+				</section>
+			)}
+
+			{eventInfo && (
+				<section>
+					<h4>Расписание</h4>
+					<RenderedArray
+						className={styles.eventDescs}
+						strArray={[eventInfo?.raspisanie ?? '']}
 						as='div'
 						asStr='p'
 					/>
