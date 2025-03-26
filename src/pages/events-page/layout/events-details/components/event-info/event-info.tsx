@@ -99,8 +99,8 @@ export const EventInfo = () => {
 							<InfoRow
 								title='Сайт события:'
 								label={
-									<a href={eventData?.site.link} className={styles.infoBlockText}>
-										{eventData?.site.title}
+									<a href={eventData?.website} className={styles.infoBlockText}>
+										{eventData?.website}
 									</a>
 								}
 								icon={<SiteIconSVG />}
@@ -114,8 +114,8 @@ export const EventInfo = () => {
 							<InfoRow
 								title='Телефон:'
 								label={
-									<a href='tel:+74329000000' className={styles.infoBlockText}>
-										+7 (432) 900-00-00
+									<a href={`tel:${eventData?.contact_telphone}`} className={styles.infoBlockText}>
+										{eventData?.contact_telphone}
 									</a>
 								}
 								icon={<PhoneEventIconSVG />}
@@ -129,8 +129,8 @@ export const EventInfo = () => {
 							<InfoRow
 								title='Телеграм:'
 								label={
-									<a href={eventData?.site.link} className={styles.infoBlockText}>
-										{'https://t.me/username'}
+									<a href={eventData?.contact_tg} className={styles.infoBlockText}>
+										{eventData?.contact_tg}
 									</a>
 								}
 								icon={<TgEventIconSVG />}
@@ -144,8 +144,8 @@ export const EventInfo = () => {
 							<InfoRow
 								title='Электронная почта:'
 								label={
-									<a href={eventData?.site.link} className={styles.infoBlockText}>
-										{'mail@mail.ru'}
+									<a href={`mailto:${eventData?.contact_email}`} className={styles.infoBlockText}>
+										{eventData?.contact_email}
 									</a>
 								}
 								icon={<MailEventIconSVG />}

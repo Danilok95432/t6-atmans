@@ -47,6 +47,10 @@ export type EventItem = {
 	conditions?: string
 	event_type_name?: string
 	event_level_name?: string
+	website?: string
+	contact_email?: string
+	contact_telphone?: string
+	contact_tg?: string
 } & Omit<CardEventItem, 'date'>
 
 export type CardEventItem = {
