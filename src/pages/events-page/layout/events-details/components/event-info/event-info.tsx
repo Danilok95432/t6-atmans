@@ -95,7 +95,7 @@ export const EventInfo = () => {
 							/>
 						)}
 
-						{eventData?.site.link && (
+						{eventData?.website && (
 							<InfoRow
 								title='Сайт события:'
 								label={
@@ -110,7 +110,7 @@ export const EventInfo = () => {
 							/>
 						)}
 
-						{eventData && (
+						{eventData?.contact_telphone && (
 							<InfoRow
 								title='Телефон:'
 								label={
@@ -125,7 +125,7 @@ export const EventInfo = () => {
 							/>
 						)}
 
-						{eventData && (
+						{eventData?.contact_tg && (
 							<InfoRow
 								title='Телеграм:'
 								label={
@@ -140,7 +140,7 @@ export const EventInfo = () => {
 							/>
 						)}
 
-						{eventData && (
+						{eventData?.contact_email && (
 							<InfoRow
 								title='Электронная почта:'
 								label={
