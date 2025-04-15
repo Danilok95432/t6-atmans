@@ -22,12 +22,7 @@ export const NewsSection: FC = () => {
 	return (
 		<section className={cn(styles.newsSection, '_bordered')}>
 			<Container>
-				<FlexRow
-					$margin='0 0 20px 0'
-					$alignItems='center'
-					$justifyContent='space-between'
-					$gap='16px'
-				>
+				<FlexRow className={styles.newsSectionRow}>
 					<h2>Новости</h2>
 					<MainButton as='route' to={AppRoute.News}>
 						Все новости

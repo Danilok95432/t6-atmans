@@ -6,6 +6,9 @@
 	}
 
 	.partnersTop {
+		margin: 0 0 60px 0;
+		align-items: center;
+		justify-content: space-between;
 		@include mobile {
 			margin-bottom: 25px;
 		}

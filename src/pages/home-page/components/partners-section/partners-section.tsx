@@ -14,12 +14,7 @@ export const PartnersSection: FC = () => {
 	return (
 		<section className={styles.partnersSection}>
 			<Container>
-				<FlexRow
-					className={styles.partnersTop}
-					$margin='0 0 60px 0'
-					$alignItems='center'
-					$justifyContent='space-between'
-				>
+				<FlexRow className={styles.partnersTop}>
 					<h2>Партнеры</h2>
 					<MainButton as='route' to={AppRoute.Home}>
 						Все партнеры

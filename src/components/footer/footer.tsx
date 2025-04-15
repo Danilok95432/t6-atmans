@@ -13,9 +13,9 @@ export const Footer: FC = () => {
 	return (
 		<footer className={styles.footer}>
 			<Container>
-				<FlexRow className={styles.footerTop} $alignItems='center' $justifyContent='space-between'>
+				<FlexRow className={styles.footerTop}>
 					<img className={styles.footerLogo} src={footerLogo} alt='Логотип' />
-					<FlexRow className={styles.footerTopLinks} $gap='42px'>
+					<FlexRow className={styles.footerTopLinks}>
 						<Link to={AppRoute.Events}>События</Link>
 						<Link to={AppRoute.Events}>Обратная связь</Link>
 					</FlexRow>

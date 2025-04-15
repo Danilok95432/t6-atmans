@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   padding-block: 30px;
+  align-items: center;
 
   @include mobile {
     align-items: start !important;
@@ -28,6 +29,7 @@
 }
 
 .footerTopLinks {
+  gap: 42px;
   @include mobile {
     row-gap: 25px !important;
     flex-direction: column !important;

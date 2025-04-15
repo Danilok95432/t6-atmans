@@ -1,6 +1,13 @@
 .eventsSection {
 	padding: 77px 0 108px;
 
+	.eventsSectionRow {
+		margin: 0 0 20px 0;
+		align-items: center;
+		justify-content: space-between;
+		gap: 17px;
+	}
+
 	@include mobile {
 		padding: 50px 0 55px;
 	}

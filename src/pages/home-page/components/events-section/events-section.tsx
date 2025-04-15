@@ -22,12 +22,7 @@ export const EventsSection: FC = () => {
 	return (
 		<section className={cn(styles.eventsSection, '_bordered')}>
 			<Container>
-				<FlexRow
-					$margin='0 0 20px 0'
-					$alignItems='center'
-					$justifyContent='space-between'
-					$gap='17px'
-				>
+				<FlexRow className={styles.eventsSectionRow}>
 					<h2 className={styles.sectionTitle}>События</h2>
 					<MainButton as='route' to={AppRoute.Events}>
 						Все события

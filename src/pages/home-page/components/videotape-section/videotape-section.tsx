@@ -22,12 +22,7 @@ export const VideotapeSection: FC = () => {
 	return (
 		<section className={cn(styles.videotapeSection, '_bordered')}>
 			<Container className={styles.videotapeTop}>
-				<FlexRow
-					$margin='0 0 20px 0'
-					$alignItems='center'
-					$justifyContent='space-between'
-					$gap='17px'
-				>
+				<FlexRow className={styles.videotapeSectionRow}>
 					<h2>Видеолента</h2>
 					<MainButton as='route' to={AppRoute.Videos}>
 						Все видео
