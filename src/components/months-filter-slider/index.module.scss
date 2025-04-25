@@ -8,7 +8,6 @@
 	}
 
 	.monthsFilterSlider {
-		padding: 0 35px;
 		:global {
 			.slider-nav-btns {
 				opacity: 1;
@@ -27,12 +26,6 @@
 
 		@media (max-width: 768px) {
 			padding: 0;
-		}
-	}
-
-	.monthsSliderNavBtns {
-		@media (max-width: 768px) {
-			display: none;
 		}
 	}
 }

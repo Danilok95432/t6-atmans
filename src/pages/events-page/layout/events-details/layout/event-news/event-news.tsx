@@ -11,7 +11,11 @@ export const EventNews: FC = () => {
 	return (
 		<>
 			<h4>Новости события</h4>
-			<GridRow $template='auto / repeat(auto-fit, minmax(280px, 280px))' $gap='20px'>
+			<GridRow
+				$template='auto / repeat(auto-fit, minmax(100%, 300px))'
+				$gap='20px'
+				$margin='0 0 30px 0'
+			>
 				{eventNews?.map((newsEl) => <NewsCard key={newsEl.id} {...newsEl} />)}
 			</GridRow>
 		</>

@@ -1,13 +1,11 @@
 import { type FC } from 'react'
 
 import { useParams } from 'react-router-dom'
-import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 import { useGetEventByIdQuery } from 'src/store/events/events.api'
 
 import { RenderedArray } from 'src/components/rendered-array/rendered-array'
 import { Placement } from 'src/modules/placement/placement'
 import { AccordionItem } from 'src/components/accordion-item/accordion-item'
-import { CustomText } from 'src/components/custom-text/custom-text'
 
 import styles from './index.module.scss'
 import { GalleryImg } from 'src/components/image-gallery/image-gallery'
@@ -17,7 +15,6 @@ export const EventDetails: FC = () => {
 	const { id = '' } = useParams()
 
 	const { data: eventInfo } = useGetEventByIdQuery(id ?? '')
-	const breakPoint = useBreakPoint()
 
 	return (
 		<div className={styles.eventDetailTab}>

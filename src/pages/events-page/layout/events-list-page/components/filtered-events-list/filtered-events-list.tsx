@@ -7,6 +7,8 @@ import { EventCard } from 'src/components/event-card/event-card'
 import { useGetEventsFiltrationQuery, useGetEventsMonthsQuery } from 'src/store/events/events.api'
 
 import styles from './index.module.scss'
+import { MobileList } from 'src/components/mobile-list/mobile-list'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const FilteredEventsList = () => {
 	const [activeMonth, setActiveMonth] = useState('0')
@@ -16,6 +18,7 @@ export const FilteredEventsList = () => {
 		date: activeMonth,
 		category: activeCategory,
 	})
+	const breakpoint = useBreakPoint()
 
 	const handleChangeActiveMonth = (newMonth: string) => {
 		setActiveMonth(newMonth)
@@ -37,11 +40,15 @@ export const FilteredEventsList = () => {
 				changeActiveCatId={handleChangeActiveCategory}
 				categories={eventsFiltrationInfo?.brands ?? []}
 			/>
-			<div className={styles.eventsList}>
-				{eventsList?.map((eventEl) => (
-					<EventCard key={eventEl.id} {...eventEl} className={styles.eventCard} />
-				))}
-			</div>
+			{breakpoint === 'S' && eventsList ? (
+				<MobileList items={eventsList} renderItem={EventCard} classListItems={styles.eventsList} />
+			) : (
+				<div className={styles.eventsList}>
+					{eventsList?.map((eventEl) => (
+						<EventCard key={eventEl.id} {...eventEl} className={styles.eventCard} />
+					))}
+				</div>
+			)}
 		</div>
 	)
 }

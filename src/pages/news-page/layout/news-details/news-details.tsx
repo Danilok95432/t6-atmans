@@ -1,22 +1,19 @@
 import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { type RefObject, useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 // import { type CardNewsItem } from 'src/types/news'
-import cn from 'classnames'
-import { SwiperSlide, type SwiperRef, Swiper } from 'swiper/react'
 
 import { useGetNewsByIdQuery, useGetNewsMonthsQuery } from 'src/store/news/news.api'
 import { useAdditionalCrumbs } from 'src/hooks/additional-crumbs/additional-crumbs'
 import { mainFormatDate } from 'src/helpers/utils'
-import { gallerySliderOptions } from './consts'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 // import { AsideNews } from 'src/components/aside-news/aside-news'
 import { Container } from 'src/UI/Container/Container'
 import { PageContent } from 'src/components/page-content/page-content'
-import { SliderBtns } from 'src/components/slider-btns/slider-btns'
 
 import styles from './index.module.scss'
+import { GalleryImg } from 'src/components/image-gallery/image-gallery'
 
 export const NewsDetails = () => {
 	const { id } = useParams()
@@ -25,7 +22,6 @@ export const NewsDetails = () => {
 		category: '0',
 	})
 	const { data: newsItemData } = useGetNewsByIdQuery(id ?? '')
-	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 	useAdditionalCrumbs(newsItemData?.title)
 
 	// const [newsArray, setNewsArray] = useState<CardNewsItem[]>([])
@@ -65,31 +61,7 @@ export const NewsDetails = () => {
 									<div dangerouslySetInnerHTML={{ __html: newsItemData.full }} />
 								)}
 							</div>
-							<div className={styles.slider}>
-								<Swiper {...gallerySliderOptions} ref={swiperRef}>
-									{newsItemData.imgGallery?.map((slideItem, idx) => (
-										<SwiperSlide key={idx}>
-											<div className={styles.slideItem}>
-												<div className={styles.slideImg}>
-													<img src={slideItem.thumbnail} alt={slideItem.title} />
-												</div>
-												{/* <h6 className={styles.slideTitle}>{slideItem.title || 'test'}</h6>
-												<span className={styles.slideAuthor}>Автор: {'test'}</span>
-												*/}
-											</div>
-										</SwiperSlide>
-									))}
-								</Swiper>
-								<SliderBtns
-									className={cn(styles.newsSliderBtns, {
-										[styles.noBtns]: newsItemData.imgGallery.length === 0,
-									})}
-									$topPosition='50%'
-									$btnsSpacing='calc(100% + 30px)'
-									swiperRef={swiperRef}
-									color='#5C5C5C'
-								/>
-							</div>
+							<GalleryImg images={newsItemData?.imgGallery} variant='slider' />
 						</div>
 					</Container>
 				</PageContent>

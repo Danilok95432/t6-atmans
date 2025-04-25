@@ -20,3 +20,22 @@ export const gallerySliderOptions: SwiperProps = {
 		},
 	},
 }
+
+export const galleryFullScreenSliderOptions: SwiperProps = {
+	slidesPerView: 1,
+	slidesPerGroup: 1,
+	spaceBetween: 0,
+	breakpoints: {
+		[DisplayBreakpoints.Sm]: {
+			slidesPerView: 1,
+		},
+		[DisplayBreakpoints.Lg]: {
+			slidesPerView: 1,
+			spaceBetween: 0,
+		},
+		[DisplayBreakpoints.Xxl]: {
+			slidesPerView: 1,
+			spaceBetween: 0,
+		},
+	},
+}

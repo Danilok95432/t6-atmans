@@ -62,7 +62,7 @@ export const MonthsFilterSlider: FC<MonthsSliderProps> = ({
 				<SliderBtns
 					className={styles.monthsSliderNavBtns}
 					$topPosition='55%'
-					$btnsSpacing='100%'
+					$btnsSpacing='calc(100% + 40px)'
 					swiperRef={swiperRef}
 					$variant='sm'
 					color='#000000'

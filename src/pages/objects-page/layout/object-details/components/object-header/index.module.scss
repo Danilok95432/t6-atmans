@@ -11,6 +11,9 @@
 	@media (max-width: 1024px) {
 		flex-direction: column;
 	}
+	@media (max-width: 768px) {
+		flex-direction: column-reverse;
+	}
 	.logoContainer {
 		min-width: 322px;
 		width: 322px;

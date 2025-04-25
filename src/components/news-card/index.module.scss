@@ -27,6 +27,19 @@
   }
 }
 
+.mainNewsContainer {
+  display: flex;
+  flex-direction: row;
+  .newsImgWrapper {
+    width: 464px;
+    height: 100%;
+  }
+  .newsItemContent {
+    width: 320px;
+    padding: 55px 25px;
+  }
+}
+
 
 .newsImgWrapper {
   width: 100%;
@@ -55,10 +68,6 @@
   flex-direction: column;
   justify-content: space-between;
   background: var(--color-white);
-
-  @include mobile-s {
-    height: 221px;
-  }
 
   .newsDate,
   .newsDesc {

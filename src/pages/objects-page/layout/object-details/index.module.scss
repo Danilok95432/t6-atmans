@@ -1,6 +1,9 @@
 div.objDetailsPage {
 	margin: 0;
 	padding: 42px 35px 30px 50px;
+	@media (max-width: 768px) {
+		padding: 20px 0 0 0;
+	}
 	section {
 		padding-bottom: 40px;
 

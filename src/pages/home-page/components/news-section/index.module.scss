@@ -34,3 +34,20 @@
 		min-height: 394px;
 	}
 }
+
+.breakpointNews, .topNews {
+	display: flex;
+	flex-direction: row;
+	gap: 25px;
+	padding-bottom: 20px;
+}
+
+.mainNews {
+	max-width: 785px;
+}
+
+.topNews {
+	a {
+		width: 245px;
+	}
+}

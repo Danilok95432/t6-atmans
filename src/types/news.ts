@@ -10,6 +10,7 @@ export type NewsItem = {
 	textNews: string[]
 	full: string
 	short: string
+	main: boolean
 }
 
 export type CardNewsItem = {
@@ -18,5 +19,6 @@ export type CardNewsItem = {
 	mainphoto: ImageItemWithText[]
 	date: Date
 	desc: string
+	main: boolean
 	category: CategoryFilterItem
 }
