@@ -38,7 +38,7 @@ export const NewsSection: FC = () => {
 		let topNewsItems: CardNewsItem[] = []
 
 		if (mainNewsItem) {
-			topNewsItems = sortedNews.filter((news) => news.id !== mainNewsItem.id).slice(0, 2)
+			topNewsItems = sortedNews.filter((news) => news.id !== mainNewsItem?.id).slice(0, 2)
 		} else {
 			topNewsItems = sortedNews.slice(0, 5)
 		}
