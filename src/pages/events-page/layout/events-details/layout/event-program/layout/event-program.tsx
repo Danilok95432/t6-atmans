@@ -18,6 +18,7 @@ export const EventProgram: FC = () => {
 
 	return (
 		<div className={styles.programTab}>
+			<h4>Программа</h4>
 			<Program programDays={programDays ?? []} />
 		</div>
 	)

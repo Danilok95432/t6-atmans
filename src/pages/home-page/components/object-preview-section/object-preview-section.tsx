@@ -10,9 +10,11 @@ import { Container } from 'src/UI/Container/Container'
 import { SliderBtns } from 'src/components/slider-btns/slider-btns'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const ObjectPreviewSection = () => {
 	const { data: objects } = useGetHomePreviewObjectQuery(null)
+	const breakpoint = useBreakPoint()
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 
 	if (!objects) return
@@ -20,7 +22,7 @@ export const ObjectPreviewSection = () => {
 		<section className={cn(styles.objectPreviewSection, '_bordered')}>
 			<Container>
 				{objects?.length && (
-					<div className='relative-wrapper'>
+					<div>
 						<Swiper {...homeObjectsSliderOptions} ref={swiperRef}>
 							{objects.map((object, idx) => (
 								<SwiperSlide className={styles.objectSlide} key={idx}>
@@ -51,8 +53,9 @@ export const ObjectPreviewSection = () => {
 						<SliderBtns
 							className={styles.objectSliderBtns}
 							$topPosition='50%'
-							$btnsSpacing='100%'
+							$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
 							swiperRef={swiperRef}
+							color='#5C5C5C'
 						/>
 					</div>
 				)}

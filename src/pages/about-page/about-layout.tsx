@@ -1,17 +1,32 @@
 import { type FC } from 'react'
-
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
+import cn from 'classnames'
 
 import { Container } from 'src/UI/Container/Container'
 import { BreadCrumbs } from 'src/modules/bread-crumbs/bread-crumbs'
-import { SideMenu } from 'src/components/side-menu/side-menu'
+import { HeadMenu } from 'src/components/head-menu/head-menu'
 import { PageContent } from 'src/components/page-content/page-content'
 
 import { AboutMenuItems } from './consts'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const AboutLayout: FC = () => {
+	const location = useLocation()
+	const breakpoint = useBreakPoint()
+
+	const getCurrentLocation = () => {
+		if (
+			location.pathname.startsWith(`/about/about-culture/`) ||
+			location.pathname.startsWith(`/about/about-games/`)
+		) {
+			return true
+		}
+		return false
+	}
+
+	const isTraditionPage = getCurrentLocation()
 	return (
 		<div className={styles.aboutLayout}>
 			<Container>
@@ -25,20 +40,51 @@ export const AboutLayout: FC = () => {
 					]}
 				/>
 			</Container>
-			<Container className={styles.aboutContainer} $paddingAdaptive='0'>
-				<SideMenu
-					className={styles.aboutSideMenu}
-					sideItems={[
+			<PageContent className={styles.aboutContentWrapper}>
+				<Container className={styles.aboutContainerLayout}>
+					{!isTraditionPage && (
+						<>
+							{breakpoint !== 'S' && <h2>Атманов угол</h2>}
+							<HeadMenu
+								className={styles.aboutSideMenu}
+								sideItems={[
+									{
+										title: 'Атманов угол',
+										link: '/about',
+									},
+									...AboutMenuItems,
+								]}
+							/>
+						</>
+					)}
+					<Outlet />
+					{!isTraditionPage && breakpoint === 'S' && (
+						<>
+							<HeadMenu
+								className={cn(styles.bottomMobileMenu, styles.aboutSideMenu)}
+								position='bottom'
+								sideItems={[
+									{
+										title: 'Атманов угол',
+										link: '/about',
+									},
+									...AboutMenuItems,
+								]}
+							/>
+						</>
+					)}
+				</Container>
+			</PageContent>
+			<Container>
+				<BreadCrumbs
+					crumbsLinksMap={[
+						...AboutMenuItems,
 						{
 							title: 'Атманов угол',
-							link: '/about',
+							link: 'about',
 						},
-						...AboutMenuItems,
 					]}
 				/>
-				<PageContent className={styles.aboutContentWrapper}>
-					<Outlet />
-				</PageContent>
 			</Container>
 		</div>
 	)

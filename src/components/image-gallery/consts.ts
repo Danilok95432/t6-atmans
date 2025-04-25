@@ -15,7 +15,7 @@ export const gallerySliderOptions: SwiperProps = {
 			spaceBetween: 15,
 		},
 		[DisplayBreakpoints.Xxl]: {
-			slidesPerView: 7,
+			slidesPerView: 5,
 			spaceBetween: 25,
 		},
 	},

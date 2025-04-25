@@ -1,37 +1,48 @@
-.cultureDetails {
+div.cultureDetails {
 	p {
 		font-size: fluid(20, 16);
 		line-height: 1.37;
 	}
-}
-
-.cultureMain {
-	display: flex;
-	gap: 21px;
-	padding-bottom: 23px;
-	border-bottom: 7px solid #f2f5f8;
-	margin-bottom: 26px;
-
-	@include mobile {
-		flex-direction: column;
-	}
-
-	p {
-		flex-grow: 1;
-		font-size: fluid(20, 16);
-		padding-top: 10px;
-		line-height: 1.5;
-	}
-}
-
-.cultureLogo {
-	border: 7px solid #ebeef2;
-	min-width: 132px;
-	width: 132px;
-	height: 132px;
-
-	img {
-		width: 100%;
-		height: 100%;
+	div.cultureDetailsInfo {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 25px;
+		padding-bottom: 20px;
+		border-bottom: 5px solid #f2f5f8;
+		margin-bottom: 20px;
+		@media (max-width: 768px) {
+			flex-direction: column-reverse;
+		}
+		h2 {
+			margin-bottom: 15px;
+		}
+		.cultureMain {
+			display: flex;
+			flex-direction: column;
+			@include mobile {
+				flex-direction: column;
+			}
+		
+			p {
+				flex-grow: 1;
+				font-size: fluid(17, 17);
+				line-height: 1.5;
+			}
+		}
+		
+		.cultureLogo {
+			min-width: 300px;
+			min-height: 200px;
+			width: 320px;
+			height: 213px;
+			border-radius: 5px;
+			img {
+				width: 100%;
+				height: 100%;
+				aspect-ratio: 3 / 2;
+			}
+		}
 	}
 }

@@ -5,7 +5,7 @@ import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import { AppRoute } from 'src/routes/main-routes/consts'
 
-import { getDayOfWeek, mainFormatDate } from 'src/helpers/utils'
+import { getDayOfWeek, mainFormatDate, parseTimeFromDate } from 'src/helpers/utils'
 
 import styles from './index.module.scss'
 import { EventStatus } from '../event-status/event-status'
@@ -17,6 +17,7 @@ type EventItemProps = {
 export const EventCard: FC<EventItemProps> = ({
 	id,
 	category: { title: catTitle },
+	brand: { title: brandTitle },
 	location: { title: locTitle, address },
 	title,
 	date,
@@ -30,13 +31,16 @@ export const EventCard: FC<EventItemProps> = ({
 			<figure className={cn(styles.eventItem, className)}>
 				<div className='event-item-img'>
 					<img src={mainphoto[0]?.original} alt={title} width={415} height={256} loading='lazy' />
-					<span>{catTitle}</span>
+					<span>{brandTitle}</span>
 				</div>
 				<figcaption className={cn(styles.eventContent, 'event-card-content')}>
 					<h3 className={styles.eventTitle}>{title}</h3>
 					<EventStatus className={styles.status} statusCode={status} />
 					<p className={styles.eventDate}>
-						{mainFormatDate(date)}, {getDayOfWeek(date)}
+						{date ? `${mainFormatDate(date)}, ${getDayOfWeek(date)}` : 'Нет даты'}
+					</p>
+					<p className={styles.eventTime}>
+						{date ? `Начало в ${parseTimeFromDate(date)}` : 'Нет информации о времени начала'}
 					</p>
 					<p className={styles.eventLocations}>
 						<span>

@@ -16,7 +16,6 @@ export const GallerySection: FC<IGallerySectionProps> = ({ className, images }) 
 
 	return (
 		<section className={classNames(styles.gallerySection, className)}>
-			<h5 className={styles.galleryTitle}>Фотогалерея</h5>
 			<GalleryImg images={images} variant='slider' />
 		</section>
 	)

@@ -1,17 +1,17 @@
 .cultureElem {
 	display: flex;
 	flex-direction: column;
-	row-gap: fluid(15, 10);
 	padding: 25px fluid(25, 15);
-	background: #f2f5f8;
+	background: #F2F1F7;
 
-	h6 {
+	h5 {
 		font-weight: 400;
-		font-size: fluid(25, 22);
+		font-size: fluid(22, 22);
+		color: #E30613;
 	}
 
 	p {
-		font-size: fluid(18, 16);
+		font-size: fluid(17, 17);
 		line-height: 1.15;
 
 		@include mobile {

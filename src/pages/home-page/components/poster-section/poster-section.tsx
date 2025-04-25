@@ -10,33 +10,35 @@ import { mainFormatDate } from 'src/helpers/utils'
 import { ToggleLink } from 'src/components/toggle-link/toggle-link'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const PosterSection: FC = () => {
 	const { data: posterData } = useGetHomePostersQuery(null)
-
+	const breakpoint = useBreakPoint()
+	console.log(breakpoint)
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 
 	return (
-		<Container $padding='0'>
-			<section className={cn(styles.posterSection, 'slider-with-btns')}>
-				<Swiper className={styles.posterSlider} {...posterSliderOptions} ref={swiperRef}>
-					{posterData?.map((slideItem, idx) => (
-						<SwiperSlide key={idx}>
-							<ToggleLink
-								className={styles.slideItem}
-								isExternal={slideItem.isExternal}
-								link={slideItem.itemLink}
-							>
-								<div className={styles.slideItemWrapperImg}>
-									<img
-										src={slideItem.mainphoto[0]?.original}
-										alt={slideItem.title}
-										className={styles.slideItemImage}
-										width={1920}
-										height={646}
-										loading='lazy'
-									/>
-								</div>
+		<section className={cn(styles.posterSection, 'slider-with-btns')}>
+			<Swiper className={styles.posterSlider} {...posterSliderOptions} ref={swiperRef}>
+				{posterData?.map((slideItem, idx) => (
+					<SwiperSlide key={idx}>
+						<ToggleLink
+							className={styles.slideItem}
+							isExternal={slideItem.isExternal}
+							link={slideItem.itemLink}
+						>
+							<div className={styles.slideItemWrapperImg}>
+								<img
+									src={slideItem.mainphoto[0]?.original}
+									alt={slideItem.title}
+									className={styles.slideItemImage}
+									width={1920}
+									height={646}
+									loading='lazy'
+								/>
+							</div>
+							<Container className={styles.posterInfoContainer}>
 								<div className={styles.slideInfo}>
 									<div className={styles.slideInfoInner}>
 										<h1 className={styles.sliderInfoTitle}>{slideItem.title}</h1>
@@ -52,17 +54,18 @@ export const PosterSection: FC = () => {
 										</ul>
 									</div>
 								</div>
-							</ToggleLink>
-						</SwiperSlide>
-					))}
-				</Swiper>
-				<SliderBtns
-					className={styles.posterSliderBtns}
-					$topPosition='47%'
-					$btnsSpacing='96%'
-					swiperRef={swiperRef}
-				/>
-			</section>
-		</Container>
+							</Container>
+						</ToggleLink>
+					</SwiperSlide>
+				))}
+			</Swiper>
+			<SliderBtns
+				className={styles.posterSliderBtns}
+				$topPosition='47%'
+				$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '90%'}
+				swiperRef={swiperRef}
+				color='#FFFFFFB5'
+			/>
+		</section>
 	)
 }

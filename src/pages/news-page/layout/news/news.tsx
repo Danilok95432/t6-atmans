@@ -37,15 +37,15 @@ export const News = () => {
 			<Helmet>
 				<title>Новости</title>
 			</Helmet>
-			<Container className={styles.newsContainer} $paddingAdaptive='0'>
-				<PageContent className={styles.newsListPage}>
+			<PageContent className={styles.newsListPage}>
+				<Container className={styles.newsContainer}>
 					<h2>Новости {activeMonth !== '0' && getYear(new Date(activeMonth))}</h2>
 
 					<MonthsFilterSlider
 						monthsList={newsFiltrationInfo?.months ?? []}
 						changeActiveMonth={handleChangeActiveMonth}
 						activeMonth={activeMonth}
-						allMonthTitle='все новости'
+						allMonthTitle='Все новости'
 					/>
 					<CategoriesFiltration
 						activeCatId={activeCategory}
@@ -67,8 +67,8 @@ export const News = () => {
 							В выбранном вами месяце нет ни одной новости. Пожалуйста, выберите другой месяц.
 						</p>
 					)}
-				</PageContent>
-			</Container>
+				</Container>
+			</PageContent>
 		</>
 	)
 }

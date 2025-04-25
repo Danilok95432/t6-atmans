@@ -15,9 +15,11 @@ import { VideoCard } from 'src/components/video-card/video-card'
 import { SliderBtns } from 'src/components/slider-btns/slider-btns'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const VideotapeSection: FC = () => {
 	const { data: videos } = useGetHomeVideosQuery(null)
+	const breakpoint = useBreakPoint()
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 	return (
 		<section className={cn(styles.videotapeSection, '_bordered')}>
@@ -28,7 +30,7 @@ export const VideotapeSection: FC = () => {
 						Все видео
 					</MainButton>
 				</FlexRow>
-				<div className='slider-with-btns'>
+				<div>
 					<Swiper {...homeVideosSliderOptions} ref={swiperRef}>
 						{videos?.map((slideItem, idx) => (
 							<SwiperSlide key={idx}>
@@ -38,9 +40,10 @@ export const VideotapeSection: FC = () => {
 					</Swiper>
 					<SliderBtns
 						className={styles.videoSliderBtns}
-						$topPosition='40%'
-						$btnsSpacing='calc(100% + 40px)'
+						$topPosition='52%'
+						$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
 						swiperRef={swiperRef}
+						color='#5C5C5C'
 					/>
 				</div>
 			</Container>

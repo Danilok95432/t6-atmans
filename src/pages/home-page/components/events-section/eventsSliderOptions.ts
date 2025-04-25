@@ -5,7 +5,7 @@ import { DisplayBreakpoints } from 'src/helpers/consts'
 export const eventsSliderOptions: SwiperProps = {
 	slidesPerView: 1,
 	slidesPerGroup: 1,
-	spaceBetween: 60,
+	spaceBetween: 25,
 	autoHeight: false,
 	breakpoints: {
 		[DisplayBreakpoints.Sm]: {

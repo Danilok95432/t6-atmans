@@ -4,6 +4,7 @@ export enum AppRoute {
 	About = 'about',
 	AboutHistory = 'about-history',
 	AboutCulture = 'about-culture',
+	AboutGames = 'about-games',
 	AboutContacts = 'about-contacts',
 	Objects = 'objects-list',
 	News = 'news',

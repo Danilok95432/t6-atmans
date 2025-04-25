@@ -6,6 +6,34 @@ import { type DateTimeFormatOptions } from 'src/types/date'
 import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'
 
+const monthNames = [
+	'Январь',
+	'Февраль',
+	'Март',
+	'Апрель',
+	'Май',
+	'Июнь',
+	'Июль',
+	'Август',
+	'Сентябрь',
+	'Октябрь',
+	'Ноябрь',
+	'Декабрь',
+]
+
+export const mainFormatMonthDate = (
+	date: Date | string | undefined,
+	dateFormat = 'dd MMMM yyyy',
+): string | null => {
+	if (!date) return null
+
+	const formatedDate = typeof date === 'string' ? new Date(date) : date
+	const monthIndex = formatedDate.getMonth()
+	const monthName = monthNames[monthIndex]
+
+	return `${monthName}`
+}
+
 // утилитарная функция для кастомного селекта
 export const getValue = (value: string, options: SelOption[]) => {
 	return value ? options.find((option) => option.value === value) : ''
@@ -116,6 +144,17 @@ export const mainFormatDate = (
 	if (!date) return null
 	const formatedDate = typeof date === 'string' ? new Date(date) : date
 	return format(formatedDate, dateFormat, { locale: ru })
+}
+
+export const parseTimeFromDate = (date: Date | string | undefined): string | null => {
+	if (!date) return null
+	const time =
+		typeof date === 'string'
+			? date.split('T')[1].split(':')[0] + ':' + date.split('T')[1].split(':')[1]
+			: date.toDateString().split('T')[1].split(':')[0] +
+				':' +
+				date.toDateString().split('T')[1].split(':')[1]
+	return time
 }
 
 export const formatDateRange = (

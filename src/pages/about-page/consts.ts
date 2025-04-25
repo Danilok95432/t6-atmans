@@ -6,11 +6,15 @@ export const AboutMenuItems: NavigationItem[] = [
 		link: 'about-history',
 	},
 	{
-		title: 'Материальная культура',
+		title: 'Карта и маршруты',
+		link: 'about-contacts',
+	},
+	{
+		title: 'Традиции Атманова угла',
 		link: 'about-culture',
 	},
 	{
-		title: 'Карта и маршруты',
-		link: 'about-contacts',
+		title: 'Игры Атманова угла',
+		link: 'about-games',
 	},
 ]

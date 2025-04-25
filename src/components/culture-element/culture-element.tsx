@@ -11,10 +11,11 @@ type CultureElementProps = {
 
 export const CultureElement: FC<CultureElementProps> = ({ id, title, desc }) => {
 	return (
-		<div className={styles.cultureElem}>
-			<h6>{title}</h6>
-			<p>{desc}</p>
-			<Link to={id}>Перейти на страницу культурного элемента</Link>
-		</div>
+		<Link to={id}>
+			<div className={styles.cultureElem}>
+				<h5>{title}</h5>
+				<p>{desc}</p>
+			</div>
+		</Link>
 	)
 }

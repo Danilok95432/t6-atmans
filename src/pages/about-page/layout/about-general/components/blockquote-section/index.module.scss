@@ -35,9 +35,17 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+		background: #F2F1F7;
+		border-radius: 5px;
+		padding: 20px 15px;
+
+		@media (max-width: 768px) {
+			background: #ffffff;
+			padding: 0;
+		}
 
 		p {
-			font-size: fluid(20, 16);
+			font-size: fluid(17, 16);
 			line-height: 1.3;
 
 			@include mobile {
@@ -55,7 +63,7 @@
 
 		.blockquoteCaption {
 			color: #9d9d9d;
-			font-size: fluid(18, 14);
+			font-size: fluid(15, 14);
 			line-height: 1.7;
 			margin-top: auto;
 		}

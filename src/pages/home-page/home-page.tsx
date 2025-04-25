@@ -22,11 +22,11 @@ export const HomePage: FC = () => {
 			<PosterSection />
 			<ObjectsSection />
 			<EventsSection />
-			<ObjectPreviewSection />
 			<NewsSection />
 			<VideotapeSection />
 			<PartnersSection />
 			<FaqSection />
+			<ObjectPreviewSection />
 		</div>
 	)
 }

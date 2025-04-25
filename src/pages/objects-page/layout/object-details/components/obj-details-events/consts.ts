@@ -14,7 +14,7 @@ export const eventsSliderOptions: SwiperProps = {
 			slidesPerView: 3,
 		},
 		[DisplayBreakpoints.Xxl]: {
-			slidesPerView: 5,
+			slidesPerView: 4,
 		},
 	},
 }

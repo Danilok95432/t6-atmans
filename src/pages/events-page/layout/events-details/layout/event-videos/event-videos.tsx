@@ -14,7 +14,7 @@ export const EventVideos: FC = () => {
 
 	return (
 		<div className={styles.videosTabContent}>
-			<h4>Видеозаписи события</h4>
+			<h4>Видеолента</h4>
 			<GridRow $template='auto / repeat(auto-fit, minmax(280px, 280px))' $gap='20px'>
 				{videos?.map((videoEl) => <VideoCard key={videoEl.id} {...videoEl} />)}
 			</GridRow>

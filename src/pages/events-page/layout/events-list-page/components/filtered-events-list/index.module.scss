@@ -1,6 +1,4 @@
 .filteredListWrapper {
-	padding: 0 35px 0 50px;
-
 	@include tablet {
 		padding: 0 15px;
 	}
@@ -17,7 +15,7 @@
 }
 
 .eventCard {
-	width: fluid(331, 310);
+	width: fluid(311, 310);
 	height: 460px;
 
 	figure {

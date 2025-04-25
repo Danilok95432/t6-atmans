@@ -19,7 +19,7 @@ export const Header = () => {
 						aria-label='Главная'
 						title='Главная'
 					>
-						<img src={mainLogo} alt='logo' width={376} height={100} />
+						<img src={mainLogo} alt='logo' width={282} height={100} />
 					</Link>
 					<NavBanner />
 					<Link className={styles.personMenu} to='/' aria-label='Профиль' title='Профиль'>

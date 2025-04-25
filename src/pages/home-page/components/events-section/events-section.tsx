@@ -14,9 +14,11 @@ import { EventCard } from 'src/components/event-card/event-card'
 import { eventsSliderOptions } from 'src/pages/home-page/components/events-section/eventsSliderOptions'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const EventsSection: FC = () => {
 	const { data: homeEvents } = useGetHomeEventsQuery(null)
+	const breakpoint = useBreakPoint()
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 
 	return (
@@ -29,7 +31,7 @@ export const EventsSection: FC = () => {
 					</MainButton>
 				</FlexRow>
 
-				<div className='slider-with-btns'>
+				<div>
 					<Swiper {...eventsSliderOptions} ref={swiperRef}>
 						{homeEvents?.map((slideItem, idx) => (
 							<SwiperSlide key={idx}>
@@ -40,9 +42,10 @@ export const EventsSection: FC = () => {
 
 					<SliderBtns
 						className={styles.eventsSliderBtns}
-						$topPosition='49%'
-						$btnsSpacing='100%'
+						$topPosition='54%'
+						$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
 						swiperRef={swiperRef}
+						color='#5C5C5C'
 					/>
 				</div>
 			</Container>

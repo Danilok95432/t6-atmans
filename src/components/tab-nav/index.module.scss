@@ -13,26 +13,59 @@
 
 .tabNav {
   display: flex;
-  gap: 10px;
+  gap: 25px;
   flex-wrap: wrap;
   margin-bottom: 20px;
 
   li {
+    position: relative;
     a {
-      border-radius: 8px;
-      background: #EBEEF2;
-      padding: 3px 10px 5px;
-      line-height: 1;
-      display: inline-block;
+      display: block;
+      padding-top: 5px;
+      text-decoration: none;
       color: #000;
-      font-size: 20px;
-      font-weight: 400;
-      text-transform: lowercase;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
+      font-size: 18px;
+      &:hover,
+      &.activeLink {
+        color: #E30613;
+      }
+    }
+  
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 2px;
+      background-color: #E30613;
+      transition: width 0.3s ease;
+      z-index: 2;
+    }
+  
+    &:hover::before {
+      width: 100%;
+    }
+    .activeLink::before {
+      width: 100%;
     }
   }
 
   .activeLink {
-    background: #ED1C24;
-    color: #ffffff;
+    color: #E30613;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #E30613;
+      transition: width 0.3s ease;
+      z-index: 2;
+    }
   }
 }

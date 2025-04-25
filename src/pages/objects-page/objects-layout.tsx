@@ -7,16 +7,28 @@ import { BreadCrumbs } from 'src/modules/bread-crumbs/bread-crumbs'
 
 export const ObjectsLayout: FC = () => {
 	return (
-		<Container>
-			<BreadCrumbs
-				crumbsLinksMap={[
-					{
-						title: 'Объекты',
-						link: 'objects-list',
-					},
-				]}
-			/>
+		<>
+			<Container>
+				<BreadCrumbs
+					crumbsLinksMap={[
+						{
+							title: 'Объекты',
+							link: 'objects-list',
+						},
+					]}
+				/>
+			</Container>
 			<Outlet />
-		</Container>
+			<Container>
+				<BreadCrumbs
+					crumbsLinksMap={[
+						{
+							title: 'Объекты',
+							link: 'objects-list',
+						},
+					]}
+				/>
+			</Container>
+		</>
 	)
 }

@@ -11,6 +11,7 @@ type SliderBtnsProps = {
 	$topPosition?: string
 	$btnsSpacing?: string
 	$variant?: 'main' | 'sm' | 'gallery'
+	color?: string
 }
 
 type SliderProps = {
@@ -21,8 +22,6 @@ type SliderProps = {
 const StyledSliderBtns = styled.div<SliderBtnsProps>`
 	display: flex;
 	transition: all 0.3s;
-	opacity: 0;
-	visibility: hidden;
 	justify-content: space-between;
 	position: absolute;
 	left: 50%;
@@ -31,10 +30,8 @@ const StyledSliderBtns = styled.div<SliderBtnsProps>`
 	transform: translate(-50%, -50%);
 	width: ${({ $btnsSpacing }) => $btnsSpacing ?? '100%'};
 	top: ${({ $topPosition }) => $topPosition ?? '0'};
-	@media (max-width: 1024px) {
-		opacity: 1;
-		visibility: visible;
-	}
+	opacity: 1;
+	visibility: visible;
 
 	button {
 		height: min-content;
@@ -55,6 +52,7 @@ export const SliderBtns: FC<SliderBtnsProps & SliderProps> = ({
 	swiperRef,
 	className,
 	$variant = 'main',
+	color = '#ffffff',
 	...props
 }) => {
 	const handlePrev = () => {
@@ -67,10 +65,10 @@ export const SliderBtns: FC<SliderBtnsProps & SliderProps> = ({
 	return (
 		<StyledSliderBtns className={cn(className, 'slider-nav-btns')} $variant={$variant} {...props}>
 			<button type='button' onClick={handlePrev}>
-				<SlidePrevSvg variant={$variant} />
+				<SlidePrevSvg variant={$variant} color={color} />
 			</button>
 			<button type='button' onClick={handleNext}>
-				<SlideNextSvg variant={$variant} />
+				<SlideNextSvg variant={$variant} color={color} />
 			</button>
 		</StyledSliderBtns>
 	)

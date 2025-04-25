@@ -1,8 +1,13 @@
-.videosContainer {
-  .videosPageContent {
+div.videosPageContent {
+  margin: 0;
+  min-height: auto;
+  .videosContainer {
     @media (max-width: 768px) {
-      min-height: auto;
-      margin: 0 0 45px 0;
+      padding: 0;
     }
+  }
+  @media (max-width: 768px) {
+    min-height: auto;
+    margin: 0 0 45px 0;
   }
 }

@@ -10,6 +10,7 @@ import { SimpleLink } from 'src/components/simple-link/simple-link'
 import { CustomText } from 'src/components/custom-text/custom-text'
 import { useGetObjectByIdQuery } from 'src/store/objects/objects.api'
 
+import skeleton from 'src/assets/img/skeleton-img.png'
 import styles from './index.module.scss'
 
 export const ObjectHeader: FC = () => {
@@ -23,11 +24,6 @@ export const ObjectHeader: FC = () => {
 		<section className={styles.objectHeader}>
 			{objectData?.title && <h2>{objectData?.title}</h2>}
 			<div className={styles.objectInfoWrapper}>
-				{objectData?.mainphoto[0]?.original && (
-					<div className={styles.logoContainer}>
-						<img src={objectData?.mainphoto[0]?.original} alt={objectData?.title} />
-					</div>
-				)}
 				<div className={styles.objectMainInfo}>
 					<CustomText
 						// $fontSize='20px'
@@ -39,6 +35,7 @@ export const ObjectHeader: FC = () => {
 					</CustomText>
 					{objectData?.phone && (
 						<InfoRow
+							wrapperClassname={styles.objectMainDesc}
 							titleClassname={styles.phoneTitle}
 							title='Телефон:'
 							label={objectData?.phone}
@@ -46,6 +43,7 @@ export const ObjectHeader: FC = () => {
 					)}
 					{objectData?.email && (
 						<InfoRow
+							wrapperClassname={styles.objectMainDesc}
 							titleClassname={styles.mailTitle}
 							title='Электронная почта:'
 							label={<SimpleLink title={objectData?.email} link={objectData?.email} isEmail />}
@@ -63,6 +61,7 @@ export const ObjectHeader: FC = () => {
 
 					{objectData?.tgSoc && (
 						<InfoRow
+							wrapperClassname={styles.objectMainDesc}
 							titleClassname={styles.tgTitle}
 							title='Телеграм:'
 							label={<SimpleLink title={objectData?.tgSoc} link={objectData?.tgSoc} />}
@@ -71,6 +70,7 @@ export const ObjectHeader: FC = () => {
 
 					{objectData?.vkSoc && (
 						<InfoRow
+							wrapperClassname={styles.objectMainDesc}
 							titleClassname={styles.vkTitle}
 							title='Вконтакте:'
 							label={<SimpleLink title={objectData?.vkSoc} link={objectData?.vkSoc} />}
@@ -78,6 +78,15 @@ export const ObjectHeader: FC = () => {
 						/>
 					)}
 				</div>
+				{objectData?.mainphoto[0]?.original ? (
+					<div className={styles.logoContainer}>
+						<img src={objectData?.mainphoto[0]?.original} alt={objectData?.title} />
+					</div>
+				) : (
+					<div className={styles.logoContainer}>
+						<img className={styles.skeleton} src={skeleton} alt={objectData?.title} />
+					</div>
+				)}
 			</div>
 		</section>
 	)

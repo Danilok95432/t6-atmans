@@ -10,6 +10,8 @@ import { AccordionItem } from 'src/components/accordion-item/accordion-item'
 import { CustomText } from 'src/components/custom-text/custom-text'
 
 import styles from './index.module.scss'
+import { GalleryImg } from 'src/components/image-gallery/image-gallery'
+import { DetailedAside } from 'src/modules/detailedAside/detailedAside'
 
 export const EventDetails: FC = () => {
 	const { id = '' } = useParams()
@@ -19,6 +21,19 @@ export const EventDetails: FC = () => {
 
 	return (
 		<div className={styles.eventDetailTab}>
+			<div className={styles.eventGallery}>
+				<GalleryImg
+					className={styles.eventPhotos}
+					images={eventInfo?.photos}
+					limit={12}
+					limitController
+					variant='slider'
+				/>
+				{/* <button type='button' className={styles.eventGalleryButton}>
+					Показать еще
+				</button>
+				*/}
+			</div>
 			{!!eventInfo?.descs?.length && (
 				<section>
 					<h4>Информация</h4>
@@ -55,7 +70,7 @@ export const EventDetails: FC = () => {
 				</section>
 			)}
 
-			<section>
+			<section className={styles.mapSection}>
 				<Placement placeVariants={eventInfo?.pathways} title='Как добраться' />
 			</section>
 			<section>
@@ -76,9 +91,15 @@ export const EventDetails: FC = () => {
 					</div>
 				</section>
 			)}
-			<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'} $margin='0'>
-				Возрастной рейтинг: <span className={styles.ageRating}>{eventInfo?.ageRating}+</span>
-			</CustomText>
+			<DetailedAside
+				className={styles.footerSection}
+				brandImg={eventInfo?.brandImg}
+				genPartnerImg={eventInfo?.partnerImg}
+				partners={eventInfo?.partners}
+				organizers={eventInfo?.organizerLinks}
+				documents={eventInfo?.documents}
+				links={eventInfo?.relatedLinks}
+			/>
 		</div>
 	)
 }

@@ -42,7 +42,7 @@ export const SearchModule: FC<SearchModuleProps> = ({ searchElements, limit = 3 
 					<h5>Результаты поиска</h5>
 					{slicedSearchElements?.map((el) => <SearchElement key={el.id} {...el} />)}
 					{searchElements?.length > limit && (
-						<MainButton $variant='show' $width='100%' onClick={onClickExpanded}>
+						<MainButton $variant='show' className={styles.showBtn} onClick={onClickExpanded}>
 							{isExpandedSearch ? 'Свернуть' : 'Все результаты поиска'}
 						</MainButton>
 					)}

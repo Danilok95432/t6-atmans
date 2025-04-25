@@ -8,7 +8,7 @@ import { isSameMonth } from 'date-fns'
 import cn from 'classnames'
 
 import { SliderBtns } from 'src/components/slider-btns/slider-btns'
-import { mainFormatDate } from 'src/helpers/utils'
+import { mainFormatMonthDate } from 'src/helpers/utils'
 import { monthsSliderOptions } from './consts'
 
 import styles from './index.module.scss'
@@ -56,7 +56,7 @@ export const MonthsFilterSlider: FC<MonthsSliderProps> = ({
 						key={uid(date)}
 						onClick={() => handleChangeMonth(String(date), isActive)}
 					>
-						<p>{mainFormatDate(date, 'LLLL')}</p>
+						<p>{mainFormatMonthDate(date, 'LLLL')}</p>
 					</SwiperSlide>
 				))}
 				<SliderBtns
@@ -65,6 +65,7 @@ export const MonthsFilterSlider: FC<MonthsSliderProps> = ({
 					$btnsSpacing='100%'
 					swiperRef={swiperRef}
 					$variant='sm'
+					color='#000000'
 				/>
 			</Swiper>
 		</div>

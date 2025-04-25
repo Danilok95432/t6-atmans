@@ -21,10 +21,20 @@ export const VideosLayout: FC = () => {
 					]}
 				/>
 			</Container>
-			<Container className={styles.videosContainer} $paddingAdaptive='0'>
-				<PageContent className={styles.videosPageContent}>
+			<PageContent className={styles.videosPageContent}>
+				<Container className={styles.videosContainer}>
 					<Outlet />
-				</PageContent>
+				</Container>
+			</PageContent>
+			<Container>
+				<BreadCrumbs
+					crumbsLinksMap={[
+						{
+							title: 'Видеолента',
+							link: 'videos',
+						},
+					]}
+				/>
 			</Container>
 		</>
 	)

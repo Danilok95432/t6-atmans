@@ -11,16 +11,6 @@ export const BlockquoteSection: FC = () => {
 
 	return (
 		<section className={styles.blockquoteSection}>
-			<div className={styles.blockquoteImg}>
-				<img
-					src={aboutPageData.logo}
-					alt={aboutPageData.caption}
-					width={190}
-					height={127}
-					loading='lazy'
-				/>
-			</div>
-
 			<div className={styles.blockquoteBody}>
 				<RenderedArray strArray={aboutPageData.mainDescs} asStr='p' as='blockquote' />
 

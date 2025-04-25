@@ -1,15 +1,21 @@
-import { type FC } from 'react'
+import { type RefObject, useRef, type FC } from 'react'
 
 import { Container } from 'src/UI/Container/Container'
 import { FlexRow } from 'src/components/flex-row/flex-row'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { AppRoute } from 'src/routes/main-routes/consts'
 import { useGetHomePartnersQuery } from 'src/store/home/home.api'
+import { type SwiperRef, Swiper, SwiperSlide } from 'swiper/react'
+import { SliderBtns } from 'src/components/slider-btns/slider-btns'
+import { homePartnersSliderOptions } from './homePartnersSliderOptions'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const PartnersSection: FC = () => {
 	const { data: partners } = useGetHomePartnersQuery(null)
+	const breakpoint = useBreakPoint()
+	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 
 	return (
 		<section className={styles.partnersSection}>
@@ -20,23 +26,31 @@ export const PartnersSection: FC = () => {
 						Все партнеры
 					</MainButton>
 				</FlexRow>
-				{partners?.length && (
-					<ul className={styles.partnersList}>
-						{partners.map((partnerEl) => (
-							<li key={partnerEl.id}>
-								<a href={partnerEl.link} className={styles.partnersLink}>
-									<img
-										src={partnerEl.mainphoto[0]?.thumbnail}
-										alt='partner'
-										width={188}
-										height={105}
-										loading='lazy'
-									/>
-								</a>
-							</li>
+				<div className={styles.partnerSlider}>
+					<Swiper {...homePartnersSliderOptions} ref={swiperRef}>
+						{partners?.map((slideItem, idx) => (
+							<SwiperSlide key={idx}>
+								<div className={styles.partnerCard} key={slideItem.id}>
+									<a href={slideItem.link} className={styles.partnersLink}>
+										<img
+											src={slideItem.mainphoto[0]?.thumbnail}
+											alt='partner'
+											width={188}
+											height={105}
+											loading='lazy'
+										/>
+									</a>
+								</div>
+							</SwiperSlide>
 						))}
-					</ul>
-				)}
+					</Swiper>
+					<SliderBtns
+						$topPosition='82%'
+						$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
+						swiperRef={swiperRef}
+						color='#5C5C5C'
+					/>
+				</div>
 			</Container>
 		</section>
 	)

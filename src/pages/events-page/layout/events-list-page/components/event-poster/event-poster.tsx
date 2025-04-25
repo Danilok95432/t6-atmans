@@ -1,58 +1,67 @@
-import { type FC, type RefObject, useRef } from 'react'
-import { Swiper, type SwiperRef, SwiperSlide } from 'swiper/react'
-
-import { SliderBtns } from 'src/components/slider-btns/slider-btns'
-import { useGetHomePostersQuery } from 'src/store/home/home.api'
-import { posterSliderOptions } from './consts'
-import { mainFormatDate } from 'src/helpers/utils'
+import { type FC } from 'react'
 
 import styles from './index.module.scss'
+import { useGetEventByIdQuery } from 'src/store/events/events.api'
+import { FlexRow } from 'src/components/flex-row/flex-row'
+import { CustomText } from 'src/components/custom-text/custom-text'
+import { formatDateRange, mainFormatDate, parseTimeFromDate } from 'src/helpers/utils'
+import { EventStatus } from 'src/components/event-status/event-status'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
+import cn from 'classnames'
+import skeleton from 'src/assets/img/skeleton-img.png'
 
-export const EventPoster: FC = () => {
-	const { data: posterData } = useGetHomePostersQuery(null)
+type EventPosterProps = {
+	posterEventId: string
+}
 
-	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
-
+export const EventPoster: FC<EventPosterProps> = ({ posterEventId }) => {
+	const { data: eventInfo } = useGetEventByIdQuery(posterEventId ?? '')
+	const breakPoint = useBreakPoint()
 	return (
-		<div className={styles.eventsPosterSlider}>
-			<Swiper {...posterSliderOptions} ref={swiperRef}>
-				{posterData?.map((slideItem, idx) => (
-					<SwiperSlide key={idx}>
-						<div className={styles.slideItem}>
-							<div className={styles.slideItemImg}>
-								<img
-									src={slideItem.mainphoto[0]?.original}
-									alt={slideItem.title}
-									width={1840}
-									height={555}
-									loading='lazy'
-								/>
-							</div>
-							<div className={styles.slideInfo}>
-								<div className={styles.slideInfoInner}>
-									<h5 className={styles.slideInfoTitle}>{slideItem.title}</h5>
-									<ul className={styles.sliderInfoList}>
-										{slideItem?.date && (
-											<li className={styles.sliderInfoItem}>
-												{mainFormatDate(slideItem.date, "d MMMM yyyy 'года' в HH:mm")}
-											</li>
-										)}
-										{slideItem?.location && (
-											<li className={styles.sliderInfoItem}>{slideItem.location}</li>
-										)}
-									</ul>
-								</div>
-							</div>
-						</div>
-					</SwiperSlide>
-				))}
-			</Swiper>
-			<SliderBtns
-				className={styles.posterSliderBtns}
-				$topPosition='50%'
-				$btnsSpacing='95%'
-				swiperRef={swiperRef}
-			/>
+		<div className={styles.eventPoster}>
+			<div className={styles.eventPosterImg}>
+				{eventInfo?.mainphoto[0]?.original ? (
+					<img src={eventInfo?.mainphoto[0]?.original} alt={eventInfo?.title} />
+				) : (
+					<img className={styles.skeleton} src={skeleton} alt={eventInfo?.title} />
+				)}
+			</div>
+			<div className={styles.eventPosterInfo}>
+				<h2>{eventInfo?.title}</h2>
+				<FlexRow className={styles.topLineEvent}>
+					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
+						{eventInfo?.date && eventInfo.date.length > 1
+							? formatDateRange(eventInfo?.date as [Date, Date])
+							: mainFormatDate(eventInfo?.date[0])}
+					</CustomText>
+					<div className={styles.dot}></div>
+					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
+						{eventInfo?.event_type_name}
+					</CustomText>
+					<div className={styles.dot}></div>
+					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
+						{eventInfo?.event_level_name}
+					</CustomText>
+					<div className={styles.dot}></div>
+					<EventStatus className={styles.status} statusCode={eventInfo?.status} />
+					<div className={cn(styles.dot, styles._red)}></div>
+					<CustomText
+						className={styles.ageRating}
+						$fontSize={breakPoint === 'S' ? '18px' : '16px'}
+						$color='#DE0008'
+					>
+						{eventInfo?.ageRating}+
+					</CustomText>
+				</FlexRow>
+				<CustomText $lineHeight='1.3' $margin='0 0 30px 0' className={styles.infoBlockText}>
+					{eventInfo?.description}
+				</CustomText>
+				<p className={styles.eventTime}>
+					{eventInfo?.date
+						? `Начало в ${parseTimeFromDate(eventInfo?.date[0])}`
+						: 'Нет информации о времени начала'}
+				</p>
+			</div>
 		</div>
 	)
 }

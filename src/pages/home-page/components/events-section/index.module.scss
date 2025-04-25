@@ -1,8 +1,8 @@
 .eventsSection {
-	padding: 77px 0 108px;
+	padding: 37px 0 40px;
 
 	.eventsSectionRow {
-		margin: 0 0 20px 0;
+		margin: 17px 0;
 		align-items: center;
 		justify-content: space-between;
 		gap: 17px;
@@ -22,7 +22,7 @@
 .homeEventCard {
 	:global {
 		.event-item-img {
-			height: 255px;
+			height: 207px;
 		}
 	}
 }

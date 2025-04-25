@@ -1,7 +1,7 @@
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { type RefObject, useEffect, useRef, useState } from 'react'
-import { type CardNewsItem } from 'src/types/news'
+import { type RefObject, useEffect, useRef } from 'react'
+// import { type CardNewsItem } from 'src/types/news'
 import cn from 'classnames'
 import { SwiperSlide, type SwiperRef, Swiper } from 'swiper/react'
 
@@ -11,8 +11,7 @@ import { mainFormatDate } from 'src/helpers/utils'
 import { gallerySliderOptions } from './consts'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
-import { AppRoute } from 'src/routes/main-routes/consts'
-import { AsideNews } from 'src/components/aside-news/aside-news'
+// import { AsideNews } from 'src/components/aside-news/aside-news'
 import { Container } from 'src/UI/Container/Container'
 import { PageContent } from 'src/components/page-content/page-content'
 import { SliderBtns } from 'src/components/slider-btns/slider-btns'
@@ -29,13 +28,13 @@ export const NewsDetails = () => {
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 	useAdditionalCrumbs(newsItemData?.title)
 
-	const [newsArray, setNewsArray] = useState<CardNewsItem[]>([])
+	// const [newsArray, setNewsArray] = useState<CardNewsItem[]>([])
 	const breakpoint = useBreakPoint()
 
 	useEffect(() => {
 		if (isSuccessAllNews) {
-			const flattenedNewsArray = Object.values(allNews).flat() as unknown as CardNewsItem[]
-			setNewsArray(flattenedNewsArray)
+			// const flattenedNewsArray = Object.values(allNews).flat() as unknown as CardNewsItem[]
+			// setNewsArray(flattenedNewsArray)
 		}
 	}, [isSuccessAllNews, allNews])
 	if (!newsItemData) return null
@@ -45,9 +44,9 @@ export const NewsDetails = () => {
 			<Helmet>
 				<title>{newsItemData?.title}</title>
 			</Helmet>
-			<Container className={styles.newsContainer} $padding='0 90px 0 40px' $paddingAdaptive='0'>
-				<div className={styles.newsItemPage}>
-					<PageContent className={styles.newsListPage} $minHeight='0'>
+			<div className={styles.newsItemPage}>
+				<PageContent className={styles.newsListPage} $minHeight='0'>
+					<Container className={styles.newsContainer}>
 						<div className={styles.newsItemPageContent}>
 							<h2>{newsItemData.title}</h2>
 							<span className={styles.newsItemDate}>{mainFormatDate(newsItemData?.date)}</span>
@@ -74,8 +73,9 @@ export const NewsDetails = () => {
 												<div className={styles.slideImg}>
 													<img src={slideItem.thumbnail} alt={slideItem.title} />
 												</div>
-												<h6 className={styles.slideTitle}>{slideItem.title || 'test'}</h6>
+												{/* <h6 className={styles.slideTitle}>{slideItem.title || 'test'}</h6>
 												<span className={styles.slideAuthor}>Автор: {'test'}</span>
+												*/}
 											</div>
 										</SwiperSlide>
 									))}
@@ -87,18 +87,17 @@ export const NewsDetails = () => {
 									$topPosition='50%'
 									$btnsSpacing='calc(100% + 30px)'
 									swiperRef={swiperRef}
+									color='#5C5C5C'
 								/>
 							</div>
 						</div>
-						<div className={styles.allNewsBlock}>
-							<Link to={`/${AppRoute.News}`}>Все новости</Link>
-						</div>
-					</PageContent>
-					<div className={styles.asideNewsDetails}>
-						<AsideNews currentNewsId={id ?? ''} newsList={newsArray} />
-					</div>
+					</Container>
+				</PageContent>
+				{/* <div className={styles.asideNewsDetails}>
+					<AsideNews currentNewsId={id ?? ''} newsList={newsArray} />
 				</div>
-			</Container>
+				*/}
+			</div>
 		</>
 	)
 }

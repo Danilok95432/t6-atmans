@@ -30,20 +30,28 @@ export const DetailedAside: FC<DetailedAsideProps> = ({
 	links,
 }) => {
 	return (
-		<aside className={cn(styles.detailedAside, className)}>
-			{brandImg && (
+		<div className={cn(styles.detailedAside, className)}>
+			{/* brandImg && (
 				<div className={styles.asideEl}>
 					<h6>Бренд событий</h6>
 					<div className={styles.asideImg}>
 						<img src={brandImg} alt='Бренд' />
 					</div>
 				</div>
-			)}
-			{genPartnerImg && (
+			) */}
+			{!!organizers?.length && (
 				<div className={styles.asideEl}>
 					<h6>Генеральный партнер</h6>
 					<div className={styles.asideImg}>
-						<img src={genPartnerImg} alt='Генеральный партнер' />
+						<ul className={styles.asideSimpleLinks}>
+							{organizers.map((organizersEl) => (
+								<SimpleLink
+									title={organizersEl.title}
+									link={organizersEl.link}
+									key={organizersEl.title}
+								/>
+							))}
+						</ul>
 					</div>
 				</div>
 			)}
@@ -77,6 +85,6 @@ export const DetailedAside: FC<DetailedAsideProps> = ({
 				dataList={formatSourceLinks(links)}
 				title='Ссылки'
 			/>
-		</aside>
+		</div>
 	)
 }

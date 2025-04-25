@@ -8,7 +8,7 @@ export const AboutCultureLayout = () => {
 	return (
 		<div className={styles.aboutCulturePage}>
 			<Helmet>
-				<title>Материальная культура</title>
+				<title>Традиции Атманова угла</title>
 			</Helmet>
 			<Outlet />
 		</div>

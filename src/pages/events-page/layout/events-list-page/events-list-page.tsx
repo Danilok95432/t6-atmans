@@ -1,4 +1,4 @@
-import React, { type FC } from 'react'
+import React, { useEffect, useState, type FC } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import { PageContent } from 'src/components/page-content/page-content'
@@ -7,21 +7,38 @@ import { EventPoster } from 'src/pages/events-page/layout/events-list-page/compo
 
 import styles from './index.module.scss'
 import { Container } from 'src/UI/Container/Container'
+import { useGetEventsMonthsQuery } from 'src/store/events/events.api'
 
 export const EventsListPage: FC = () => {
+	const { data: eventsList } = useGetEventsMonthsQuery({
+		date: '0',
+		category: '0',
+	})
+	const [mainEvent, setMainEvent] = useState('25')
+	useEffect(() => {
+		if (eventsList && eventsList?.length > 0) {
+			const currentEvent = eventsList?.find((item) => item.status === 'current')
+			if (currentEvent) setMainEvent(currentEvent.id)
+			else {
+				const futureEvent = eventsList?.find((item) => item.status === 'future')
+				if (futureEvent) setMainEvent(futureEvent.id)
+			}
+		}
+	}, [eventsList])
+
 	return (
-		<Container $paddingAdaptive='0'>
-			<PageContent
-				className={styles.eventsPageContent}
-				$padding='0 0 70px 0'
-				$borderRadius='25px 25px 0 0'
-			>
-				<Helmet>
-					<title>Cобытия</title>
-				</Helmet>
-				<EventPoster />
+		<PageContent
+			className={styles.eventsPageContent}
+			$padding='0 0 70px 0'
+			$borderRadius='25px 25px 0 0'
+		>
+			<Helmet>
+				<title>Cобытия</title>
+			</Helmet>
+			<Container>
+				<EventPoster posterEventId={mainEvent} />
 				<FilteredEventsList />
-			</PageContent>
-		</Container>
+			</Container>
+		</PageContent>
 	)
 }

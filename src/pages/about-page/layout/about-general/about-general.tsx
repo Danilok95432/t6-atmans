@@ -9,17 +9,19 @@ import { DescSection } from 'src/pages/about-page/layout/about-general/component
 import { CollapsibleText } from 'src/components/collapsible-text/collapsible-text'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const AboutGeneral: FC = () => {
 	const { data: aboutPageData } = useGetAboutGeneralQuery(null)
+	const breakpoint = useBreakPoint()
 	return (
 		<div className={styles.aboutGeneralPage}>
 			<Helmet>
 				<title>Атманов угол</title>
 			</Helmet>
 
-			<h2>Атманов угол</h2>
 			<div className={styles.inner}>
+				{breakpoint === 'S' && <h2>Атманов угол</h2>}
 				<BlockquoteSection />
 				<GallerySection images={aboutPageData?.photoGallery} />
 				<CollapsibleText item={<DescSection />} lineClamp={22} collapsePoint={'S'} />

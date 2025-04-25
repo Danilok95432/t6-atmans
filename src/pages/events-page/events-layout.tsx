@@ -17,6 +17,16 @@ export const EventsLayout: FC = () => {
 				/>
 			</Container>
 			<Outlet />
+			<Container>
+				<BreadCrumbs
+					crumbsLinksMap={[
+						{
+							title: 'События',
+							link: 'events',
+						},
+					]}
+				/>
+			</Container>
 		</>
 	)
 }

@@ -38,7 +38,7 @@
 }
 
 .monthSlide {
-	min-width: 130px;
+	min-width: 100px;
 
 	p {
 		font-size: 18px;
@@ -49,7 +49,6 @@
 		line-height: 1.1;
 		padding-top: 4px;
 		background: #f2f5f8;
-		text-transform: uppercase;
 		border-radius: 5px;
 		cursor: pointer;
 	}
@@ -57,16 +56,15 @@
 
 .allMonthsBtn {
 	min-width: max-content;
-	padding: 4px 17px 0;
+	padding: 6px 10px;
 	font-size: 18px;
 	height: 40px;
 	line-height: 1.1;
 	background: #f2f5f8;
-	text-transform: uppercase;
 	border-radius: 5px;
 	cursor: pointer;
 	@media (max-width: 768px) {
-		padding: 4px 10px 0;
+		padding: 4px 10px;
 	}
 }
 

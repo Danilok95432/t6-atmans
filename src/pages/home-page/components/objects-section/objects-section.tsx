@@ -11,9 +11,11 @@ import { useGetHomeObjectsQuery } from 'src/store/home/home.api'
 import { objectsSliderOptions } from 'src/pages/home-page/components/objects-section/objectsSliderOptions'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const ObjectsSection: FC = () => {
 	const { data: objects } = useGetHomeObjectsQuery(null)
+	const breakpoint = useBreakPoint()
 
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 	return (
@@ -41,9 +43,10 @@ export const ObjectsSection: FC = () => {
 				</Swiper>
 				<SliderBtns
 					className={styles.objectsSliderBtns}
-					$topPosition='32%'
-					$btnsSpacing='96%'
+					$topPosition='42%'
+					$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
 					swiperRef={swiperRef}
+					color='#B0B0B0'
 				/>
 			</Container>
 		</section>

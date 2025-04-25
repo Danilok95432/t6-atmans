@@ -1,10 +1,14 @@
 section.mapSection {
   padding-top: 60px;
   padding-bottom: 60px;
+  h2 {
+    font-size: 28px;
+    font-weight: 500;
+  }
 }
 
 .objLocation {
-  height: 450px;
+  height: 870px;
   iframe {
     border: none;
   }

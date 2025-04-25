@@ -12,18 +12,21 @@ type AsideDocumentsProps = {
 export const AsideDocuments: FC<AsideDocumentsProps> = ({ documents, className }) => {
 	if (!documents?.length) return null
 	return (
-		<ul className={cn(styles.documents, className)}>
-			{documents?.map((item) => (
-				<li key={item.id}>
-					<a className={styles.documentLink} href={item.url} download>
-						{item.name}
-					</a>
+		<div className={styles.documentsContainer}>
+			<h4>Документы</h4>
+			<ul className={cn(styles.documents, className)}>
+				{documents?.map((item) => (
+					<li key={item.id}>
+						<a className={styles.documentLink} href={item.url} download>
+							{item.name}
+						</a>
 
-					<p className={styles.documentInfo}>
-						{item.url.split('.')[item.url.split('.').length - 1]}-файл
-					</p>
-				</li>
-			))}
-		</ul>
+						<p className={styles.documentInfo}>
+							{item.url.split('.')[item.url.split('.').length - 1]}-файл
+						</p>
+					</li>
+				))}
+			</ul>
+		</div>
 	)
 }

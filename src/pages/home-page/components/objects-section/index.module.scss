@@ -1,5 +1,6 @@
 .objectsSection {
-	padding: 82px 52px 82px;
+	padding: 40px 52px 35px;
+	background: var(--color-white);
 
 	@include mobile {
 		padding: 50px 0 37px;
@@ -41,6 +42,8 @@
 	text-align: center;
 	font-size: 24px;
 	transition: color var(--transition-duration) ease;
+	max-width: 210px;
+	text-align: center;
 
 	@include mobile {
 		margin-top: 29px;

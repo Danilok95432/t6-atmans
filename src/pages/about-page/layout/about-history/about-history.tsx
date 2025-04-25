@@ -6,9 +6,11 @@ import { RenderedArray } from 'src/components/rendered-array/rendered-array'
 import { GallerySection } from 'src/modules/gallery-section/gallery-section'
 
 import styles from './index.module.scss'
+import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const AboutHistory: FC = () => {
 	const { data: aboutPageData } = useGetAboutHistoryQuery(null)
+	const breakpoint = useBreakPoint()
 	if (!aboutPageData) return null
 
 	return (
@@ -16,8 +18,8 @@ export const AboutHistory: FC = () => {
 			<Helmet>
 				<title>История Атманова угла</title>
 			</Helmet>
-			<h2>История Атманова угла</h2>
 			<div className={styles.inner}>
+				{breakpoint === 'S' && <h2>История Атманова угла</h2>}
 				<RenderedArray
 					strArray={aboutPageData.topDescs}
 					asStr='p'

@@ -1,24 +1,14 @@
-import { type FC, type PropsWithChildren } from 'react'
-import styled from 'styled-components'
+import React, { type FC, type ReactNode } from 'react'
+import classNames from 'classnames'
+import styles from './index.module.scss'
 
-type ContainerProps = PropsWithChildren<{
-	$padding?: string
-	$paddingAdaptive?: string
-	$width?: string
-	$margin?: string
-	$position?: string
+type ContainerProps = {
 	className?: string
-}>
+	children: ReactNode
+}
 
-const StyledContainer = styled.div<ContainerProps>`
-	max-width: ${({ $width }) => $width ?? '1920px'};
-	padding: ${({ $padding }) => $padding ?? '0 40px'};
-	margin: ${({ $margin }) => $margin ?? '0 auto'};
-	position: ${({ $position }) => $position ?? 'relative'};
-	@media (max-width: 768px) {
-		padding: ${({ $paddingAdaptive }) => $paddingAdaptive ?? '0 15px'};
-	}
-`
-export const Container: FC<ContainerProps> = (props) => {
-	return <StyledContainer {...props} />
+export const Container: FC<ContainerProps> = ({ className, children }) => {
+	const combinedClassName = classNames(styles.container, className)
+
+	return <div className={combinedClassName}>{children}</div>
 }

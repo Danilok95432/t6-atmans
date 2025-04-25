@@ -1,8 +1,17 @@
-.aboutMap {
-  margin-bottom: 30px;
-  width: 100%;
-  height: 318px;
-  @media (max-width: 576px) {
-    height: 230px;
+div.contactsPageContent {
+  .titleContacts {
+    @media (max-width: 768px) {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+  }
+  .aboutMap {
+    margin-bottom: 30px;
+    width: 100%;
+    height: 318px;
+    @media (max-width: 576px) {
+      height: 230px;
+    }
   }
 }

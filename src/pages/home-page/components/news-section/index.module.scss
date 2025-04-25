@@ -1,5 +1,5 @@
 .newsSection {
-	padding: 77px 0 112px;
+	padding: 0px 0 40px;
 
 	.newsSectionRow {
 		margin: 0 0 20px 0;
@@ -29,7 +29,6 @@
 
 .newsSlide {
 	width: 286px;
-	min-height: 408px;
 
 	@include mobile-s {
 		min-height: 394px;

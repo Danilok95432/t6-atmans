@@ -6,6 +6,8 @@ import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 import { MainButton } from 'src/UI/MainButton/MainButton'
 import { CollapseContainer } from './components/collapse-text-container'
 
+import styles from './index.module.scss'
+
 type CollapsibleTextProps = {
 	item: React.ReactNode
 	lineClamp: number
@@ -36,15 +38,7 @@ export const CollapsibleText: React.FC<CollapsibleTextProps> = ({
 				{item}
 			</CollapseContainer>
 			{isOverflowing && (
-				<MainButton
-					$variant='show'
-					$radius='3px'
-					$height='45px'
-					$padding='0'
-					$width='100%'
-					$fontSize='18px'
-					onClick={toggleList}
-				>
+				<MainButton $variant='show' className={styles.showMoreBtn} onClick={toggleList}>
 					{isExpanded ? 'Скрыть' : 'Показать ещё'}
 				</MainButton>
 			)}

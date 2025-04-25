@@ -1,20 +1,8 @@
 .posterSection {
-	padding: 5px 0 0;
+	padding: 0px 0 0;
 
 	@include mobile {
-		padding: 5px 0 55px;
-
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 237px;
-			height: 7px;
-			background: url('data:image/svg+xml,<svg width="237" height="7" viewBox="0 0 237 7" fill="none" xmlns="http://www.w3.org/2000/svg"><line y1="3.5" x2="100" y2="3.5" stroke="%23A8A8A8"/><line x1="137" y1="3.5" x2="237" y2="3.5" stroke="%23A8A8A8"/><circle cx="118.5" cy="3.5" r="3.5" fill="%23DD0A15"/></svg>')
-				no-repeat;
-		}
+		padding: 0px 0 55px;
 	}
 
 	.posterSliderBtns {
@@ -25,7 +13,24 @@
 	}
 
 	.posterSlider {
-		max-width: 1920px;
+		position: relative;
+		:global {
+			.swiper-pagination-horizontal {
+				
+			}
+      .swiper-pagination-bullet {
+				background: var(--color-white);
+				opacity: 1;
+			}
+			.swiper-pagination-bullet-active {
+				background: var(--color-red);
+			}
+    }
+	}
+
+	.posterInfoContainer {
+		height: fluid(646, 500);
+		width: 100%;
 	}
 }
 
@@ -82,6 +87,20 @@
 				}
 			}
 
+			.sliderInfoTitle {
+				color: var(--color-black);
+				font-size: fluid(32, 28);
+				background: var(--color-white);
+				line-height: 1.1;
+				padding: fluid(10, 4) fluid(21, 10);
+				border-radius: var(--border-radius);
+				font-weight: 400;
+
+				@include mobile {
+					line-height: 1.3;
+				}
+			}
+
 			.sliderInfoList {
 				display: flex;
 				column-gap: 15px;
@@ -89,10 +108,10 @@
 				.sliderInfoItem {
 					display: flex;
 					align-items: center;
-					font-size: fluid(24, 15);
+					font-size: fluid(18, 15);
 					padding: 3px 10px;
-					color: var(--color-white);
-					background: var(--color-red);
+					color: var(--color-black);
+					background: var(--color-white);
 					border-radius: var(--border-radius);
 
 					@include mobile {
@@ -101,6 +120,7 @@
 					}
 				}
 			}
+
 		}
 	}
 }

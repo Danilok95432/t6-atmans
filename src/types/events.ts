@@ -65,4 +65,8 @@ export type CardEventItem = {
 		address: string
 	}
 	description: string
+	brand: {
+		id: string
+		title: string
+	}
 }

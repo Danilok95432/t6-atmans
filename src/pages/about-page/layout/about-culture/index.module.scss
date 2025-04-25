@@ -1,4 +1,7 @@
 .aboutCulturePage {
+	@media (max-width: 768px) {
+		padding-bottom: 30px;
+	}
 	h2 {
 		margin-bottom: fluid(30, 20);
 	}

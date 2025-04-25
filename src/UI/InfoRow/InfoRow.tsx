@@ -24,6 +24,7 @@ const StyledInfoRow = styled.div<InfoRowStyleProps>`
 	margin: ${({ $margin }) => $margin ?? '0 0 18px 0'};
 	display: flex;
 	align-items: ${({ $alignItems }) => $alignItems ?? 'flex-start'};
+	flex-wrap: wrap;
 	gap: ${({ $gap }) => $gap ?? '25px'};
 	@media (max-width: 768px) {
 		flex-wrap: wrap;

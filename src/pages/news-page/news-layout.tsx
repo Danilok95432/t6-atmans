@@ -17,6 +17,16 @@ export const NewsLayout: FC = () => {
 				/>
 			</Container>
 			<Outlet />
+			<Container>
+				<BreadCrumbs
+					crumbsLinksMap={[
+						{
+							title: 'Все новости',
+							link: 'news',
+						},
+					]}
+				/>
+			</Container>
 		</>
 	)
 }
