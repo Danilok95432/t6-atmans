@@ -20,11 +20,38 @@ type ShortCultureElement = {
 	desc: string
 }
 
+type ShortTraditionElement = {
+	id: string
+	title: string
+	desc: string
+}
+
+type ShortGameElement = {
+	id: string
+	title: string
+	desc: string
+}
+
 export type AboutCulturePage = {
 	topDesc: string
 	bottomDesc: string
 	photoGallery: ImageItemWithText[]
 	cultures: ShortCultureElement[]
+}
+
+export type AboutTraditionPage = {
+	topDesc: string
+	bottomDesc: string
+	photoGallery: ImageItemWithText[]
+	traditions: ShortTraditionElement[]
+}
+
+export type AboutGamesPage = {
+	topDesc: string
+	bottomDesc: string
+	photoGallery: ImageItemWithText[]
+	games: ShortGameElement[]
+	mainVideo: string
 }
 
 export type PhoneContacts = {

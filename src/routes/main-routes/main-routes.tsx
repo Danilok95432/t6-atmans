@@ -49,7 +49,7 @@ export const MainRoutes = () => {
 				<Route path={AppRoute.About} element={<AboutLayout />}>
 					<Route index element={<AboutGeneral />} />
 					<Route path={AppRoute.AboutHistory} element={<AboutHistory />} />
-					<Route path={AppRoute.AboutCulture} element={<AboutCultureLayout />}>
+					<Route path={AppRoute.AboutTraditions} element={<AboutCultureLayout />}>
 						<Route index element={<CultureGeneral />} />
 						<Route path=':id' element={<CultureDetails />} />
 					</Route>

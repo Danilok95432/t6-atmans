@@ -11,7 +11,7 @@ export const AboutMenuItems: NavigationItem[] = [
 	},
 	{
 		title: 'Традиции Атманова угла',
-		link: 'about-culture',
+		link: 'about-traditions',
 	},
 	{
 		title: 'Игры Атманова угла',

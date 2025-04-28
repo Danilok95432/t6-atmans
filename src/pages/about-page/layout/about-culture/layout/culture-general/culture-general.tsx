@@ -1,14 +1,14 @@
 import React, { type FC } from 'react'
 
 import { CultureElement } from 'src/components/culture-element/culture-element'
-import { useGetAboutCultureQuery } from 'src/store/about/about.api'
+import { useGetAboutTraditionsQuery } from 'src/store/about/about.api'
 import { GallerySection } from 'src/modules/gallery-section/gallery-section'
 
 import styles from './index.module.scss'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
 export const CultureGeneral: FC = () => {
-	const { data: aboutPageData } = useGetAboutCultureQuery(null)
+	const { data: aboutPageData } = useGetAboutTraditionsQuery(null)
 	const breakpoint = useBreakPoint()
 	if (!aboutPageData) return null
 
@@ -23,9 +23,9 @@ export const CultureGeneral: FC = () => {
 				</div>
 				<GallerySection images={aboutPageData?.photoGallery} />
 				{aboutPageData.bottomDesc !== 'null' ? <p>{aboutPageData.bottomDesc}</p> : null}
-				{aboutPageData.cultures?.length && (
+				{aboutPageData.traditions?.length && (
 					<div className={styles.culturesList}>
-						{aboutPageData.cultures.map(({ id, desc, title }) => (
+						{aboutPageData.traditions.map(({ id, desc, title }) => (
 							<CultureElement key={id} id={id} title={title} desc={desc} />
 						))}
 					</div>

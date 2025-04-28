@@ -12,6 +12,7 @@ import { videosApi } from 'src/store/videos/videos.api'
 import { searchApi } from 'src/store/search/search.api'
 
 import { NameSpace } from 'src/helpers/consts'
+import { gamesApi } from './games/games.api'
 
 export const store = configureStore({
 	reducer: {
@@ -24,6 +25,7 @@ export const store = configureStore({
 		[videosApi.reducerPath]: videosApi.reducer,
 		[searchApi.reducerPath]: searchApi.reducer,
 		[aboutApi.reducerPath]: aboutApi.reducer,
+		[gamesApi.reducerPath]: gamesApi.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({ serializableCheck: false }).concat(
@@ -35,6 +37,7 @@ export const store = configureStore({
 			videosApi.middleware,
 			searchApi.middleware,
 			aboutApi.middleware,
+			gamesApi.middleware,
 		),
 })
 

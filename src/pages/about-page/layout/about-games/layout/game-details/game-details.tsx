@@ -6,19 +6,19 @@ import { GalleryImg } from 'src/components/image-gallery/image-gallery'
 import gameStyles from '../../index.module.scss'
 import styles from './index.module.scss'
 import { useAdditionalCrumbs } from 'src/hooks/additional-crumbs/additional-crumbs'
-import { useGetCultureByIdQuery } from 'src/store/cultures/cultures.api'
+import { useGetGameByIdQuery } from 'src/store/games/games.api'
 
 export const GameDetails = () => {
 	const { id } = useParams()
-	const { data: gameInfo } = useGetCultureByIdQuery(id ?? '0')
-	useAdditionalCrumbs('Игра 1')
-	if (!gameInfo) return <h2>Нет информации о культуре</h2>
+	const { data: gameInfo } = useGetGameByIdQuery(id ?? '0')
+	useAdditionalCrumbs(gameInfo?.title)
+	if (!gameInfo) return <h2>Нет информации об игре</h2>
 
 	return (
 		<div className={styles.gameDetails}>
 			<div className={styles.gameDetailsInfo}>
 				<div className={styles.gameMain}>
-					<h2>{'Игра 1'}</h2>
+					<h2>{gameInfo?.title}</h2>
 					{gameInfo.topDesc && <div dangerouslySetInnerHTML={{ __html: gameInfo.topDesc }} />}
 				</div>
 				<div className={styles.gameLogo}>

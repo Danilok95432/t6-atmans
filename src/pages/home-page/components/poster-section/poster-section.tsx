@@ -15,7 +15,6 @@ import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 export const PosterSection: FC = () => {
 	const { data: posterData } = useGetHomePostersQuery(null)
 	const breakpoint = useBreakPoint()
-	console.log(breakpoint)
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 
 	return (

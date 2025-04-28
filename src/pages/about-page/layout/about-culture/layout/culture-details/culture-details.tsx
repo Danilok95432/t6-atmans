@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useGetCultureByIdQuery } from 'src/store/cultures/cultures.api'
+import { useGetTraditionByIdQuery } from 'src/store/cultures/cultures.api'
 
 import { GalleryImg } from 'src/components/image-gallery/image-gallery'
 
@@ -10,24 +10,26 @@ import { useAdditionalCrumbs } from 'src/hooks/additional-crumbs/additional-crum
 
 export const CultureDetails = () => {
 	const { id } = useParams()
-	const { data: cultureInfo } = useGetCultureByIdQuery(id ?? '0')
-	useAdditionalCrumbs(cultureInfo?.title)
-	if (!cultureInfo) return <h2>Нет информации о культуре</h2>
+	const { data: traditionInfo } = useGetTraditionByIdQuery(id ?? '0')
+	useAdditionalCrumbs(traditionInfo?.title)
+	if (!traditionInfo) return <h2>Нет информации о традиции</h2>
 
 	return (
 		<div className={styles.cultureDetails}>
 			<div className={styles.cultureDetailsInfo}>
 				<div className={styles.cultureMain}>
-					<h2>{cultureInfo.title}</h2>
-					{cultureInfo.topDesc && <div dangerouslySetInnerHTML={{ __html: cultureInfo.topDesc }} />}
+					<h2>{traditionInfo.title}</h2>
+					{traditionInfo.topDesc && (
+						<div dangerouslySetInnerHTML={{ __html: traditionInfo.topDesc }} />
+					)}
 				</div>
 				<div className={styles.cultureLogo}>
-					<img src={cultureInfo?.mainphoto[0]?.original} alt={cultureInfo.title} />
+					<img src={traditionInfo?.mainphoto[0]?.original} alt={traditionInfo.title} />
 				</div>
 			</div>
-			<GalleryImg className={cultureStyles.galleryPhotos} images={cultureInfo.photos} limit={5} />
-			{cultureInfo.bottomDesc && (
-				<div dangerouslySetInnerHTML={{ __html: cultureInfo.bottomDesc }} />
+			<GalleryImg className={cultureStyles.galleryPhotos} images={traditionInfo.photos} limit={5} />
+			{traditionInfo.bottomDesc && (
+				<div dangerouslySetInnerHTML={{ __html: traditionInfo.bottomDesc }} />
 			)}
 		</div>
 	)

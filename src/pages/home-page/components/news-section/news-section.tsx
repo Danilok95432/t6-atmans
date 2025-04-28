@@ -18,6 +18,7 @@ export const NewsSection: FC = () => {
 	const { data: newsList } = useGetHomeNewsQuery(null)
 	const breakpoint = useBreakPoint()
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
+	console.log(breakpoint)
 
 	const { mainNews, topNews } = useMemo(() => {
 		if (!newsList) {
@@ -70,7 +71,7 @@ export const NewsSection: FC = () => {
 						Все новости
 					</MainButton>
 				</FlexRow>
-				{breakpoint !== 'S' && (
+				{breakpoint === 'L' && (
 					<div className={styles.breakpointNews}>
 						{mainNews ? (
 							<>

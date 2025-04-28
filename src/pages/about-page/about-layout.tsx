@@ -18,7 +18,7 @@ export const AboutLayout: FC = () => {
 
 	const getCurrentLocation = () => {
 		if (
-			location.pathname.startsWith(`/about/about-culture/`) ||
+			location.pathname.startsWith(`/about/about-traditions/`) ||
 			location.pathname.startsWith(`/about/about-games/`)
 		) {
 			return true

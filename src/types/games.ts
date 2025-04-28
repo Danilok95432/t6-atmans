@@ -1,6 +1,6 @@
 import { type ImageItem, type ImageItemWithText } from './photos'
 
-export type TraditionItem = {
+export type GameItem = {
 	id: string
 	title: string
 	mainphoto: ImageItemWithText[]
