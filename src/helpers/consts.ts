@@ -20,6 +20,7 @@ export enum DisplayBreakpoints {
 	Xs = 400,
 	Sm = 576,
 	Md = 768,
+	ShortLg = 800,
 	Lg = 1024,
 	Xl = 1280,
 	Xxl = 1440,

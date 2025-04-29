@@ -2,7 +2,13 @@
 	padding: 0px 0 40px;
 
 	@include mobile {
-		padding: 45px 0 50px;
+		padding: 0px 0 50px;
+	}
+
+	.partnersSliderBtns {
+		@include mobile {
+			visibility: hidden;
+		}
 	}
 
 	.partnerCard {

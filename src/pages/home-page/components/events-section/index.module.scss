@@ -14,7 +14,8 @@
 
 	.eventsSliderBtns {
 		@include mobile {
-			width: 95%;
+			width: calc(100% - 95px);
+			top: 30%;
 		}
 	}
 }

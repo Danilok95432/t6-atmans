@@ -11,14 +11,14 @@ import {
 	galleryFullScreenSliderOptions,
 	gallerySliderOptions,
 } from 'src/components/image-gallery/consts'
-import SwiperCore, { Navigation, Pagination } from 'swiper' // Импортируем Navigation и Pagination
-import 'swiper/swiper-bundle.css' // Импортируем CSS Swiper
+import SwiperCore, { Navigation, Pagination } from 'swiper'
+import 'swiper/swiper-bundle.css'
 
 import styles from './index.module.scss'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 import { CloseSvg } from 'src/UI/icons/closeSVG'
 
-SwiperCore.use([Navigation, Pagination]) // Инициализируем Navigation и Pagination
+SwiperCore.use([Navigation, Pagination])
 
 type ImageGalleryProps = {
 	className?: string
@@ -39,20 +39,20 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 }) => {
 	const [expandedGallery, setExpandedGallery] = useState<boolean>(false)
 	const [overlayVisible, setOverlayVisible] = useState<boolean>(false)
-	const [initialSlide, setInitialSlide] = useState<number>(0) // Индекс начального слайда
-	const overlaySwiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null) // Ref для Swiper в оверлее
-	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null) // Ref для основного Swiper
+	const [initialSlide, setInitialSlide] = useState<number>(0)
+	const overlaySwiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
+	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 	const breakpoint = useBreakPoint()
 
 	const openOverlay = useCallback((index: number) => {
 		setInitialSlide(index)
 		setOverlayVisible(true)
-		document.body.classList.add(styles.noScroll) // Предотвращаем прокрутку фона
+		document.body.classList.add(styles.noScroll)
 	}, [])
 
 	const closeOverlay = useCallback(() => {
 		setOverlayVisible(false)
-		document.body.classList.remove(styles.noScroll) // Восстанавливаем прокрутку фона
+		document.body.classList.remove(styles.noScroll)
 	}, [])
 
 	if (!images?.length) return null
@@ -66,7 +66,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 							<SwiperSlide
 								className={styles.gallerySlide}
 								key={idx}
-								onClick={() => openOverlay(idx)} // Открываем оверлей при клике и передаем индекс
+								onClick={() => openOverlay(idx)}
 							>
 								<div className={styles.slideItem}>
 									<div className={styles.slideImg}>
@@ -81,10 +81,10 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 
 					<SliderBtns
 						className={styles.galleryBtns}
-						$btnsSpacing='calc(100% + 60px)'
+						$btnsSpacing={breakpoint === 'S' ? '80%' : 'calc(100% + 60px)'}
 						$variant='gallery'
-						swiperRef={swiperRef} // Ref для основного Swiper
-						color='#5C5C5C'
+						swiperRef={swiperRef}
+						color={breakpoint === 'S' ? '#FFF' : '#5C5C5C'}
 					/>
 				</div>
 			) : (
@@ -131,9 +131,9 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 						<Swiper
 							{...galleryFullScreenSliderOptions}
 							ref={overlaySwiperRef}
-							initialSlide={initialSlide} // Устанавливаем начальный слайд
+							initialSlide={initialSlide}
 							pagination={{ clickable: true }}
-							className={styles.overlaySwiper} // Добавляем класс для стилизации
+							className={styles.overlaySwiper}
 						>
 							{images.map((image, index) => (
 								<SwiperSlide key={image.id}>

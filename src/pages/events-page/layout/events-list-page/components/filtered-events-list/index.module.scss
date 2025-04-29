@@ -16,10 +16,11 @@
 	display: flex;
 	gap: 20px;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .eventCard {
-	width: fluid(311, 310);
+	width: fluid(300, 300);
 	height: 460px;
 
 	figure {

@@ -13,7 +13,7 @@
     justify-content: center;
   }
   @media (max-width: 425px) {
-    grid-template-columns: repeat(auto-fit, minmax(310px, 310px));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
   }
 }
 

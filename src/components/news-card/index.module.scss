@@ -10,9 +10,9 @@
   box-shadow: 0 0 15px 0 rgb(0 0 0 / .1);
   cursor: pointer;
 
-  @media (max-width: 550px) {
-    width: 100%;
-    max-width: 100%
+  @media (max-width: 580px) {
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   @include hover {
@@ -46,8 +46,8 @@
   height: 160px;
   border-radius: 5px 5px 0 0;
 
-  @media (max-width: 550px) {
-    height: 173px;
+  @include mobile {
+    height: 200px;
   }
 
   img {
@@ -56,6 +56,7 @@
     height: 100%;
     object-fit: cover;
   	object-position: top left;
+    aspect-ratio: 3 / 2;
   }
 }
 

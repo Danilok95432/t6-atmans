@@ -51,9 +51,8 @@
 }
 
 .scene {
-  width: 150px;
+  width: 220px;
   height: 100%;
-
   @include mobile {
     width: 145px;
   }
@@ -121,21 +120,12 @@
 
 .scene:nth-child(5) {
   background: url('../../../../assets/img/navBanner-img/scene-5.svg') 50% / cover no-repeat;
-
-  @media (max-width: 1700px) {
-    @include hide;
-
-    width: 0;
-  }
+  @include hide;
+  width: 0;
 }
 
 .scene:nth-child(6) {
   background: url('../../../../assets/img/navBanner-img/scene-6.svg') 50% / cover no-repeat;
-
-
-  @media (max-width: 1900px) {
-    @include hide;
-
-    width: 0;
-  }
+  @include hide;
+  width: 0;
 }

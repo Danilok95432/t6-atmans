@@ -106,20 +106,30 @@
 	}
 }
 
-.slideImg {
-	height: 127px;
-	border-radius: 5px;
-	margin-bottom: 5px;
-
+.slideItem {
 	@include mobile {
-		height: 173px;
+		max-width: 300px;
+		margin: 0 auto;
 	}
-
-	img {
-		width: 100%;
-		height: 100%;
+	.slideImg {
+		height: 130px;
 		border-radius: 5px;
-		object-fit: cover;
+		margin-bottom: 5px;
+	
+		@include mobile {
+			height: 200px;
+			aspect-ratio: 3 / 2;
+			margin: 0 auto;
+		}
+	
+		img {
+			width: 100%;
+			height: 100%;
+			border-radius: 5px;
+			object-fit: cover;
+			aspect-ratio: 3 / 2;
+			margin: 0 auto;
+		}
 	}
 }
 
@@ -130,7 +140,7 @@
 		top: 70px;
 
 		@include mobile {
-			top: 90px;
+			top: 105px;
 			width: 100%;
 		}
 	}

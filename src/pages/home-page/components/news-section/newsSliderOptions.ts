@@ -10,6 +10,9 @@ export const newsSliderOptions: SwiperProps = {
 		[DisplayBreakpoints.Sm]: {
 			slidesPerView: 2,
 		},
+		[DisplayBreakpoints.Md]: {
+			slidesPerView: 3,
+		},
 		[DisplayBreakpoints.Lg]: {
 			slidesPerView: 4,
 		},

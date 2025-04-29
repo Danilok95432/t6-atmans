@@ -9,7 +9,7 @@
 	}
 
 	@include mobile {
-		padding: 43px 0 53px;
+		padding: 0px 0 37px;
 	}
 
 	h4 {
@@ -21,6 +21,13 @@
 	.videotapeTop {
 		@media (max-width: 550px) {
 			margin-bottom: 17px;
+		}
+	}
+
+	.videoSliderBtns {
+		@include mobile {
+			width: 85%;
+			top: 49%;
 		}
 	}
 }

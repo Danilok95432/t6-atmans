@@ -18,7 +18,6 @@ export const NewsSection: FC = () => {
 	const { data: newsList } = useGetHomeNewsQuery(null)
 	const breakpoint = useBreakPoint()
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
-	console.log(breakpoint)
 
 	const { mainNews, topNews } = useMemo(() => {
 		if (!newsList) {
@@ -30,7 +29,6 @@ export const NewsSection: FC = () => {
 		)
 
 		let mainNewsItem = sortedNews.find((news) => news.main) ?? null
-
 		if (mainNewsItem) {
 			const mainNewsList = sortedNews.filter((news) => news.main)
 			mainNewsItem = mainNewsList[0]
@@ -39,25 +37,34 @@ export const NewsSection: FC = () => {
 		let topNewsItems: CardNewsItem[] = []
 
 		if (mainNewsItem) {
-			topNewsItems = sortedNews.filter((news) => news.id !== mainNewsItem?.id).slice(0, 2)
+			const filtered = sortedNews.filter((news) => news.id !== mainNewsItem?.id)
+
+			if (breakpoint === 'breakPoint') {
+				topNewsItems = filtered.slice(0, 1)
+			} else if (breakpoint === 'ShortLg' || breakpoint === 'L') {
+				topNewsItems = []
+			} else if (breakpoint === 'S') {
+				mainNewsItem = null
+				topNewsItems = []
+			} else {
+				topNewsItems = filtered.slice(0, 2)
+			}
 		} else {
 			topNewsItems = sortedNews.slice(0, 5)
 		}
 
 		return { mainNews: mainNewsItem, topNews: topNewsItems }
-	}, [newsList])
+	}, [newsList, breakpoint])
 
 	const sliderNews = useMemo(() => {
 		if (!newsList) return []
 
-		let excludedNewsIds: string[] = []
+		const excludedNewsIds: string[] = []
 
 		if (mainNews) {
 			excludedNewsIds.push(mainNews.id)
-			excludedNewsIds.push(...topNews.map((news) => news.id))
-		} else {
-			excludedNewsIds = topNews.map((news) => news.id)
 		}
+		excludedNewsIds.push(...topNews.map((news) => news.id))
 
 		return newsList.filter((news) => !excludedNewsIds.includes(news.id))
 	}, [newsList, mainNews, topNews])
@@ -71,7 +78,7 @@ export const NewsSection: FC = () => {
 						Все новости
 					</MainButton>
 				</FlexRow>
-				{breakpoint === 'L' && (
+				{(breakpoint === 'L' || breakpoint === 'sliderBtnsPoint') && (
 					<div className={styles.breakpointNews}>
 						{mainNews ? (
 							<>
@@ -107,7 +114,7 @@ export const NewsSection: FC = () => {
 							$topPosition='50%'
 							$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
 							swiperRef={swiperRef}
-							color='#5C5C5C'
+							color={breakpoint !== 'S' ? '#5C5C5C' : '#FFFFFF'}
 						/>
 					</div>
 				)}

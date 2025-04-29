@@ -45,8 +45,9 @@ export const PartnersSection: FC = () => {
 						))}
 					</Swiper>
 					<SliderBtns
+						className={styles.partnersSliderBtns}
 						$topPosition='82%'
-						$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
+						$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '90%'}
 						swiperRef={swiperRef}
 						color='#5C5C5C'
 					/>

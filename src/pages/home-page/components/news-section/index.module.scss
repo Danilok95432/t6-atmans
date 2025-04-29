@@ -9,13 +9,13 @@
 	}
 
 	@include mobile {
-		padding: 48px 0 53px;
+		padding: 0px 0 53px;
 	}
 
 	.newsSliderBtns {
 		@include mobile {
-			top: 96px;
-			width: 95%;
+			width: 90%;
+			top: 30%;
 		}
 	}
 }
@@ -31,7 +31,7 @@
 	width: 286px;
 
 	@include mobile-s {
-		min-height: 394px;
+		min-height: 340px;
 	}
 }
 

@@ -43,7 +43,7 @@ export const VideotapeSection: FC = () => {
 						$topPosition='52%'
 						$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
 						swiperRef={swiperRef}
-						color='#5C5C5C'
+						color={breakpoint !== 'S' ? '#5C5C5C' : '#FFFFFF'}
 					/>
 				</div>
 			</Container>
