@@ -33,7 +33,7 @@ export const FilteredEventsList = () => {
 				monthsList={eventsFiltrationInfo?.months ?? []}
 				changeActiveMonth={handleChangeActiveMonth}
 				activeMonth={activeMonth}
-				allMonthTitle='все события'
+				allMonthTitle='Все события'
 			/>
 			<CategoriesFiltration
 				activeCatId={activeCategory}

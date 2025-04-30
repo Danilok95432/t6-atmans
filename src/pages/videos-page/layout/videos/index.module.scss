@@ -6,7 +6,7 @@
 
 .videosList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 270px));
+  grid-template-columns: repeat(auto-fit, minmax(245px, 245px));
   gap: 30px 23px;
   margin-bottom: 30px;
   @media (max-width: 768px) {

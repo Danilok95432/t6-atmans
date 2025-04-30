@@ -1,4 +1,5 @@
 .filteredListWrapper {
+	padding: 15px 0 0 0;
 	@include tablet {
 		padding: 0 15px;
 	}
@@ -16,7 +17,9 @@
 	display: flex;
 	gap: 20px;
 	flex-wrap: wrap;
-	justify-content: center;
+	@media (max-width: 440px) {
+		justify-content: center;
+	}
 }
 
 .eventCard {

@@ -42,7 +42,7 @@ export const Videos: FC = () => {
 					monthsList={videosFiltrationInfo?.months ?? []}
 					changeActiveMonth={handleChangeActiveMonth}
 					activeMonth={activeMonth}
-					allMonthTitle='все видео'
+					allMonthTitle='Все видео'
 				/>
 				<CategoriesFiltration
 					activeCatId={activeCategory}

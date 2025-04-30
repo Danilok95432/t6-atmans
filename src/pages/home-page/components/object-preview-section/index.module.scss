@@ -12,9 +12,14 @@
 	}
 }
 
+.swiper {
+	border-radius: 25px;
+}
+
 .objPreview {
 	display: flex;
-	min-height: 550px;
+	min-height: 480px;
+	border-radius: 25px;
 
 	@include mobile {
 		flex-direction: column;
@@ -24,6 +29,7 @@
 .objLocation {
 	flex-grow: 1;
 	border-radius: 25px 0 0 25px;
+	max-width: 720px;
 
 	@include mobile {
 		border-radius: 5px 5px 0 0;
@@ -43,27 +49,39 @@
 
 .objInfo {
 	background: var(--color-white);
-	min-width: 485px;
-	width: 485px;
+	min-width: 605px;
+	width: 605px;
 	padding: 30px 50px 30px 45px;
 	border-radius: 0 25px 25px 0;
 	box-shadow: 0 0 15px 0 rgb(0 0 0 / 0.1);
+	.objInfoRow {
+		align-items: center;
+		gap: 16px;
+		flex-wrap: nowrap;
+		h3 {
+			max-width: 446px;
+			font-size: 22px;
+			margin-bottom: 0;
+		}
+	}
 
 	@include mobile {
 		min-width: 100%;
 		width: 100%;
 		border-radius: 0;
-		padding-right: 35px;
 		height: 100%;
+		padding: 25px 20px;
 	}
 
 	.objLogo {
+		display: block;
 		width: 48px;
 		height: 48px;
-		margin: 20px 0 31px;
+		margin: 20px 0 20px;
 
 		@include mobile {
 			margin-bottom: 20px;
+			width: 100px;
 		}
 	}
 

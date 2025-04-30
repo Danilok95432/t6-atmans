@@ -15,7 +15,8 @@ type EventPosterProps = {
 }
 
 export const EventPoster: FC<EventPosterProps> = ({ posterEventId }) => {
-	const { data: eventInfo } = useGetEventByIdQuery(posterEventId ?? '')
+	const { data: eventInfo } = useGetEventByIdQuery(posterEventId ?? null)
+	console.log(eventInfo)
 	const breakPoint = useBreakPoint()
 	return (
 		<div className={styles.eventPoster}>

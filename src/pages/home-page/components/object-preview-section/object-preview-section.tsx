@@ -11,6 +11,7 @@ import { SliderBtns } from 'src/components/slider-btns/slider-btns'
 
 import styles from './index.module.scss'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
+import { FlexRow } from 'src/components/flex-row/flex-row'
 
 export const ObjectPreviewSection = () => {
 	const { data: objects } = useGetHomePreviewObjectQuery(null)
@@ -36,10 +37,12 @@ export const ObjectPreviewSection = () => {
 											></iframe>
 										</div>
 										<div className={styles.objInfo}>
-											<svg className={styles.objLogo}>
-												<image xlinkHref={object?.icon} width='48' height='48' />
-											</svg>
-											<h3>{object?.title}</h3>
+											<FlexRow className={styles.objInfoRow}>
+												<svg className={styles.objLogo}>
+													<image xlinkHref={object?.icon} width='48' height='48' />
+												</svg>
+												<h3>{object?.title}</h3>
+											</FlexRow>
 											<p className={styles.objAddress}>
 												<span>{object?.title}</span>
 												<span>{object?.address}</span>

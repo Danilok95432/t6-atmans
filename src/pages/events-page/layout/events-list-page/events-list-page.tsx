@@ -14,7 +14,7 @@ export const EventsListPage: FC = () => {
 		date: '0',
 		category: '0',
 	})
-	const [mainEvent, setMainEvent] = useState('25')
+	const [mainEvent, setMainEvent] = useState('')
 	useEffect(() => {
 		if (eventsList && eventsList?.length > 0) {
 			const currentEvent = eventsList?.find((item) => item.status === 'current')
@@ -36,7 +36,7 @@ export const EventsListPage: FC = () => {
 				<title>Cобытия</title>
 			</Helmet>
 			<Container>
-				<EventPoster posterEventId={mainEvent} />
+				{mainEvent !== '' && <EventPoster posterEventId={mainEvent} />}
 				<FilteredEventsList />
 			</Container>
 		</PageContent>
