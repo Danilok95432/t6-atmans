@@ -47,7 +47,7 @@ export const NewsDetails = () => {
 							<h2>{newsItemData.title}</h2>
 							<span className={styles.newsItemDate}>{mainFormatDate(newsItemData?.date)}</span>
 							{breakpoint !== 'S' && (
-								<div className={styles.newsDescs}>
+								<div className={newsItemData?.short ? styles.newsDescs : ''}>
 									{newsItemData?.short && (
 										<div dangerouslySetInnerHTML={{ __html: newsItemData.short }} />
 									)}

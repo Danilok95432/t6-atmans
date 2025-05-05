@@ -12,7 +12,7 @@ export const EventNews: FC = () => {
 		<>
 			<h4>Новости события</h4>
 			<GridRow
-				$template='auto / repeat(auto-fit, minmax(100%, 300px))'
+				$template='auto / repeat(auto-fit, minmax(245px, 245px))'
 				$gap='20px'
 				$margin='0 0 30px 0'
 			>
