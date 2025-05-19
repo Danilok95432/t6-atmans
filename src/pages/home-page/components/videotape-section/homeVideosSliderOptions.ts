@@ -8,10 +8,16 @@ export const homeVideosSliderOptions: SwiperProps = {
 	spaceBetween: 25,
 	grabCursor: true,
 	breakpoints: {
-		[DisplayBreakpoints.Xs]: {
-			slidesPerView: 1,
+		[DisplayBreakpoints.Sm]: {
+			slidesPerView: 2,
+		},
+		[DisplayBreakpoints.Md]: {
+			slidesPerView: 3,
 		},
 		[DisplayBreakpoints.Lg]: {
+			slidesPerView: 3,
+		},
+		[DisplayBreakpoints.Xl]: {
 			slidesPerView: 4,
 		},
 		[DisplayBreakpoints.Xxl]: {

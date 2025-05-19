@@ -10,6 +10,8 @@ import { ObjDetailsEvents } from 'src/pages/objects-page/layout/object-details/c
 
 import styles from './index.module.scss'
 import { Container } from 'src/UI/Container/Container'
+import { ObjDetailsDescs } from './components/obj-details-descs/obj-details-descs'
+import { ObjDetailsOrg } from './components/obj-details-org/obj-details-org'
 
 export const ObjectDetails: FC = () => {
 	return (
@@ -17,6 +19,8 @@ export const ObjectDetails: FC = () => {
 			<Container>
 				<ObjectHeader />
 				<ObjDetailsGallery />
+				<ObjDetailsOrg />
+				<ObjDetailsDescs />
 				<ObjDetailsEvents />
 				<ObjDetailsNews />
 				<ObjDetailsVideos />

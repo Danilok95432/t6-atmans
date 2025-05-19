@@ -3,6 +3,7 @@ export enum AppRoute {
 	Search = 'search',
 	About = 'about',
 	AboutHistory = 'about-history',
+	AboutNature = 'about-nature',
 	AboutCulture = 'about-culture',
 	AboutTraditions = 'about-traditions',
 	AboutGames = 'about-games',

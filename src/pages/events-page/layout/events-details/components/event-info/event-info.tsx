@@ -31,9 +31,6 @@ export const EventInfo = () => {
 	return (
 		<div className={styles.eventInfoWrapper}>
 			<div className={styles.mainInfo}>
-				<div className={styles.avatarWrapper}>
-					<img src={eventData?.mainphoto[0]?.original} alt={eventData?.title} />
-				</div>
 				<div className={styles.infoBlock}>
 					<h2>{eventData?.title}</h2>
 					<FlexRow className={styles.topLineEvent}>
@@ -45,10 +42,6 @@ export const EventInfo = () => {
 						<div className={styles.dot}></div>
 						<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
 							{eventData?.event_type_name}
-						</CustomText>
-						<div className={styles.dot}></div>
-						<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
-							{eventData?.event_level_name}
 						</CustomText>
 						<div className={styles.dot}></div>
 						<EventStatus className={styles.status} statusCode={eventData?.status} />
@@ -81,6 +74,7 @@ export const EventInfo = () => {
 									$titleWidth='auto'
 									$gap='10px'
 									$margin='0'
+									$alignItems='center'
 								/>
 							)}
 
@@ -99,6 +93,7 @@ export const EventInfo = () => {
 									$titleWidth='auto'
 									$gap='10px'
 									$margin='0'
+									$alignItems='center'
 									titleClassname={styles.infoBlockText}
 								/>
 							)}
@@ -115,6 +110,7 @@ export const EventInfo = () => {
 									$titleWidth='auto'
 									$gap='10px'
 									$margin='0'
+									$alignItems='center'
 									titleClassname={styles.infoBlockText}
 								/>
 							)}
@@ -132,6 +128,7 @@ export const EventInfo = () => {
 									$titleWidth='auto'
 									$gap='10px'
 									$margin='0'
+									$alignItems='center'
 									titleClassname={styles.infoBlockText}
 								/>
 							)}
@@ -148,6 +145,7 @@ export const EventInfo = () => {
 									$titleWidth='auto'
 									$gap='10px'
 									$margin='0'
+									$alignItems='center'
 									titleClassname={styles.infoBlockText}
 								/>
 							)}
@@ -164,11 +162,15 @@ export const EventInfo = () => {
 									$titleWidth='auto'
 									$gap='10px'
 									$margin='0'
+									$alignItems='center'
 									titleClassname={styles.infoBlockText}
 								/>
 							)}
 						</div>
 					</div>
+				</div>
+				<div className={styles.avatarWrapper}>
+					<img src={eventData?.mainphoto[0]?.original} alt={eventData?.title} />
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,5 @@
 import { type CardNewsItem } from 'src/types/news'
+import cn from 'classnames'
 import { type FC } from 'react'
 import { Link } from 'react-router-dom'
 import { AppRoute } from 'src/routes/main-routes/consts'
@@ -11,11 +12,19 @@ type NewsCardProps = {
 	mainStatus?: boolean
 } & CardNewsItem
 
-export const NewsCard: FC<NewsCardProps> = ({ id, mainphoto, title, date, desc, mainStatus }) => {
+export const NewsCard: FC<NewsCardProps> = ({
+	id,
+	mainphoto,
+	title,
+	date,
+	desc,
+	mainStatus,
+	className,
+}) => {
 	if (mainStatus) {
 		return (
 			<Link
-				className={styles.newsItem}
+				className={cn(styles.newsItem, className)}
 				to={`/${AppRoute.News}/${id}`}
 				aria-label={title}
 				title={title}

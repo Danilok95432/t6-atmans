@@ -19,13 +19,6 @@ export const EventPoster: FC<EventPosterProps> = ({ posterEventId }) => {
 	const breakPoint = useBreakPoint()
 	return (
 		<div className={styles.eventPoster}>
-			<div className={styles.eventPosterImg}>
-				{eventInfo?.mainphoto[0]?.original ? (
-					<img src={eventInfo?.mainphoto[0]?.original} alt={eventInfo?.title} />
-				) : (
-					<img className={styles.skeleton} src={skeleton} alt={eventInfo?.title} />
-				)}
-			</div>
 			<div className={styles.eventPosterInfo}>
 				<h2>{eventInfo?.title}</h2>
 				<FlexRow className={styles.topLineEvent}>
@@ -37,10 +30,6 @@ export const EventPoster: FC<EventPosterProps> = ({ posterEventId }) => {
 					<div className={styles.dot}></div>
 					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
 						{eventInfo?.event_type_name}
-					</CustomText>
-					<div className={styles.dot}></div>
-					<CustomText $fontSize={breakPoint === 'S' ? '18px' : '16px'}>
-						{eventInfo?.event_level_name}
 					</CustomText>
 					<div className={styles.dot}></div>
 					<EventStatus className={styles.status} statusCode={eventInfo?.status} />
@@ -61,6 +50,13 @@ export const EventPoster: FC<EventPosterProps> = ({ posterEventId }) => {
 						? `Начало в ${parseTimeFromDate(eventInfo?.date[0])}`
 						: 'Нет информации о времени начала'}
 				</p>
+			</div>
+			<div className={styles.eventPosterImg}>
+				{eventInfo?.mainphoto[0]?.original ? (
+					<img src={eventInfo?.mainphoto[0]?.original} alt={eventInfo?.title} />
+				) : (
+					<img className={styles.skeleton} src={skeleton} alt={eventInfo?.title} />
+				)}
 			</div>
 		</div>
 	)

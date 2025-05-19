@@ -72,4 +72,5 @@ export type AboutContactsPage = {
 	mailAddress: string
 	phone: PhoneContacts[]
 	emails: EmailContacts[]
+	photos: ImageItemWithText[]
 }

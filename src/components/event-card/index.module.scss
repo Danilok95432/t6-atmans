@@ -3,7 +3,7 @@
 	box-shadow: 0 0 15px 0 rgb(0 0 0 / 0.1);
 	background: var(--color-white);
 	transition: all 0.3s;
-	width: fluid(311, 300);
+	width: fluid(311, 311);
 	height: fluid(485, 485);
 
 	@media (max-width: 550px) {
@@ -53,15 +53,20 @@
 
 .eventContent {
 	padding: 20px 15px 25px 15px;
-
 	.eventTitle {
 		font-weight: 400;
 		font-size: 20px;
 		margin-bottom: 12px;
 		line-height: 1.25;
+		display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
 		text-overflow: ellipsis;
-		white-space: nowrap;
 		overflow: hidden;
+		max-height: 50px;
+		height: 50px;
 
 		.status {
 			display: flex;
@@ -145,7 +150,7 @@
 	.eventDesc {
 		font-size: 15px;
 		line-height: 1.3;
-		display: -webkit-box;
+		display: block;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
@@ -153,5 +158,6 @@
 		line-clamp: 2;
 		max-height: 45px;
 		height: 45px;
+		margin-bottom: 25px;
 	}
 }

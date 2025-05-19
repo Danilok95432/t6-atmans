@@ -3,12 +3,13 @@ div.objDetailsPage {
 	padding: 42px 35px 30px 50px;
 	@media (max-width: 768px) {
 		padding: 20px 0 0 0;
+		min-height: auto;
 	}
 	section {
 		padding-bottom: 40px;
 
 		&:not(:first-child) {
-			padding: 30px 0 20px;
+			padding: 20px 0 20px;
 		}
 
 		&:not(:last-child) {

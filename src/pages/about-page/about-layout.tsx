@@ -11,6 +11,7 @@ import { AboutMenuItems } from './consts'
 
 import styles from './index.module.scss'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
+import { AboutLayoutHeader } from './components/about-layout-header'
 
 export const AboutLayout: FC = () => {
 	const location = useLocation()
@@ -44,7 +45,7 @@ export const AboutLayout: FC = () => {
 				<Container className={styles.aboutContainerLayout}>
 					{!isTraditionPage && (
 						<>
-							{breakpoint !== 'S' && <h2>Атманов угол</h2>}
+							{breakpoint !== 'S' && <AboutLayoutHeader />}
 							<HeadMenu
 								className={styles.aboutSideMenu}
 								sideItems={[

@@ -8,7 +8,7 @@ export const eventsSliderOptions: SwiperProps = {
 	spaceBetween: 20,
 	breakpoints: {
 		[DisplayBreakpoints.Xs]: {
-			slidesPerView: 2,
+			slidesPerView: 1,
 		},
 		[DisplayBreakpoints.Lg]: {
 			slidesPerView: 3,

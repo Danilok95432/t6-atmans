@@ -1,4 +1,12 @@
-import React, { type FC, type RefObject, useRef, useState, useCallback } from 'react'
+import React, {
+	type FC,
+	type RefObject,
+	useRef,
+	useState,
+	useCallback,
+	useMemo,
+	useEffect,
+} from 'react'
 import { type ImageItem } from 'src/types/photos'
 import cn from 'classnames'
 
@@ -24,15 +32,17 @@ type ImageGalleryProps = {
 	className?: string
 	listClassName?: string
 	images?: ImageItem[]
+	allPageImages?: ImageItem[] // Новый пропс
 	limit?: number
 	limitController?: boolean
-	variant?: 'list' | 'slider'
+	variant?: 'list' | 'slider' | 'newsMain'
 }
 
 export const GalleryImg: FC<ImageGalleryProps> = ({
 	className,
 	listClassName,
 	images,
+	allPageImages, // Получаем пропс
 	limit,
 	limitController,
 	variant = 'list',
@@ -44,18 +54,98 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 	const breakpoint = useBreakPoint()
 
-	const openOverlay = useCallback((index: number) => {
-		setInitialSlide(index)
-		setOverlayVisible(true)
-		document.body.classList.add(styles.noScroll)
-	}, [])
+	const imagesForOverlay = useMemo(() => {
+		return allPageImages ?? images
+	}, [allPageImages, images])
+
+	const openOverlay = useCallback(
+		(clickedImage: ImageItem) => {
+			if (imagesForOverlay) {
+				const indexInOverlay = imagesForOverlay.findIndex((img) => img.id === clickedImage.id)
+				if (indexInOverlay !== -1) {
+					setInitialSlide(indexInOverlay)
+					setOverlayVisible(true)
+					document.body.classList.add(styles.noScroll)
+				} else {
+					console.warn('Image not found in overlay images')
+					setOverlayVisible(false) // Don't open overlay if image not found
+				}
+			}
+		},
+		[imagesForOverlay],
+	)
 
 	const closeOverlay = useCallback(() => {
 		setOverlayVisible(false)
 		document.body.classList.remove(styles.noScroll)
 	}, [])
 
+	const handleNewsMainClick = useCallback(() => {
+		if (images && images.length > 0) {
+			openOverlay(images[0]) // Передаем объект ImageItem, убеждаемся, что images не пустой
+		}
+	}, [openOverlay, images])
+
+	const sliderBtns = useMemo(
+		() => (
+			<SliderBtns
+				className={styles.fullScreenSliderBtns}
+				$topPosition='50%'
+				$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '897px' : '90%'}
+				swiperRef={overlaySwiperRef}
+				color={breakpoint === 'Xs' ? '#FFF' : '#FFFFFFB5'}
+			/>
+		),
+		[breakpoint, overlaySwiperRef],
+	)
+
+	const swiperComponent = useMemo(
+		() => (
+			<Swiper
+				{...galleryFullScreenSliderOptions}
+				ref={overlaySwiperRef}
+				initialSlide={initialSlide}
+				pagination={{ clickable: true }}
+				className={styles.overlaySwiper}
+			>
+				{imagesForOverlay?.map((image, index) => (
+					<SwiperSlide key={image.id}>
+						<img src={image.thumbnail} alt={image.title} className={styles.overlayImage} />
+					</SwiperSlide>
+				))}
+			</Swiper>
+		),
+		[imagesForOverlay, initialSlide, overlaySwiperRef],
+	)
+
+	useEffect(() => {
+		// Эффект, который может потребоваться в newsMain варианте или других
+		console.log('Component updated')
+	}, [variant, images, initialSlide, imagesForOverlay])
+
 	if (!images?.length) return null
+
+	if (variant === 'newsMain') {
+		return (
+			<div className={cn(className, styles.newsMainGallery)}>
+				<div className={styles.newsMainImageWrapper} onClick={handleNewsMainClick}>
+					<img src={images[0].thumbnail} alt={images[0].title} className={styles.newsMainImage} />
+				</div>
+
+				{overlayVisible && (
+					<div className={styles.imageOverlay} onClick={closeOverlay}>
+						<div className={styles.overlayContent} onClick={(e) => e.stopPropagation()}>
+							<button className={styles.closeButton} onClick={closeOverlay}>
+								<CloseSvg />
+							</button>
+							{swiperComponent}
+							{sliderBtns}
+						</div>
+					</div>
+				)}
+			</div>
+		)
+	}
 
 	return (
 		<div className={className}>
@@ -66,14 +156,16 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 							<SwiperSlide
 								className={styles.gallerySlide}
 								key={idx}
-								onClick={() => openOverlay(idx)}
+								onClick={() => openOverlay(slideItem)} // Передаем объект ImageItem
 							>
 								<div className={styles.slideItem}>
 									<div className={styles.slideImg}>
 										<img src={slideItem.thumbnail} alt={slideItem.title} />
 									</div>
 									<h6>{slideItem.title}</h6>
-									{<span className={styles.author}>Автор: {slideItem.author}</span>}
+									{slideItem.author !== '' ? (
+										<span className={styles.author}>Автор: {slideItem.author}</span>
+									) : null}
 								</div>
 							</SwiperSlide>
 						))}
@@ -90,12 +182,16 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 			) : (
 				<ul className={cn(styles.gridGallery, listClassName)}>
 					{images.slice(0, expandedGallery ? images.length : limit).map((img, idx) => (
-						<li key={img.id} onClick={() => openOverlay(idx)}>
+						<li key={img.id} onClick={() => openOverlay(img)}>
+							{' '}
+							{/* Передаем объект ImageItem */}
 							<div className={styles.gridImgWrapper}>
 								<img src={img.thumbnail} alt={`image ${idx + 1}`} />
 							</div>
 							{img.title && <h6>{img.title}</h6>}
-							{<span className={styles.author}>Автор: {img.author}</span>}
+							{img.author !== '' ? (
+								<span className={styles.author}>Автор: {img.author}</span>
+							) : null}
 							{img.date && <span className={styles.imgDate}>{mainFormatDate(img.date)}</span>}
 						</li>
 					))}
@@ -128,26 +224,8 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 						<button className={styles.closeButton} onClick={closeOverlay}>
 							<CloseSvg />
 						</button>
-						<Swiper
-							{...galleryFullScreenSliderOptions}
-							ref={overlaySwiperRef}
-							initialSlide={initialSlide}
-							pagination={{ clickable: true }}
-							className={styles.overlaySwiper}
-						>
-							{images.map((image, index) => (
-								<SwiperSlide key={image.id}>
-									<img src={image.thumbnail} alt={image.title} className={styles.overlayImage} />
-								</SwiperSlide>
-							))}
-						</Swiper>
-						<SliderBtns
-							className={styles.fullScreenSliderBtns}
-							$topPosition='50%'
-							$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '897px' : '90%'}
-							swiperRef={overlaySwiperRef}
-							color={breakpoint === 'Xs' ? '#FFF' : '#FFFFFFB5'}
-						/>
+						{swiperComponent}
+						{sliderBtns}
 					</div>
 				</div>
 			)}

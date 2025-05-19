@@ -7,7 +7,7 @@ import styles from './index.module.scss'
 export const ContactsInfo: FC = () => {
 	const { data: aboutContactsData } = useGetAboutContactsQuery(null)
 	return (
-		<>
+		<div className={styles.infoBlock}>
 			{aboutContactsData?.mailAddress && (
 				<div className={styles.contactsBlock}>
 					<h4>Почтовый адрес</h4>
@@ -34,6 +34,6 @@ export const ContactsInfo: FC = () => {
 					</a>
 				</div>
 			)}
-		</>
+		</div>
 	)
 }

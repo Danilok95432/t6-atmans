@@ -1,0 +1,32 @@
+div.aboutLayoutHeaderPageContent {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 5px solid #F2F5F8;
+  .leftSideHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .title {
+      margin-bottom: 0;
+    }
+    .blockquoteBody {
+      .mainDescs {
+        margin: 0 0 15px 0;
+      }
+      span {
+        font-size: 15px;
+        color: #9D9D9D;
+      }
+    }
+  }
+  img {
+    width: 322px;
+    height: 214px;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}

@@ -44,6 +44,10 @@
 
 .mainNews {
 	max-width: 785px;
+	width: 100%;
+	.mainNewsCard {
+		width: 100%;
+	}
 }
 
 .topNews {

@@ -6,6 +6,10 @@ export const AboutMenuItems: NavigationItem[] = [
 		link: 'about-history',
 	},
 	{
+		title: 'Природа Атманова угла',
+		link: 'about-nature',
+	},
+	{
 		title: 'Карта и маршруты',
 		link: 'about-contacts',
 	},

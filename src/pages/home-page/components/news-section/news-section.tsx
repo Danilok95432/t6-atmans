@@ -83,7 +83,7 @@ export const NewsSection: FC = () => {
 						{mainNews ? (
 							<>
 								<div className={styles.mainNews}>
-									<NewsCard {...mainNews} mainStatus={true} />
+									<NewsCard {...mainNews} mainStatus={true} className={styles.mainNewsCard} />
 								</div>
 								<div className={styles.topNews}>
 									{topNews.map((news) => (

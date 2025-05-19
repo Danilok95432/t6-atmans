@@ -38,6 +38,7 @@ import { EventDetails } from 'src/pages/events-page/layout/events-details/layout
 import { AboutGamesLayout } from 'src/pages/about-page/layout/about-games/about-games-layout'
 import { GamesGeneral } from 'src/pages/about-page/layout/about-games/layout/games-general/games-general'
 import { GameDetails } from 'src/pages/about-page/layout/about-games/layout/game-details/game-details'
+import { AboutNature } from 'src/pages/about-page/layout/about-nature/about-nature'
 
 export const MainRoutes = () => {
 	return (
@@ -49,6 +50,7 @@ export const MainRoutes = () => {
 				<Route path={AppRoute.About} element={<AboutLayout />}>
 					<Route index element={<AboutGeneral />} />
 					<Route path={AppRoute.AboutHistory} element={<AboutHistory />} />
+					<Route path={AppRoute.AboutNature} element={<AboutNature />} />
 					<Route path={AppRoute.AboutTraditions} element={<AboutCultureLayout />}>
 						<Route index element={<CultureGeneral />} />
 						<Route path=':id' element={<CultureDetails />} />

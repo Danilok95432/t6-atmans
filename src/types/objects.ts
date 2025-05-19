@@ -9,6 +9,14 @@ export type ObjectMapPaths = {
 	path_yandex: string
 }
 
+export type ObjectOrgItem = {
+	name: string
+	ogrn: string
+	inn: string
+	adress: string
+	phone: string
+}
+
 export type ObjectItem = {
 	id: string
 	title: string
@@ -26,6 +34,8 @@ export type ObjectItem = {
 	videos: VideoItem[]
 	location: string
 	paths: ObjectMapPaths[]
+	org: ObjectOrgItem
+	coords: string
 }
 
 export type ObjectsInfo = {

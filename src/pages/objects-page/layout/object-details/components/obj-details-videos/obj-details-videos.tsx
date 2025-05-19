@@ -23,7 +23,7 @@ export const ObjDetailsVideos: FC = () => {
 
 	return (
 		<section className={cn(styles.videotapeSection, '_bordered')}>
-			<h4>Видеогалерея</h4>
+			<h4>Видеолента</h4>
 
 			<div className={cn(styles.objSwiperWrapper, 'slider-with-btns')}>
 				<Swiper className={styles.videotapeSlider} {...videotapeSliderOptions} ref={swiperRef}>

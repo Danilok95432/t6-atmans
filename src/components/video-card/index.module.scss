@@ -1,6 +1,9 @@
 .videoCard {
-	@media (max-width: 580px) {
+	display: block;
+	width: 245px;
+	@media (max-width: 768px) {
 		max-width: 300px;
+		width: 300px;
 		margin: 0 auto;
 	}
 }
@@ -14,9 +17,6 @@
 
 	@media (max-width: 768px) {
 		border-radius: 5px;
-	}
-
-	@media (max-width: 440px) {
 		height: 200px;
 	}
 
