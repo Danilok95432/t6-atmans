@@ -1,12 +1,4 @@
-import React, {
-	type FC,
-	type RefObject,
-	useRef,
-	useState,
-	useCallback,
-	useMemo,
-	useEffect,
-} from 'react'
+import React, { type FC, type RefObject, useRef, useState, useCallback, useMemo } from 'react'
 import { type ImageItem } from 'src/types/photos'
 import cn from 'classnames'
 
@@ -32,7 +24,7 @@ type ImageGalleryProps = {
 	className?: string
 	listClassName?: string
 	images?: ImageItem[]
-	allPageImages?: ImageItem[] // Новый пропс
+	allPageImages?: ImageItem[]
 	limit?: number
 	limitController?: boolean
 	variant?: 'list' | 'slider' | 'newsMain'
@@ -42,7 +34,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 	className,
 	listClassName,
 	images,
-	allPageImages, // Получаем пропс
+	allPageImages,
 	limit,
 	limitController,
 	variant = 'list',
@@ -68,7 +60,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 					document.body.classList.add(styles.noScroll)
 				} else {
 					console.warn('Image not found in overlay images')
-					setOverlayVisible(false) // Don't open overlay if image not found
+					setOverlayVisible(false)
 				}
 			}
 		},
@@ -82,7 +74,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 
 	const handleNewsMainClick = useCallback(() => {
 		if (images && images.length > 0) {
-			openOverlay(images[0]) // Передаем объект ImageItem, убеждаемся, что images не пустой
+			openOverlay(images[0])
 		}
 	}, [openOverlay, images])
 
@@ -118,11 +110,6 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 		[imagesForOverlay, initialSlide, overlaySwiperRef],
 	)
 
-	useEffect(() => {
-		// Эффект, который может потребоваться в newsMain варианте или других
-		console.log('Component updated')
-	}, [variant, images, initialSlide, imagesForOverlay])
-
 	if (!images?.length) return null
 
 	if (variant === 'newsMain') {
@@ -156,7 +143,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 							<SwiperSlide
 								className={styles.gallerySlide}
 								key={idx}
-								onClick={() => openOverlay(slideItem)} // Передаем объект ImageItem
+								onClick={() => openOverlay(slideItem)}
 							>
 								<div className={styles.slideItem}>
 									<div className={styles.slideImg}>

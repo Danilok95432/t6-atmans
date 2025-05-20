@@ -1,7 +1,6 @@
 import { type FC } from 'react'
 
 import { useGetAboutGeneralQuery } from 'src/store/about/about.api'
-import { RenderedArray } from 'src/components/rendered-array/rendered-array'
 
 import styles from './index.module.scss'
 
@@ -13,12 +12,12 @@ export const AboutLayoutHeader: FC = () => {
 			<div className={styles.leftSideHeader}>
 				<h2 className={styles.title}>Атманов угол</h2>
 				<div className={styles.blockquoteBody}>
-					<RenderedArray
-						className={styles.mainDescs}
-						strArray={aboutPageData?.mainDescs}
-						asStr='p'
-						as='blockquote'
-					/>
+					{aboutPageData?.mainDescs && (
+						<div
+							className={styles.mainDescs}
+							dangerouslySetInnerHTML={{ __html: aboutPageData.mainDescs }}
+						/>
+					)}
 					{aboutPageData?.caption && (
 						<span className={styles.blockquoteCaption}>{aboutPageData?.caption}</span>
 					)}

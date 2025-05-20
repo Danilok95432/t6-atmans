@@ -9,6 +9,9 @@ export const eventsSliderOptions: SwiperProps = {
 	autoHeight: false,
 	breakpoints: {
 		[DisplayBreakpoints.Sm]: {
+			slidesPerView: 1,
+		},
+		[DisplayBreakpoints.Md]: {
 			slidesPerView: 2,
 		},
 		[DisplayBreakpoints.Lg]: {

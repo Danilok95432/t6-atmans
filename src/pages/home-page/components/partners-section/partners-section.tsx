@@ -29,7 +29,7 @@ export const PartnersSection: FC = () => {
 				<div className={styles.partnerSlider}>
 					<Swiper {...homePartnersSliderOptions} ref={swiperRef}>
 						{partners?.map((slideItem, idx) => (
-							<SwiperSlide key={idx}>
+							<SwiperSlide key={idx} className={styles.partnerSlide}>
 								<div className={styles.partnerCard} key={slideItem.id}>
 									<a href={slideItem.link} className={styles.partnersLink}>
 										<img

@@ -6,12 +6,18 @@ div.contactsPageContent {
     @media (max-width: 768px) {
       font-size: 32px;
       font-weight: 500;
-      margin-bottom: 20px;
     }
   }
   .aboutMap {
     margin-bottom: 30px;
     width: 100%;
     height: 620px;
+  }
+  .topDescs {
+    font-size: 17px;
+    margin-bottom: 20px;
+    @media (max-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 }

@@ -20,12 +20,12 @@ export const AboutNature: FC = () => {
 			</Helmet>
 			<div className={styles.inner}>
 				{breakpoint === 'S' && <h2>История Атманова угла</h2>}
-				<RenderedArray
-					strArray={aboutPageData.topDescs}
-					asStr='p'
-					as='div'
-					className={styles.topDescs}
-				/>
+				{aboutPageData?.topDescs && (
+					<div
+						className={styles.topDescs}
+						dangerouslySetInnerHTML={{ __html: aboutPageData.topDescs }}
+					/>
+				)}
 				<GallerySection images={aboutPageData?.photos} />
 				<RenderedArray
 					strArray={aboutPageData.bottomDescs}
