@@ -1,8 +1,9 @@
 import { type ImageItemWithText } from 'src/types/photos'
 
 export type AboutGeneralPage = {
-	logo: string
+	logo: ImageItemWithText
 	caption: string
+	caption_show: boolean
 	mainDescs: string[]
 	descs: string[]
 	photoGallery: ImageItemWithText[]

@@ -18,12 +18,12 @@ export const AboutLayoutHeader: FC = () => {
 							dangerouslySetInnerHTML={{ __html: aboutPageData.mainDescs }}
 						/>
 					)}
-					{aboutPageData?.caption && (
+					{aboutPageData?.caption && aboutPageData?.caption_show && (
 						<span className={styles.blockquoteCaption}>{aboutPageData?.caption}</span>
 					)}
 				</div>
 			</div>
-			<img src={aboutPageData?.photoGallery[0].original} alt='' />
+			<img src={aboutPageData?.logo?.original} alt='' />
 		</div>
 	)
 }
