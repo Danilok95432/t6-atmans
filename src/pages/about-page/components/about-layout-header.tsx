@@ -23,7 +23,7 @@ export const AboutLayoutHeader: FC = () => {
 					)}
 				</div>
 			</div>
-			<img src={aboutPageData?.logo?.original} alt='' />
+			<img src={aboutPageData?.logo} alt='' />
 		</div>
 	)
 }

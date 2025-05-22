@@ -1,7 +1,7 @@
 import { type ImageItemWithText } from 'src/types/photos'
 
 export type AboutGeneralPage = {
-	logo: ImageItemWithText
+	logo: string
 	caption: string
 	caption_show: boolean
 	mainDescs: string[]
