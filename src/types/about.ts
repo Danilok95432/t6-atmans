@@ -15,6 +15,13 @@ export type AboutHistoryPage = {
 	bottomDescs: string[]
 }
 
+export type AboutNaturePage = {
+	topDescs: string[]
+	mainPhoto: ImageItemWithText[]
+	photos: ImageItemWithText[]
+	bottomDescs: string[]
+}
+
 type ShortCultureElement = {
 	id: string
 	title: string

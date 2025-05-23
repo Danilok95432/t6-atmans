@@ -4,6 +4,7 @@ import {
 	type AboutGeneralPage,
 	type AboutHistoryPage,
 	type AboutGamesPage,
+	type AboutNaturePage,
 } from 'src/types/about'
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
@@ -24,6 +25,11 @@ export const aboutApi = createApi({
 		getAboutHistory: build.query<AboutHistoryPage, null>({
 			query: () => ({
 				url: `about/history`,
+			}),
+		}),
+		getAboutNature: build.query<AboutNaturePage, null>({
+			query: () => ({
+				url: `about/nature`,
 			}),
 		}),
 		getAboutTraditions: build.query<AboutTraditionPage, null>({
@@ -50,4 +56,5 @@ export const {
 	useGetAboutTraditionsQuery,
 	useGetAboutContactsQuery,
 	useGetAboutGamesQuery,
+	useGetAboutNatureQuery,
 } = aboutApi
