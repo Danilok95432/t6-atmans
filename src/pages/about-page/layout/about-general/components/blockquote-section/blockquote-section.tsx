@@ -13,7 +13,6 @@ export const BlockquoteSection: FC = () => {
 		<section className={styles.blockquoteSection}>
 			<div className={styles.blockquoteBody}>
 				<RenderedArray strArray={aboutPageData.mainDescs} asStr='p' as='blockquote' />
-
 				<span className={styles.blockquoteCaption}>{aboutPageData.caption}</span>
 			</div>
 		</section>

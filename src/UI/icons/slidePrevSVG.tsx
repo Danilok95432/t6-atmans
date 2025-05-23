@@ -1,11 +1,31 @@
-import { type FC } from 'react'
+import { type FC, useEffect, useState } from 'react'
 
 type SlidePrevSvgProps = {
-	variant?: 'main' | 'sm' | 'gallery'
+	variant?: 'main' | 'sm' | 'gallery' | 'main-obj-slider'
 	color?: string
 }
 
-export const SlidePrevSvg: FC<SlidePrevSvgProps> = ({ variant = 'main', color = '#ffffff' }) => {
+export const SlidePrevSvg: FC<SlidePrevSvgProps> = ({
+	variant = 'main',
+	color: propColor = '#ffffff',
+}) => {
+	const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsSmallScreen(window.innerWidth <= 440)
+		}
+		handleResize()
+		window.addEventListener('resize', handleResize)
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [])
+
+	let color = propColor
+
+	if (variant !== 'main-obj-slider') color = isSmallScreen ? '#ffffff' : propColor
+
 	if (variant === 'gallery')
 		return (
 			<svg
@@ -16,7 +36,7 @@ export const SlidePrevSvg: FC<SlidePrevSvgProps> = ({ variant = 'main', color = 
 				xmlns='http://www.w3.org/2000/svg'
 			>
 				<path
-					d='M10.463 19.6041C10.463 19.4264 10.5574 19.1597 10.7462 19.0708L16.4085 13.739C16.6916 13.4724 17.2578 13.4724 17.6353 13.739C17.9184 14.0056 17.9184 14.5388 17.6353 14.8943L12.5392 19.693L17.6353 24.4916C17.9184 24.7582 17.9184 25.2914 17.6353 25.6468C17.3522 25.9134 16.786 25.9134 16.4085 25.6468L10.7462 20.315C10.5574 20.0484 10.463 19.7818 10.463 19.6041Z'
+					d='M10.463 19.6041C10.463 19.4264 10.5574 19.1597 10.7462 19.0708L16.4085 13.739C16.6916 13.4724 17.2578 13.4724 17.6353 13.739C17.9184 14.0056 17.9184 14.5388 17.6353 14.8943L12.5392 19.693L17.6353 24.4916C17.9184 24.7582 17.9184 25.2914 17.6353 25.6468C17.3522 25.9134 16.786 25.9134 16.4085 25.6468L10.7462 20.315C10.5574 20.0484 10.463 20.0484 10.463 19.6041Z'
 					fill={color}
 				/>
 			</svg>

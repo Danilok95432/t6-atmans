@@ -25,9 +25,12 @@
 	}
 
 	.videoSliderBtns {
-		@include mobile {
-			width: 85%;
+		@media (max-width: 768px) {
 			top: 49%;
+			width: 70%;
+		}
+		@media (max-width: 440px) {
+			width: 270px;
 		}
 	}
 }

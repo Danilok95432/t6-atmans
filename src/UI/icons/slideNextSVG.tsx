@@ -1,10 +1,29 @@
-import { type FC } from 'react'
+import { type FC, useEffect, useState } from 'react'
 type SlideNextSvgProps = {
-	variant?: 'main' | 'sm' | 'gallery'
+	variant?: 'main' | 'sm' | 'gallery' | 'main-obj-slider'
 	color?: string
 }
 
-export const SlideNextSvg: FC<SlideNextSvgProps> = ({ variant = 'main', color = '#ffffff' }) => {
+export const SlideNextSvg: FC<SlideNextSvgProps> = ({
+	variant = 'main',
+	color: propColor = '#ffffff',
+}) => {
+	const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsSmallScreen(window.innerWidth <= 440)
+		}
+		handleResize()
+		window.addEventListener('resize', handleResize)
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [])
+
+	let color = propColor
+
+	if (variant !== 'main-obj-slider') color = isSmallScreen ? '#ffffff' : propColor
 	if (variant === 'gallery')
 		return (
 			<svg

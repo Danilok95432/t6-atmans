@@ -11,6 +11,9 @@ export const gallerySliderOptions: SwiperProps = {
 			slidesPerView: 1,
 		},
 		[DisplayBreakpoints.Md]: {
+			slidesPerView: 1,
+		},
+		[DisplayBreakpoints.ShortLg]: {
 			slidesPerView: 3,
 		},
 		[DisplayBreakpoints.Lg]: {

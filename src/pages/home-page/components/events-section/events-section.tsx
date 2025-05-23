@@ -45,7 +45,7 @@ export const EventsSection: FC = () => {
 						$topPosition='54%'
 						$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
 						swiperRef={swiperRef}
-						color={breakpoint !== 'S' ? '#5C5C5C' : '#FFFFFF'}
+						color={'#5C5C5C'}
 					/>
 				</div>
 			</Container>

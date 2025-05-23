@@ -11,8 +11,6 @@
   margin-bottom: 30px;
   @media (max-width: 768px) {
     justify-content: center;
-  }
-  @media (max-width: 425px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
   }
 }

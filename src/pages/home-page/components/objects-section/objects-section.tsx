@@ -46,6 +46,7 @@ export const ObjectsSection: FC = () => {
 					$topPosition='42%'
 					$btnsSpacing={breakpoint === 'sliderBtnsPoint' ? '1400px' : '97%'}
 					swiperRef={swiperRef}
+					$variant='main-obj-slider'
 					color='#B0B0B0'
 				/>
 			</Container>

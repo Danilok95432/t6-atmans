@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 
 import { useParams } from 'react-router-dom'
 
@@ -12,19 +12,35 @@ import { useGetObjectByIdQuery } from 'src/store/objects/objects.api'
 
 import skeleton from 'src/assets/img/skeleton-img.png'
 import styles from './index.module.scss'
+import { GalleryImg } from 'src/components/image-gallery/image-gallery'
+import { type ImageItemWithText } from 'src/types/photos'
 
 export const ObjectHeader: FC = () => {
 	const { id } = useParams()
 
 	const { data: objectData } = useGetObjectByIdQuery(id ?? '')
+	const [allPagePhoto, setAllPagePhoto] = useState<ImageItemWithText[]>([])
+
+	useEffect(() => {
+		if (objectData) {
+			const images: ImageItemWithText[] = []
+			if (objectData.mainphoto) {
+				images.push(objectData.mainphoto[0])
+			}
+			if (objectData.photos && Array.isArray(objectData.photos)) {
+				images.push(...objectData.photos)
+			}
+			setAllPagePhoto(images)
+		}
+	}, [objectData])
 
 	useAdditionalCrumbs(objectData?.title)
 
 	return (
 		<section className={styles.objectHeader}>
-			{objectData?.title && <h2>{objectData?.title}</h2>}
 			<div className={styles.objectInfoWrapper}>
 				<div className={styles.objectMainInfo}>
+					{objectData?.title && <h2>{objectData?.title}</h2>}
 					<CustomText
 						// $fontSize='20px'
 						$margin='0 0 30px 0'
@@ -80,7 +96,7 @@ export const ObjectHeader: FC = () => {
 				</div>
 				{objectData?.mainphoto[0]?.original ? (
 					<div className={styles.logoContainer}>
-						<img src={objectData?.mainphoto[0]?.original} alt={objectData?.title} />
+						<GalleryImg images={allPagePhoto} variant='newsMain' />
 					</div>
 				) : (
 					<div className={styles.logoContainer}>

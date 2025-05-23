@@ -15,11 +15,9 @@ div.newsListPage {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(245px, 245px));
       @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
         justify-content: center;
         margin-bottom: 30px;
-      }
-      @media (max-width: 425px) {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
       }
       gap: 23px;
       a.newsItem {

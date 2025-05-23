@@ -13,14 +13,21 @@
 	}
 
 	.eventsSliderBtns {
-		@include mobile {
-			width: calc(100% - 95px);
+		@media (max-width: 768px) {
+			width: 70%;
+			top: 45%;
+		}
+		@media (max-width: 440px) {
+			width: 270px;
 			top: 30%;
 		}
 	}
 }
 
 .homeEventCard {
+	@media (max-width: 768px) {
+		margin: 0 auto;
+	}
 	:global {
 		.event-item-img {
 			height: 207px;

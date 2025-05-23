@@ -1,7 +1,6 @@
 import { type FC } from 'react'
 
 import { useGetAboutGeneralQuery } from 'src/store/about/about.api'
-import { RenderedArray } from 'src/components/rendered-array/rendered-array'
 
 import styles from './index.module.scss'
 
@@ -11,7 +10,12 @@ export const DescSection: FC = () => {
 
 	return (
 		<section className={styles.descSection}>
-			<RenderedArray strArray={aboutPageData.descs} asStr='p' as='div' />
+			{aboutPageData?.descs && (
+				<div
+					className={styles.mainDescs}
+					dangerouslySetInnerHTML={{ __html: aboutPageData.descs }}
+				/>
+			)}
 		</section>
 	)
 }

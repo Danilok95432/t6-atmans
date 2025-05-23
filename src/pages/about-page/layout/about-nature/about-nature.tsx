@@ -2,7 +2,6 @@ import { type FC } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import { useGetAboutHistoryQuery } from 'src/store/about/about.api'
-import { RenderedArray } from 'src/components/rendered-array/rendered-array'
 import { GallerySection } from 'src/modules/gallery-section/gallery-section'
 
 import styles from './index.module.scss'
@@ -27,12 +26,12 @@ export const AboutNature: FC = () => {
 					/>
 				)}
 				<GallerySection images={aboutPageData?.photos} />
-				<RenderedArray
-					strArray={aboutPageData.bottomDescs}
-					asStr='p'
-					as='div'
-					className={styles.bottomDescs}
-				/>
+				{aboutPageData?.bottomDescs && (
+					<div
+						className={styles.bottomDesc}
+						dangerouslySetInnerHTML={{ __html: aboutPageData.bottomDescs }}
+					/>
+				)}
 			</div>
 		</div>
 	)

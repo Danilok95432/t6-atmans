@@ -101,8 +101,8 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 				className={styles.overlaySwiper}
 			>
 				{imagesForOverlay?.map((image, index) => (
-					<SwiperSlide key={image.id}>
-						<img src={image.thumbnail} alt={image.title} className={styles.overlayImage} />
+					<SwiperSlide key={image?.id}>
+						<img src={image?.thumbnail} alt={image?.title} className={styles.overlayImage} />
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -116,7 +116,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 		return (
 			<div className={cn(className, styles.newsMainGallery)}>
 				<div className={styles.newsMainImageWrapper} onClick={handleNewsMainClick}>
-					<img src={images[0].thumbnail} alt={images[0].title} className={styles.newsMainImage} />
+					<img src={images[0]?.original} alt={images[0]?.title} className={styles.newsMainImage} />
 				</div>
 
 				{overlayVisible && (
@@ -147,7 +147,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 							>
 								<div className={styles.slideItem}>
 									<div className={styles.slideImg}>
-										<img src={slideItem.thumbnail} alt={slideItem.title} />
+										<img src={slideItem.original} alt={slideItem.title} />
 									</div>
 									<h6>{slideItem.title}</h6>
 									{slideItem.author !== '' ? (
@@ -163,7 +163,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 						$btnsSpacing={breakpoint === 'S' ? '80%' : 'calc(100% + 60px)'}
 						$variant='gallery'
 						swiperRef={swiperRef}
-						color={breakpoint === 'S' ? '#FFF' : '#5C5C5C'}
+						color={breakpoint === 'XS' ? '#FFF' : '#5C5C5C'}
 					/>
 				</div>
 			) : (

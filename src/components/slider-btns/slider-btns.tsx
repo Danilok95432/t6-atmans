@@ -10,7 +10,7 @@ import cn from 'classnames'
 type SliderBtnsProps = {
 	$topPosition?: string
 	$btnsSpacing?: string
-	$variant?: 'main' | 'sm' | 'gallery'
+	$variant?: 'main' | 'sm' | 'gallery' | 'main-obj-slider'
 	color?: string
 }
 
