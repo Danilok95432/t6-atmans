@@ -102,7 +102,7 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 			>
 				{imagesForOverlay?.map((image, index) => (
 					<SwiperSlide key={image?.id}>
-						<img src={image?.thumbnail} alt={image?.title} className={styles.overlayImage} />
+						<img src={image?.original} alt={image?.title} className={styles.overlayImage} />
 					</SwiperSlide>
 				))}
 			</Swiper>
