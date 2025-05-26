@@ -2,30 +2,25 @@ import { type SwiperProps } from 'swiper/react/swiper-react'
 
 import { DisplayBreakpoints } from 'src/helpers/consts'
 
-export const gallerySliderOptions: SwiperProps = {
+export const newsSliderOptions: SwiperProps = {
 	slidesPerView: 1,
 	slidesPerGroup: 1,
-	spaceBetween: 10,
+	spaceBetween: 25,
 	breakpoints: {
 		[DisplayBreakpoints.Sm]: {
 			slidesPerView: 1,
-			spaceBetween: 10,
 		},
 		[DisplayBreakpoints.Md]: {
-			slidesPerView: 1,
-			spaceBetween: 10,
+			slidesPerView: 2,
 		},
 		[DisplayBreakpoints.Lg]: {
-			slidesPerView: 1,
-			spaceBetween: 10,
+			slidesPerView: 3,
 		},
 		[DisplayBreakpoints.Xl]: {
 			slidesPerView: 4,
-			spaceBetween: 10,
 		},
 		[DisplayBreakpoints.Xxl]: {
 			slidesPerView: 5,
-			spaceBetween: 10,
 		},
 	},
 }

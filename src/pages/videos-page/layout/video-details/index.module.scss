@@ -1,15 +1,27 @@
 .videoDetailPage {
-  max-width: 950px;
-  h2 {
-    margin-bottom: 25px;
-    font-size: 40px;
-    @media (max-width: 768px) {
-      font-size: 35px;
-      margin-bottom: 17px;
-    }
+  width: 1025px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  @media (max-width: 1440px) {
+    width: 100%;
+    max-width: 1025px;
+  }
+  @media (max-width: 1300px) {
+    flex-direction: column;
   }
   @media (max-width: 768px) {
     line-height: 1.32;
+  }
+  .videoContent {
+    h2 {
+      margin-bottom: 25px;
+      font-size: 40px;
+      @media (max-width: 768px) {
+        font-size: 35px;
+        margin-bottom: 17px;
+      }
+   }
   }
 }
 
@@ -19,8 +31,8 @@
   iframe {
     border: none;
     border-radius: 9px;
-    width: 900px;
-    height: 600px;
+    width: 970px;
+    height: 546px;
 
     @media (max-width: 1024px) {
       width: 600px;

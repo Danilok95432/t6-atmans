@@ -6,15 +6,14 @@ import { useEffect, useState } from 'react'
 import { useGetNewsByIdQuery, useGetNewsMonthsQuery } from 'src/store/news/news.api'
 import { useAdditionalCrumbs } from 'src/hooks/additional-crumbs/additional-crumbs'
 import { mainFormatDate } from 'src/helpers/utils'
-import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 
-// import { AsideNews } from 'src/components/aside-news/aside-news'
 import { Container } from 'src/UI/Container/Container'
 import { PageContent } from 'src/components/page-content/page-content'
 
 import styles from './index.module.scss'
 import { GalleryImg } from 'src/components/image-gallery/image-gallery'
 import { type ImageItemWithText } from 'src/types/photos'
+import { AsideNews } from 'src/components/aside-news/aside-news'
 
 export const NewsDetails = () => {
 	const { id } = useParams()
@@ -23,11 +22,14 @@ export const NewsDetails = () => {
 		category: '0',
 	})
 	const { data: newsItemData } = useGetNewsByIdQuery(id ?? '')
+	const { data: newsList } = useGetNewsMonthsQuery({
+		date: '',
+		category: '',
+	})
 	const [allNewsPagePhoto, setAllNewsPagePhoto] = useState<ImageItemWithText[]>([])
 	useAdditionalCrumbs(newsItemData?.title)
 
 	// const [newsArray, setNewsArray] = useState<CardNewsItem[]>([])
-	const breakpoint = useBreakPoint()
 
 	useEffect(() => {
 		if (isSuccessAllNews) {
@@ -61,37 +63,31 @@ export const NewsDetails = () => {
 							<div className={styles.newsItemInfoContent}>
 								<h2>{newsItemData.title}</h2>
 								<span className={styles.newsItemDate}>{mainFormatDate(newsItemData?.date)}</span>
-								{breakpoint !== 'S' && (
-									<div className={newsItemData?.short ? styles.newsDescs : ''}>
-										{newsItemData?.short && (
-											<div dangerouslySetInnerHTML={{ __html: newsItemData.short }} />
-										)}
+								<div className={newsItemData?.short ? styles.newsDescs : ''}>
+									<div className={styles.newsItemMainImg}>
+										<GalleryImg images={allNewsPagePhoto} variant='newsMain' />
 									</div>
-								)}
-								<div className={styles.newsItemMainImgText}>
-									<GalleryImg images={allNewsPagePhoto} variant='newsMain' />
+									{newsItemData?.short && (
+										<div dangerouslySetInnerHTML={{ __html: newsItemData.short }} />
+									)}
 								</div>
 								<div className={styles.newsDescs}>
 									{newsItemData?.full && (
 										<div dangerouslySetInnerHTML={{ __html: newsItemData.full }} />
 									)}
 								</div>
+								<GalleryImg
+									images={newsItemData?.imgGallery}
+									allPageImages={allNewsPagePhoto}
+									variant='slider'
+								/>
 							</div>
-							<div className={styles.newsItemMainImg}>
-								<GalleryImg images={allNewsPagePhoto} variant='newsMain' />
+							<div className={styles.asideNewsDetails}>
+								<AsideNews currentNewsId={id ?? ''} newsList={newsList} />
 							</div>
 						</div>
-						<GalleryImg
-							images={newsItemData?.imgGallery}
-							allPageImages={allNewsPagePhoto}
-							variant='slider'
-						/>
 					</Container>
 				</PageContent>
-				{/* <div className={styles.asideNewsDetails}>
-					<AsideNews currentNewsId={id ?? ''} newsList={newsArray} />
-				</div>
-				*/}
 			</div>
 		</>
 	)

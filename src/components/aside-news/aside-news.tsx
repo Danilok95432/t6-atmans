@@ -1,40 +1,96 @@
-import { type FC } from 'react'
+import { type RefObject, useRef, type FC, useState, useEffect } from 'react'
 import { type CardNewsItem } from 'src/types/news'
-import { Link, useLocation } from 'react-router-dom'
-
-import { mainFormatDate } from 'src/helpers/utils'
 
 import styles from './index.module.scss'
+import { mainFormatDate } from 'src/helpers/utils'
+import { Swiper, type SwiperRef, SwiperSlide } from 'swiper/react'
+import { SliderBtns } from '../slider-btns/slider-btns'
+import { newsSliderOptions } from './const'
+import { Link } from 'react-router-dom'
+import { AppRoute } from 'src/routes/main-routes/consts'
 
 type AsideNewsProps = {
-	previewCount?: number
 	currentNewsId?: string
 	newsList?: CardNewsItem[]
 }
-export const AsideNews: FC<AsideNewsProps> = ({
-	previewCount = 4,
-	currentNewsId = '',
-	newsList,
-}) => {
-	const location = useLocation()
-	const baseUrl = location.pathname.split('/').slice(0, -1).join('/')
+export const AsideNews: FC<AsideNewsProps> = ({ currentNewsId = '', newsList }) => {
+	const [isSmallScreen, setIsSmallScreen] = useState(false)
 
+	useEffect(() => {
+		const handleResize = () => {
+			setIsSmallScreen(window.innerWidth <= 1448)
+		}
+		handleResize()
+		window.addEventListener('resize', handleResize)
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [])
+	const swiperRef: RefObject<SwiperRef> = useRef<SwiperRef>(null)
 	if (!newsList) return null
 	return (
 		<aside className={styles.asideNews}>
-			<h6>Другие новости:</h6>
-			<ul>
-				{[...newsList]
-					.filter((el) => el.id !== currentNewsId)
-					.reverse()
-					.slice(0, previewCount)
-					.map((newsEl) => (
-						<li key={newsEl.id}>
-							<span>{mainFormatDate(newsEl.date)}</span>
-							<Link to={`${baseUrl}/${newsEl.id}`}>{newsEl.title}</Link>
-						</li>
-					))}
-			</ul>
+			<p className={styles.asideNewsTitle}>Другие новости:</p>
+			{isSmallScreen ? (
+				<div className='slider-with-btns'>
+					<Swiper {...newsSliderOptions} ref={swiperRef}>
+						{newsList.map((newsEl, idx) => (
+							<SwiperSlide className={styles.newsSlide} key={idx}>
+								<Link
+									to={`/${AppRoute.News}/${newsEl.id}`}
+									aria-label={newsEl.title}
+									title={newsEl.title}
+								>
+									<div className={styles.asideNewsCard} key={newsEl.id}>
+										<img
+											src={newsEl.mainphoto[0]?.original}
+											alt={newsEl.title}
+											width={286}
+											height={160}
+											loading='lazy'
+										/>
+										<p className={styles.asideNewsCardTitle}>{newsEl.title}</p>
+										<p className={styles.asideNewsCardDate}>{mainFormatDate(newsEl.date)}</p>
+									</div>
+								</Link>
+							</SwiperSlide>
+						))}
+					</Swiper>
+					<SliderBtns
+						className={styles.newsSliderBtns}
+						$topPosition='35%'
+						$btnsSpacing={'97%'}
+						swiperRef={swiperRef}
+						color={'#FFF'}
+					/>
+				</div>
+			) : (
+				<div className={styles.newsList}>
+					{[...newsList]
+						.filter((el) => el.id !== currentNewsId)
+						.reverse()
+						.map((newsEl) => (
+							<Link
+								to={`/${AppRoute.News}/${newsEl.id}`}
+								aria-label={newsEl.title}
+								title={newsEl.title}
+								key={newsEl.id}
+							>
+								<div className={styles.asideNewsCard} key={newsEl.id}>
+									<img
+										src={newsEl.mainphoto[0]?.original}
+										alt={newsEl.title}
+										width={286}
+										height={160}
+										loading='lazy'
+									/>
+									<p className={styles.asideNewsCardTitle}>{newsEl.title}</p>
+									<p className={styles.asideNewsCardDate}>{mainFormatDate(newsEl.date)}</p>
+								</div>
+							</Link>
+						))}
+				</div>
+			)}
 		</aside>
 	)
 }

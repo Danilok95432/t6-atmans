@@ -1,6 +1,7 @@
 .asideVideos {
-  min-width: 180px;
-  width: 180px;
+  min-width: 200px;
+  width: 200px;
+  padding-top: 12px;
   @media (max-width: 768px) {
     min-width: auto;
     width: 100%;
@@ -44,9 +45,9 @@
   }
 
   h4 {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 400;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     @media (max-width: 768px) {
       font-size: 25px;
       margin-bottom: 18px;
@@ -80,6 +81,59 @@
       display: block;
       margin-bottom: 5px;
     }
+  }
+
+  .videosList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 600px;
+    overflow-y: scroll;
+    padding-right: 20px;
+    .videoCardAside {
+      width: 180px;
+      position: relative;
+      img {
+        border-radius: 10px;
+        width: 100%;
+        object-fit: cover;
+        object-position: top left;
+        aspect-ratio: 3 / 2;
+      }
+      .videoDuration,
+      .videoDate {
+        position: absolute;
+        bottom: 10px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #ffffff;
+      }
+
+      .videoDuration {
+        left: 10px;
+        padding: 2px 10px 2px 25px;
+        border-radius: 50px;
+        background: #dd0a15
+          url('data:image/svg+xml,<svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.20419 4.61486L0 0V9.22971L8.20419 4.61486Z" fill="white"/></svg>')
+          no-repeat left 10px top 50%;
+      }
+
+      .videoDate {
+        background: #dd0a15;
+        border-radius: 5px;
+        right: 10px;
+        padding: 1px 13px;
+      }
+    }
+    .videoTitle {
+        font-size: 15px;
+        max-height: 54px;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        @include mobile {
+          font-size: 16px;
+        }
+      }
   }
 
 }
