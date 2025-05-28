@@ -62,7 +62,7 @@ export const NewsDetailsNew = () => {
 						<div className={styles.newsItemPageContent}>
 							<div className={styles.newsItemInfoContent}>
 								<h2>{newsItemData.title}</h2>
-								<div className={newsItemData?.short ? styles.newsDescs : ''}>
+								<div className={newsItemData?.short ? styles.newsShortDescs : ''}>
 									{newsItemData?.short && (
 										<div dangerouslySetInnerHTML={{ __html: newsItemData.short }} />
 									)}

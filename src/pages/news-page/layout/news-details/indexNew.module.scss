@@ -120,12 +120,20 @@
 		}
 
 		.newsDescs {
-			font-size: fluid(22, 18);
+			font-size: 17px;
 			row-gap: fluid(20, 18);
 			padding-bottom: 20px;
 
 			p {
-				font-size: fluid(22, 18);
+				font-size: 17px;
+			}
+		}
+
+		.newsShortDescs {
+			padding-bottom: 20px;
+			font-size: 20px;
+			p {
+				font-size: 20px;
 			}
 		}
 
