@@ -10,12 +10,12 @@ import { mainFormatDate } from 'src/helpers/utils'
 import { Container } from 'src/UI/Container/Container'
 import { PageContent } from 'src/components/page-content/page-content'
 
-import styles from './index.module.scss'
+import styles from './indexNew.module.scss'
 import { GalleryImg } from 'src/components/image-gallery/image-gallery'
 import { type ImageItemWithText } from 'src/types/photos'
 import { AsideNews } from 'src/components/aside-news/aside-news'
 
-export const NewsDetails = () => {
+export const NewsDetailsNew = () => {
 	const { id } = useParams()
 	const { data: allNews, isSuccess: isSuccessAllNews } = useGetNewsMonthsQuery({
 		date: '0',
@@ -62,16 +62,19 @@ export const NewsDetails = () => {
 						<div className={styles.newsItemPageContent}>
 							<div className={styles.newsItemInfoContent}>
 								<h2>{newsItemData.title}</h2>
-								<span className={styles.newsItemDate}>{mainFormatDate(newsItemData?.date)}</span>
 								<div className={newsItemData?.short ? styles.newsDescs : ''}>
-									<div className={styles.newsItemMainImg}>
-										<GalleryImg images={allNewsPagePhoto} variant='newsMain' />
-									</div>
 									{newsItemData?.short && (
 										<div dangerouslySetInnerHTML={{ __html: newsItemData.short }} />
 									)}
 								</div>
+								<span className={styles.newsItemDate}>{mainFormatDate(newsItemData?.date)}</span>
+								<div className={styles.newsItemMainImg}>
+									<GalleryImg images={allNewsPagePhoto} variant='newsMain' />
+								</div>
 								<div className={styles.newsDescs}>
+									{newsItemData?.short && (
+										<div dangerouslySetInnerHTML={{ __html: newsItemData.short }} />
+									)}
 									{newsItemData?.full && (
 										<div dangerouslySetInnerHTML={{ __html: newsItemData.full }} />
 									)}
@@ -83,7 +86,7 @@ export const NewsDetails = () => {
 								/>
 							</div>
 							<div className={styles.asideNewsDetails}>
-								<AsideNews currentNewsId={id ?? ''} newsList={newsList} />
+								<AsideNews currentNewsId={id ?? ''} newsList={newsList} previewCount={5} />
 							</div>
 						</div>
 					</Container>

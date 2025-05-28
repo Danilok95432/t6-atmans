@@ -10,10 +10,15 @@ import { Link } from 'react-router-dom'
 import { AppRoute } from 'src/routes/main-routes/consts'
 
 type AsideNewsProps = {
+	previewCount?: number
 	currentNewsId?: string
 	newsList?: CardNewsItem[]
 }
-export const AsideNews: FC<AsideNewsProps> = ({ currentNewsId = '', newsList }) => {
+export const AsideNews: FC<AsideNewsProps> = ({
+	currentNewsId = '',
+	newsList,
+	previewCount = 0,
+}) => {
 	const [isSmallScreen, setIsSmallScreen] = useState(false)
 
 	useEffect(() => {
@@ -59,15 +64,16 @@ export const AsideNews: FC<AsideNewsProps> = ({ currentNewsId = '', newsList }) 
 					<SliderBtns
 						className={styles.newsSliderBtns}
 						$topPosition='35%'
-						$btnsSpacing={'97%'}
+						$btnsSpacing={'calc(100% + 30px)'}
 						swiperRef={swiperRef}
-						color={'#FFF'}
+						color={'#5C5C5C'}
 					/>
 				</div>
 			) : (
 				<div className={styles.newsList}>
 					{[...newsList]
 						.filter((el) => el.id !== currentNewsId)
+						.slice(0, previewCount)
 						.reverse()
 						.map((newsEl) => (
 							<Link

@@ -17,6 +17,7 @@ import 'swiper/swiper-bundle.css'
 import styles from './index.module.scss'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 import { CloseSvg } from 'src/UI/icons/closeSVG'
+import { gallerySliderNewsDetailsOptions } from 'src/pages/news-page/layout/news-details/consts'
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -27,7 +28,7 @@ type ImageGalleryProps = {
 	allPageImages?: ImageItem[]
 	limit?: number
 	limitController?: boolean
-	variant?: 'list' | 'slider' | 'newsMain'
+	variant?: 'list' | 'slider' | 'newsMain' | 'newsDetailsSlider'
 }
 
 export const GalleryImg: FC<ImageGalleryProps> = ({
@@ -118,6 +119,73 @@ export const GalleryImg: FC<ImageGalleryProps> = ({
 				<div className={styles.newsMainImageWrapper} onClick={handleNewsMainClick}>
 					<img src={images[0]?.original} alt={images[0]?.title} className={styles.newsMainImage} />
 				</div>
+
+				{overlayVisible && (
+					<div className={styles.imageOverlay} onClick={closeOverlay}>
+						<div className={styles.overlayContent} onClick={(e) => e.stopPropagation()}>
+							<button className={styles.closeButton} onClick={closeOverlay}>
+								<CloseSvg />
+							</button>
+							{swiperComponent}
+							{sliderBtns}
+						</div>
+					</div>
+				)}
+			</div>
+		)
+	}
+
+	if (variant === 'newsDetailsSlider') {
+		return (
+			<div className={className}>
+				<div className={styles.gallerySliderWrapper}>
+					<Swiper {...gallerySliderNewsDetailsOptions} ref={swiperRef}>
+						{images?.map((slideItem, idx) => (
+							<SwiperSlide
+								className={styles.gallerySlide}
+								key={idx}
+								onClick={() => openOverlay(slideItem)}
+							>
+								<div className={styles.slideItem}>
+									<div className={styles.slideImg}>
+										<img src={slideItem.original} alt={slideItem.title} />
+									</div>
+									<h6>{slideItem.title}</h6>
+									{slideItem.author !== '' ? (
+										<span className={styles.author}>Автор: {slideItem.author}</span>
+									) : null}
+								</div>
+							</SwiperSlide>
+						))}
+					</Swiper>
+
+					<SliderBtns
+						className={styles.galleryBtns}
+						$btnsSpacing={breakpoint === 'S' ? '80%' : 'calc(100% + 60px)'}
+						$variant='gallery'
+						swiperRef={swiperRef}
+						color={breakpoint === 'XS' ? '#FFF' : '#5C5C5C'}
+					/>
+				</div>
+				{limitController && limit && limit < images.length && (
+					<button
+						className={styles.limitController}
+						type='button'
+						onClick={() => setExpandedGallery(!expandedGallery)}
+					>
+						{expandedGallery ? (
+							<>
+								Скрыть
+								<LimitArrowTop />
+							</>
+						) : (
+							<>
+								Показать еще {images.length - limit} фото
+								<LimitArrowDown />
+							</>
+						)}
+					</button>
+				)}
 
 				{overlayVisible && (
 					<div className={styles.imageOverlay} onClick={closeOverlay}>

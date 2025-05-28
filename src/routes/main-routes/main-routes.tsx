@@ -13,7 +13,8 @@ import { ObjectsLayout } from 'src/pages/objects-page/objects-layout'
 import { ObjectsList } from 'src/pages/objects-page/layout/objects-list/objects-list'
 import { ObjectDetails } from 'src/pages/objects-page/layout/object-details/object-details'
 
-import { NewsDetails } from 'src/pages/news-page/layout/news-details/news-details'
+// import { NewsDetails } from 'src/pages/news-page/layout/news-details/news-details'
+import { NewsDetailsNew } from 'src/pages/news-page/layout/news-details/news-details-new'
 import { News } from 'src/pages/news-page/layout/news/news'
 import { NewsLayout } from 'src/pages/news-page/news-layout'
 
@@ -69,7 +70,7 @@ export const MainRoutes = () => {
 
 				<Route path={AppRoute.News} element={<NewsLayout />}>
 					<Route index element={<News />} />
-					<Route path=':id' element={<NewsDetails />} />
+					<Route path=':id' element={<NewsDetailsNew />} />
 				</Route>
 
 				<Route path={AppRoute.Videos} element={<VideosLayout />}>
