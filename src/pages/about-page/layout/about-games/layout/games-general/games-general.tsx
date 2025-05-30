@@ -1,15 +1,32 @@
-import React, { type FC } from 'react'
+import React, { useEffect, useState, type FC } from 'react'
 
 import { GallerySection } from 'src/modules/gallery-section/gallery-section'
 
 import styles from './index.module.scss'
 import { GameElement } from 'src/components/game-element/game-element'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
-import { useGetAboutGamesQuery } from 'src/store/about/about.api'
+import { useGetAboutGamesQuery, useGetAboutGeneralQuery } from 'src/store/about/about.api'
+import { type ImageItemWithText } from 'src/types/photos'
 
 export const GamesGeneral: FC = () => {
 	const { data: aboutGamesData } = useGetAboutGamesQuery(null)
 	const breakpoint = useBreakPoint()
+
+	const { data: aboutGeneralData } = useGetAboutGeneralQuery(null)
+	const [allPagePhoto, setAllPagePhoto] = useState<ImageItemWithText[]>([])
+	useEffect(() => {
+		if (aboutGeneralData && aboutGamesData) {
+			const images: ImageItemWithText[] = []
+			if (aboutGeneralData?.mainphoto[0]) {
+				images.push(aboutGeneralData?.mainphoto[0])
+			}
+			if (aboutGamesData.photoGallery && Array.isArray(aboutGamesData.photoGallery)) {
+				images.push(...aboutGamesData.photoGallery)
+			}
+			setAllPagePhoto(images)
+		}
+	}, [aboutGamesData, aboutGeneralData])
+
 	if (!aboutGamesData) return null
 
 	return (
@@ -26,7 +43,7 @@ export const GamesGeneral: FC = () => {
 						<div dangerouslySetInnerHTML={{ __html: aboutGamesData.bottomDesc }} />
 					)}
 				</div>
-				<GallerySection images={aboutGamesData?.photoGallery} />
+				<GallerySection images={aboutGamesData?.photoGallery} allPagePhoto={allPagePhoto} />
 				{aboutGamesData.games?.length && (
 					<div className={styles.gamesList}>
 						{aboutGamesData.games.map(({ id, desc, title }) => (

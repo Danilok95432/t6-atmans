@@ -9,14 +9,15 @@ import { type ImageItemWithText } from 'src/types/photos'
 interface IGallerySectionProps {
 	className?: string
 	images?: ImageItemWithText[]
+	allPagePhoto?: ImageItemWithText[]
 }
 
-export const GallerySection: FC<IGallerySectionProps> = ({ className, images }) => {
+export const GallerySection: FC<IGallerySectionProps> = ({ className, images, allPagePhoto }) => {
 	if (!images) return null
 
 	return (
 		<section className={classNames(styles.gallerySection, className)}>
-			<GalleryImg images={images} variant='slider' />
+			<GalleryImg images={images} allPageImages={allPagePhoto} variant='slider' />
 		</section>
 	)
 }

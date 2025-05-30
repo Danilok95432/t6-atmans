@@ -1,16 +1,33 @@
-import { type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import { ContactsMap } from 'src/components/contacts-map/contacts-map'
 import { ContactsInfo } from './components/contacts-info/contacts-info'
 
 import styles from './index.module.scss'
-import { useGetAboutContactsQuery } from 'src/store/about/about.api'
+import { useGetAboutContactsQuery, useGetAboutGeneralQuery } from 'src/store/about/about.api'
 import { useBreakPoint } from 'src/hooks/useBreakPoint/useBreakPoint'
 import { GallerySection } from 'src/modules/gallery-section/gallery-section'
+import { type ImageItemWithText } from 'src/types/photos'
 export const AboutContacts: FC = () => {
 	const { data: aboutContactsData } = useGetAboutContactsQuery(null)
 	const breakpoint = useBreakPoint()
+
+	const { data: aboutGeneralData } = useGetAboutGeneralQuery(null)
+	const [allPagePhoto, setAllPagePhoto] = useState<ImageItemWithText[]>([])
+	useEffect(() => {
+		if (aboutGeneralData && aboutContactsData) {
+			const images: ImageItemWithText[] = []
+			if (aboutGeneralData?.mainphoto[0]) {
+				images.push(aboutGeneralData?.mainphoto[0])
+			}
+			if (aboutContactsData.photos && Array.isArray(aboutContactsData.photos)) {
+				images.push(...aboutContactsData.photos)
+			}
+			setAllPagePhoto(images)
+		}
+	}, [aboutContactsData, aboutGeneralData])
+
 	return (
 		<div className={styles.contactsPageContent}>
 			<Helmet>
@@ -32,7 +49,7 @@ export const AboutContacts: FC = () => {
 			)}
 			<ContactsInfo />
 			<ContactsMap className={styles.aboutMap} points={aboutContactsData?.map_coords} zoom={17} />
-			<GallerySection images={aboutContactsData?.photos} />
+			<GallerySection images={aboutContactsData?.photos} allPagePhoto={allPagePhoto} />
 		</div>
 	)
 }

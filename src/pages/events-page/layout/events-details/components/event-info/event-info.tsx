@@ -19,6 +19,9 @@ import { TgEventIconSVG } from 'src/UI/icons/tgEventIconSVG'
 import { MailEventIconSVG } from 'src/UI/icons/mailEventIconSVG'
 
 import styles from './index.module.scss'
+import { useEffect, useState } from 'react'
+import { type ImageItemWithText } from 'src/types/photos'
+import { GalleryImg } from 'src/components/image-gallery/image-gallery'
 
 export const EventInfo = () => {
 	const { id = '' } = useParams()
@@ -27,6 +30,19 @@ export const EventInfo = () => {
 	const breakPoint = useBreakPoint()
 
 	useAdditionalCrumbs(eventData?.title)
+	const [allPagePhoto, setAllPagePhoto] = useState<ImageItemWithText[]>([])
+	useEffect(() => {
+		if (eventData) {
+			const images: ImageItemWithText[] = []
+			if (eventData.mainphoto) {
+				images.push(eventData.mainphoto[0])
+			}
+			if (eventData.photos && Array.isArray(eventData.photos)) {
+				images.push(...eventData.photos)
+			}
+			setAllPagePhoto(images)
+		}
+	}, [eventData])
 
 	return (
 		<div className={styles.eventInfoWrapper}>
@@ -170,7 +186,7 @@ export const EventInfo = () => {
 					</div>
 				</div>
 				<div className={styles.avatarWrapper}>
-					<img src={eventData?.mainphoto[0]?.original} alt={eventData?.title} />
+					<GalleryImg images={allPagePhoto} variant='newsMain' />
 				</div>
 			</div>
 		</div>

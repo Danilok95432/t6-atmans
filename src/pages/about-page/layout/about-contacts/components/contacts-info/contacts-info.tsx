@@ -15,7 +15,7 @@ export const ContactsInfo: FC = () => {
 				</div>
 			)}
 
-			{aboutContactsData?.phone[0] && (
+			{aboutContactsData?.phone[0] && aboutContactsData.phone[0].phoneNumber.number !== '' && (
 				<div className={styles.contactsBlock}>
 					<h4>Телефон</h4>
 					<p>{aboutContactsData.phone[0].contact}</p>
@@ -25,7 +25,7 @@ export const ContactsInfo: FC = () => {
 				</div>
 			)}
 
-			{aboutContactsData?.emails[0] && (
+			{aboutContactsData?.emails[0] && aboutContactsData.emails[0].email !== '' && (
 				<div className={styles.contactsBlock}>
 					<h4>Электронная почта</h4>
 					<p>{aboutContactsData.emails[0].contact}</p>

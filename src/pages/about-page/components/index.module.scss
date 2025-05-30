@@ -22,11 +22,16 @@ div.aboutLayoutHeaderPageContent {
       }
     }
   }
-  img {
+  .rightSideHeader {
     width: 322px;
+    min-width: 322px;
     height: 214px;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
-    border-radius: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 5px;
+    }
   }
 }

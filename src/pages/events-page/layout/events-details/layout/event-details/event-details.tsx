@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 
 import { useParams } from 'react-router-dom'
 import { useGetEventByIdQuery } from 'src/store/events/events.api'
@@ -10,11 +10,26 @@ import { AccordionItem } from 'src/components/accordion-item/accordion-item'
 import styles from './index.module.scss'
 import { GalleryImg } from 'src/components/image-gallery/image-gallery'
 import { DetailedAside } from 'src/modules/detailedAside/detailedAside'
+import { type ImageItemWithText } from 'src/types/photos'
 
 export const EventDetails: FC = () => {
 	const { id = '' } = useParams()
 
 	const { data: eventInfo } = useGetEventByIdQuery(id ?? '')
+
+	const [allPagePhoto, setAllPagePhoto] = useState<ImageItemWithText[]>([])
+	useEffect(() => {
+		if (eventInfo) {
+			const images: ImageItemWithText[] = []
+			if (eventInfo.mainphoto) {
+				images.push(eventInfo.mainphoto[0])
+			}
+			if (eventInfo.photos && Array.isArray(eventInfo.photos)) {
+				images.push(...eventInfo.photos)
+			}
+			setAllPagePhoto(images)
+		}
+	}, [eventInfo])
 
 	return (
 		<div className={styles.eventDetailTab}>
@@ -25,6 +40,7 @@ export const EventDetails: FC = () => {
 					limit={12}
 					limitController
 					variant='slider'
+					allPageImages={allPagePhoto}
 				/>
 				{/* <button type='button' className={styles.eventGalleryButton}>
 					Показать еще

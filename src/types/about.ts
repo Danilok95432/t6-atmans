@@ -7,6 +7,7 @@ export type AboutGeneralPage = {
 	mainDescs: string[]
 	descs: string[]
 	photoGallery: ImageItemWithText[]
+	mainphoto: ImageItemWithText[]
 }
 export type AboutHistoryPage = {
 	topDescs: string[]
