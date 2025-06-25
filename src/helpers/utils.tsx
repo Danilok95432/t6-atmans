@@ -136,6 +136,19 @@ export const defineFileFormat = (fileName: string) => {
 	return formatFileArr[formatFileArr.length - 1]
 }
 
+export const formatDateTimeSimple = (dateString: Date): string => {
+	try {
+		const date = new Date(dateString)
+		if (isNaN(date.getTime())) {
+			throw new Error('Invalid date string')
+		}
+		return format(date, 'd MMMM yyyy, HH:mm', { locale: ru })
+	} catch (error) {
+		console.error('Error formatting date:', error)
+		return 'Некорректная дата'
+	}
+}
+
 // функция форматирования даты с локализацией
 export const mainFormatDate = (
 	date: Date | string | undefined,
