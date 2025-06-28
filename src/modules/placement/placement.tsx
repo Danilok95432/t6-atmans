@@ -18,8 +18,9 @@ export const Placement: FC<PlacementProps> = ({ title, placeVariants }) => {
 	})
 
 	const handleChangePlace = (location: string, idx: number) => {
+		console.log(/^https?:\/\//i.test(location))
 		setActivePlace({
-			placeSrc: location,
+			placeSrc: /^https?:\/\//i.test(location) ? location : '',
 			placeIdx: idx,
 		})
 	}
@@ -48,9 +49,11 @@ export const Placement: FC<PlacementProps> = ({ title, placeVariants }) => {
 					</li>
 				))}
 			</ul>
-			<div className={styles.placeMap}>
-				<iframe src={activePlace.placeSrc} width='100%' height='245' loading='eager'></iframe>
-			</div>
+			{/^https?:\/\//i.test(activePlace.placeSrc) && (
+				<div className={styles.placeMap}>
+					<iframe src={activePlace.placeSrc} width='100%' height='245' loading='eager'></iframe>
+				</div>
+			)}
 		</div>
 	)
 }

@@ -1,6 +1,6 @@
 div.gameDetails {
 	p {
-		font-size: fluid(20, 16);
+		font-size: 20px;
 		line-height: 1.37;
 	}
 	div.gameDetailsInfo {
@@ -26,7 +26,7 @@ div.gameDetails {
 		
 			p {
 				flex-grow: 1;
-				font-size: fluid(17, 17);
+				font-size: 20px;
 				line-height: 1.5;
 			}
 		}
